@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-14T13:04:17.920Z</updated>
+  <updated>2018-09-14T13:06:15.819Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,24 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>首個文件</title>
-    <link href="http://yoursite.com/2018/09/14/ssdf/"/>
-    <id>http://yoursite.com/2018/09/14/ssdf/</id>
-    <published>2018-09-14T12:51:31.000Z</published>
-    <updated>2018-09-14T13:04:17.920Z</updated>
+    <title>首个文件</title>
+    <link href="http://yoursite.com/2018/09/14/%E9%A6%96%E4%B8%AA%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2018/09/14/首个文件/</id>
+    <published>2018-09-14T13:05:46.000Z</published>
+    <updated>2018-09-14T13:06:15.819Z</updated>
     
-    <content type="html"><![CDATA[<p>是</p>]]></content>
+    <content type="html"><![CDATA[<p><img src="C:\Users\adahs\AppData\Roaming\Typora\typora-user-images\1536930370404.png" alt="1536930370404"></p><p>我是的</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;是&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&quot;C:\Users\adahs\AppData\Roaming\Typora\typora-user-images\1536930370404.png&quot; alt=&quot;1536930370404&quot;&gt;&lt;/p&gt;
+&lt;p&gt;我是的&lt;/p&gt;
 
       
     
     </summary>
     
+      <category term="生活" scheme="http://yoursite.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="你好 那么好" scheme="http://yoursite.com/tags/%E4%BD%A0%E5%A5%BD-%E9%82%A3%E4%B9%88%E5%A5%BD/"/>
     
   </entry>
   

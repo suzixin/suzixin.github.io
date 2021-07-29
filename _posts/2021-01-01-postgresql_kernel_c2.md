@@ -5,8 +5,6 @@
 -tags: markdown
 -excerpt: 完整版markdown语法
 ---
-
-
 # 2. 第2章 PostgreSQL的体系结构
 图2-1 PostgreSQL的体系结构
 ![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/2021-01-04_111936.jpg)

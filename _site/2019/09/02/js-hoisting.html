@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 360 -->
+    <meta name="360-site-verification" content="fa6ca3a9a0330e9cecabee0a9fe1d52a" />
+    <!-- 搜狗 -->
+    <meta name="sogou_site_verification" content="oatSp9uAV5" />
+    <!--熊掌号 -->
+    <meta name="baidu-site-verification" content="Wkb0Jzk8yx" />
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="IJrXvaK-Luj-lCGP7tymcCbkcfMKi82Y8V21qN9ZT0s" />
+    <title>
+        
+            JavaScript 变量提升（Hoisting）详解
+        
+    </title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/assets/css/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+    
+
+    
+        
+        <link rel="stylesheet" href="/assets/css/page.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/post.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/syntax.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/article-category.css">
+        
+    
+
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">	
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="JavaScript 变量提升（Hoisting）详解" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="description" content="JavaScript 中关于提升行为的介绍" />
+<meta property="og:description" content="JavaScript 中关于提升行为的介绍" />
+<link rel="canonical" href="http://localhost:4000/2019/09/02/js-hoisting" />
+<meta property="og:url" content="http://localhost:4000/2019/09/02/js-hoisting" />
+<meta property="og:site_name" content="苏梓鑫的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-09-02T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="JavaScript 变量提升（Hoisting）详解" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2019/09/02/js-hoisting","headline":"JavaScript 变量提升（Hoisting）详解","dateModified":"2019-09-02T00:00:00+08:00","datePublished":"2019-09-02T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2019/09/02/js-hoisting"},"description":"JavaScript 中关于提升行为的介绍","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+    <header>
+        <nav class="top-nav">
+            
+            <div class="nav-wrapper">
+                <div class="container">
+                    
+                    <a class="page-title" href="/">苏梓鑫的博客</a>
+                    <p class="head-message">学习&nbsp;&nbsp;总结&nbsp;&nbsp;分享&nbsp;&nbsp;提升</p>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <a href="#" data-target="slide-out" class="sidenav-trigger top-nav full hide-on-large-only">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+        <ul id="slide-out" class="sidenav sidenav-fixed" style="background-color:#ddd">
+            <li>
+                <div class="userView">
+                    <img class="user-bg" src="/assets/img/bg.png" />
+                    <a class="user-avatar" href="https://github.com/suzixin" target="_blank">
+                        <img class="circle z-depth-2" src="/assets/img/user.png" width="64" />
+                    </a>
+                    <div class="white-text user-info">
+                        苏梓鑫 <i>(Knight Huang)</i><br>
+                        adahsuzixin@gmail.com
+                    </div>
+                </div>
+            </li>
+            <li><a class="waves-effect" href="/"><i class="material-icons">home</i>Home - 主页</a></li>
+            <li><a class="waves-effect" href="/projects"><i class="material-icons">description</i>Github - 项目</a></li>
+            <li><a class="waves-effect" href="/categories"><i class="material-icons">sort</i>Categories - 目录</a></li>
+            <li><a class="waves-effect" href="/tags"><i class="material-icons">label</i>Tags - 标签</a></li>
+            <li><a class="waves-effect" href="/feed.xml" target="_blank"><i class="material-icons">rss_feed</i>RSS - 订阅</a></li>
+            <li><a class="waves-effect" href="/about"><i class="material-icons">person</i>About - 关于我</a></li>
+            <li><a class="waves-effect" href="/contact"><i class="material-icons">email</i>Contact - 联系我</a></li>
+            <!-- 华为云广告 -->
+            <li class="ad">
+                <!-- <a href="https://mp.weixin.qq.com/s/ujUoHc3grjO8LD_Bg1fckA" target="_blank"> -->
+                <!-- <a href="https://mp.weixin.qq.com/s/MTbMlhjAx8R4fc8Po90EXg" target="_blank">
+                    <img src="/assets/img/ad-huaweiyun.png" alt="" width="100%" />
+                </a>
+                <i class="material-icons" onclick="javascript:this.parentNode.style.display='none';">close</i> -->
+            </li>
+        </ul>
+    </header>
+    <main>
+
+<div class="container">
+    <div id="page-info">
+        <h1 class="page-title white-text">JavaScript 变量提升（Hoisting）详解</h1>
+    </div>
+    <div id="page-content" class="row">
+        <div id="post-info">
+    <ul class="collapsible hoverable" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header grey lighten-4">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Date">date_range</i>
+                    02/09/2019 00:00<br />
+                    <div id="busuanzi_container_site_pv">点击量：<span style="display: inline;" id="busuanzi_value_page_pv"></span>次</div>
+                    <i id="indicate" class="right material-icons tooltipped" data-position="left" data-delay="30"
+                        data-tooltip="Show extra info">info</i>
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Categories">sort</i>
+                    
+                    
+                    
+                    <a href="/categories#javascript_cap"
+                        target="_blank">
+                        <div class="chip">JavaScript</div>
+                    </a>
+                    
+                </span>
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Tags">label</i>
+                    
+                    
+                    
+                    <a href="/tags#提升_cap" target="_blank">
+                        <div class="chip">提升</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#hoisting" target="_blank">
+                        <div class="chip">hoisting</div>
+                    </a>
+                    
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="divider"></div>
+<div id="post-content" class="row">
+    <div class="col s12">
+        <h1 id="概念">概念</h1>
+
+<p><strong>变量提升</strong>是 JavaScript 的一种执行机制，大致就是字面意思，将声明的变量提前，但并不是指在编译时改变语句的顺序，而是将变量<strong>提前</strong>放入内存中，供后续操作，下面通过实例进行分析；</p>
+
+<h1 id="函数申明">函数申明</h1>
+
+<p>在 JavaScript 中，声明一个函数并执行的话，通常会是以下形式：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">run</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">fn</span><span class="p">();</span>  <span class="c1">// run</span>
+</code></pre></div></div>
+
+<p>上面是正常的思维顺序，但是包括其他一些编程语言在内，通常会使用如下形式：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fn</span><span class="p">();</span>
+
+<span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">run</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// run</span>
+</code></pre></div></div>
+
+<p>这样做在执行上是没用问题的，同时可以在包含大量语句和函数申明的情况下，也可以使用这种特性将普通语句和函数申明分开，提高可读性；</p>
+
+<p>以上情况便是一种常见的<strong>提升(Hoisting)</strong>，即编译时提前将当前执行上下文包含的申明的函数，提前放入内存中，供全文语句执行时调用，为了方便理解而抽象成一种提升行为；</p>
+
+<p>但是如果使用下面的方式申明函数并执行：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fn</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">fn</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">run</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// TypeError: fn is not a function</span>
+</code></pre></div></div>
+
+<p>这里就没有像上面一样的结果了，这属于下面将介绍的变量提升行为；</p>
+
+<h1 id="变量申明">变量申明</h1>
+
+<p>当然函数只是一种类型的变量，还存在其他的变量类型，例如考虑以下语句：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="c1">// 1</span>
+</code></pre></div></div>
+
+<p>逻辑和执行都是正常的，输出结果也是预期的，但是如果变一下顺序：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>这种情况，通常可能会认为第一行调用了一个未定义的变量，然后输出 <code class="language-plaintext highlighter-rouge">Uncaught ReferenceError: a is not defined</code> 这样的错误，但是呢，并非如此，输出信息如下：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kc">undefined</span>
+</code></pre></div></div>
+
+<p>没错，就只有一个单独的 <code class="language-plaintext highlighter-rouge">undefined</code>，这种输出情况就类似于以下代码的执行：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="c1">// undefined</span>
+</code></pre></div></div>
+
+<p>从这里便可以大致分析出，前面的顺序怪异的代码，相当于在编译时<strong>提前</strong>将后面出现的变量申明提前，然后执行就输出了一个已申明但未 <strong>初始化（赋值）</strong> 的值，这便是其他类型的变量的<strong>提升</strong>行为，即在当前执行上下文中，将后面申明的变量提前放入内存，供前面的语句调用；</p>
+
+<p><strong>注意</strong>，前面的代码最后一行的语句是 <code class="language-plaintext highlighter-rouge">var a = 1</code>，即对变量进行了申明并赋值，但是最后输出仍然是 <code class="language-plaintext highlighter-rouge">undefined</code> 而不是 <code class="language-plaintext highlighter-rouge">1</code>，证明变量提升行为只会对变量进行申明操作，并不会对其初始化赋值，不管原语句是否有赋值操作；</p>
+
+<p>然后便能解释之前的代码：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fn</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">fn</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">run</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// TypeError: fn is not a function</span>
+</code></pre></div></div>
+
+<p>这种情况便是将变量 <code class="language-plaintext highlighter-rouge">fn</code> 提升，值为 <code class="language-plaintext highlighter-rouge">undefined</code>，所以执行 <code class="language-plaintext highlighter-rouge">fn()</code> 语句会提示 <code class="language-plaintext highlighter-rouge">fn is not a function</code> 而不是 <code class="language-plaintext highlighter-rouge">fn is not defined</code>，与使用关键字 <code class="language-plaintext highlighter-rouge">function</code> 申明函数情况不一样；</p>
+
+<h1 id="拓展">拓展</h1>
+
+<h2 id="return-的限制">return 的限制</h2>
+
+<p>另外值得一提的是，我们都知道 <code class="language-plaintext highlighter-rouge">return</code> 是函数内代码执行结束的标志，其后代码不会执行，但是提升行为却不受此限制，例如：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+    <span class="nx">fnn</span><span class="p">();</span>
+    <span class="k">return</span> <span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">function</span> <span class="nx">fnn</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">exist.</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">fn</span><span class="p">();</span>
+<span class="c1">// undefined</span>
+<span class="c1">// exist.</span>
+</code></pre></div></div>
+
+<h2 id="提升优先级">提升优先级</h2>
+
+<p>上面提到两种提升行为，那么它们的优先级顺序是如何的呢？还是通过代码说明：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fn1</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">function</span> <span class="nx">a</span><span class="p">(){};</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">fn2</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+    <span class="kd">function</span> <span class="nx">a</span><span class="p">(){};</span>
+    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">fn1</span><span class="p">();</span> <span class="c1">// f a() {}</span>
+<span class="nx">fn2</span><span class="p">();</span> <span class="c1">// f a() {}</span>
+</code></pre></div></div>
+
+<p>结果证明函数的提升优先级始终高于普通变量的提升；</p>
+
+<h2 id="提升的执行">提升的执行</h2>
+
+<p>再来看一种情况：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">fnn</span><span class="p">();</span>
+
+    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">function</span> <span class="nx">fnn</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">fn</span><span class="p">();</span> <span class="c1">// undefined</span>
+</code></pre></div></div>
+
+<p>这里按照正常的逻辑，申明函数 <code class="language-plaintext highlighter-rouge">fnn()</code> 之前就已经申明了变量 <code class="language-plaintext highlighter-rouge">a</code>，所以会感觉函数 fnn 应该可以访问变量 a，但是最后输出的并不是 <code class="language-plaintext highlighter-rouge">1</code>，输出 <code class="language-plaintext highlighter-rouge">undefined</code> 说明函数 fnn 并没有访问到赋值后的 a，并且所访问的 a 也触发了提升机制，因为输出的不是 <code class="language-plaintext highlighter-rouge">RefferenceError</code>，那么就能大致梳理出提升真
+正的执行顺序了：</p>
+
+<ol>
+  <li>执行 fn();</li>
+  <li>执行 fnn();
+    <ol>
+      <li>发现前面没有关于函数 fnn() 的申明，于是向后寻找，最后找到了；</li>
+      <li>执行 console.log(a);</li>
+      <li>发现 fnn 内部没有 a 的定义，向外一层寻找；</li>
+    </ol>
+  </li>
+  <li>a 申明在 fnn() 执行语句以后，所以 a 触发提升，供之前的 console.log 使用；</li>
+</ol>
+
+<p>因此上面的代码相当于是以下面的顺序执行的：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">fn</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h1 id="var-let-const的区别">var, let, const的区别</h1>
+
+<p>JavaScript 中申明变量的方式以及对应效果如下：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>       <span class="c1">// 全局变量</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>   <span class="c1">// 局部作用域变量（当前上下文）</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>   <span class="c1">// 块级作用域变量（当前块级上下文）</span>
+<span class="kd">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// 常量</span>
+</code></pre></div></div>
+
+<h2 id="作用域">作用域</h2>
+
+<p>这里解释一下，变量 a 申明时没有带任何关键字，默认其为全局变量；变量 b 申明带有关键字 <code class="language-plaintext highlighter-rouge">var</code>，为当前上下文的局部作用域，如果用在全局则为全局变量；变量 c 使用关键字关键字 <code class="language-plaintext highlighter-rouge">let</code>，d 使用关键字 <code class="language-plaintext highlighter-rouge">const</code>，二者都是<strong>ES6</strong>中新增的<strong>块级</strong>作用域申明，只不过 <code class="language-plaintext highlighter-rouge">const</code> 申明的是常量，值不可更改；</p>
+
+<p>通过例子看一下它们的区别；</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">全局</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">aa</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">局部</span><span class="dl">'</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">aa</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">全局</span><span class="dl">'</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">bb</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">块级</span><span class="dl">'</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">bbb</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">块级</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">全局</span><span class="dl">'</span>
+    <span class="kd">let</span> <span class="nx">cc</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">块级</span><span class="dl">'</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">ccc</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">块级</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>  <span class="c1">// “全局”</span>
+<span class="nx">fn</span><span class="p">();</span>  <span class="c1">// “局部”</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">aa</span><span class="p">);</span> <span class="c1">// aa is not defined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">);</span> <span class="c1">// “全局” “全局”</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bb</span><span class="p">,</span> <span class="nx">cc</span><span class="p">);</span> <span class="c1">// bb is not defined  cc is not defined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bbb</span><span class="p">,</span> <span class="nx">ccc</span><span class="p">);</span> <span class="c1">// bbb is not defined  ccc is not defined</span>
+</code></pre></div></div>
+
+<p>可以看出，var 的<strong>局部</strong>限于全局或者函数内部上下文，而 let 和 const 的<strong>块级</strong>的意思则是被 <strong>块(block)</strong> 所包含的上下文，也就是包含在花括号 <code class="language-plaintext highlighter-rouge">{}</code> 内部的作用域中，所以也包括函数在内，加上 if, for, while, switch 等情况，且不能被外部作用域访问；</p>
+
+<h2 id="全局变量提升">全局变量提升</h2>
+
+<p>首先看申明全局变量时的提升行为：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">// ReferenceError: a is not defined</span>
+</code></pre></div></div>
+
+<p>证明不带关键字的申明全局变量，似乎并没有执行变量的提升行为，与以下代码的执行无异：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// a 前面未申明</span>
+<span class="c1">// ReferenceError: a is not defined</span>
+</code></pre></div></div>
+
+<h2 id="局部变量提升">局部变量提升</h2>
+
+<p>使用关键字 <code class="language-plaintext highlighter-rouge">var</code> 申明的情况：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">aa</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">aa</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">// undefined</span>
+<span class="nx">fn</span><span class="p">();</span>
+<span class="c1">// undefined</span>
+</code></pre></div></div>
+
+<p>前面已解释，不再赘述，只是需要注意下面这种情况：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="c1">// undefined</span>
+</code></pre></div></div>
+
+<p>正常思维可能会理解 if 条件判断为假所以不会执行内部语句，最后会输出 <code class="language-plaintext highlighter-rouge">a is not defined</code>，然而并非如此，仍然将申明的变量执行了提升机制；这里可以简单理解为<strong>存在即提升</strong>，也就是为了避免以上问题的影响，所以出现了块级变量申明 <code class="language-plaintext highlighter-rouge">let</code> 与 <code class="language-plaintext highlighter-rouge">const</code>；</p>
+
+<h2 id="块级变量提升">块级变量提升</h2>
+
+<p>使用 <code class="language-plaintext highlighter-rouge">let</code> 与 <code class="language-plaintext highlighter-rouge">const</code> 的情况：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">aa</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// ReferenceError: Cannot access 'a' before initialization</span>
+<span class="c1">// ReferenceError: aa is not defined</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bb</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// ReferenceError: Cannot access 'b' before initialization</span>
+<span class="c1">// ReferenceError: bb is not defined</span>
+</code></pre></div></div>
+
+<p>可以看出，块级变量申明似乎也执行了类似提升的机制，但是处理却与 <code class="language-plaintext highlighter-rouge">var</code> 有区别，这里是直接以错误的形式处理输出，提示该变量未进行初始化，而没有变量的申明语句的情况，则是提示未定义的错误，且 <code class="language-plaintext highlighter-rouge">let</code> 与 <code class="language-plaintext highlighter-rouge">const</code> 的处理情况一致；</p>
+
+    </div>
+</div>
+<hr>
+
+<!-- valine 评论插件 -->
+<h3>评论：</h3>
+<div class="comments"></div>
+<hr>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '.comments',
+        appId: '4XY3DoTJmibNe3rHeAKOxqzl-gzGzoHsz',
+        appKey: 'vjothQHALvgTQF9GrSgj577a',
+        avatar: 'robohash',
+        placeholder: '留下你的评论吧（支持Markdown）~',
+        // visitor: true,
+    })
+</script>
+
+<!-- 微信公众号 -->
+<div class="program-knight">
+    <p>技术文章推送</p>
+    <p>手机、电脑实用软件分享</p>
+    <img src="/assets/img/knight.png" alt="微信搜索公众号: 程序骑士" title="微信搜索公众号: 程序骑士">
+    <div>
+        <img src="/assets/img/wechat.png" alt="wechat">
+        <b>微信公众号：程序骑士</b>
+    </div>
+</div>
+<!--百度资源自动提交-->
+
+
+    </div>
+</div>
+
+</main>
+
+<footer class="page-footer teal">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <p class="footer-message grey-text text-lighten-3">以勤劳的双手，用心敲写明天</p>
+                <hr>
+                <p class="visit-statistics">
+                    <span id="busuanzi_container_site_pv">访问量：<span id="busuanzi_value_site_pv"></span>次</span>&nbsp;
+                    <span id="busuanzi_container_site_pv">访客量：<span id="busuanzi_value_site_uv"></span>人次</span>
+                </p>
+                <p class="grey-text text-lighten-4">基于 jekyll 的 Github Pages 个人博客网站
+</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Copyright &#xA9; 2021 苏梓鑫的博客. All rights reserved. Powered by
+            <a href=https://github.com/suzixin/suzixin.github.io>knightyun</a>.
+        </div>
+    </div>
+    <!-- Search box -->
+    <div class="search">
+        <i class="material-icons search-icon search-start">search</i>
+        <input type="text" class="search-input" placeholder="Searching...（支持正则表达式）" />
+        <i class="material-icons search-icon search-clear">clear</i>
+        <div class="search-results z-depth-4"></div>
+    </div>
+    <!-- 右下角功能按钮 -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue z-depth-4">
+            <i class="large material-icons">apps</i>
+        </a>
+        <ul>
+            <li class="category-btn hide">
+                <!-- 文章目录按钮 -->
+                <a class="sidenav-trigger btn-floating blue lighten-2" data-target="category">
+                    <i class="material-icons">format_list_bulleted</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: searchInput.focus()">
+                    <i class="material-icons">search</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, 0);">
+                    <i class="material-icons">publish</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, document.body.clientHeight);">
+                    <i class="material-icons">file_download</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 文章目录侧栏 -->
+    <ul id="category" class="hide sidenav no-autoinit grey lighten-4 grey-text text-darken-3">
+        <li>
+            <p class="center-align">目录</p>
+        </li>
+    </ul>
+</footer>
+
+
+    
+    <script src="/assets/js/min/materialize.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/post.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/particles.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/main.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/search.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/gen-category.min.js"></script>
+    
+
+
+
+
+<!-- 以下为插入的第三方网站分析代码 -->
+
+</body>
+
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 360 -->
+    <meta name="360-site-verification" content="fa6ca3a9a0330e9cecabee0a9fe1d52a" />
+    <!-- 搜狗 -->
+    <meta name="sogou_site_verification" content="oatSp9uAV5" />
+    <!--熊掌号 -->
+    <meta name="baidu-site-verification" content="Wkb0Jzk8yx" />
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="IJrXvaK-Luj-lCGP7tymcCbkcfMKi82Y8V21qN9ZT0s" />
+    <title>
+        
+            JavaScript 逻辑运算符 “&amp;&amp;” 和 “||” 短路原则的应用
+        
+    </title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/assets/css/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+    
+
+    
+        
+        <link rel="stylesheet" href="/assets/css/page.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/post.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/syntax.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/article-category.css">
+        
+    
+
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">	
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="JavaScript 逻辑运算符 “&amp;&amp;” 和 “   ” 短路原则的应用" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="description" content="JavaScript 中逻辑运算符的介绍，短路原则的介绍与应用" />
+<meta property="og:description" content="JavaScript 中逻辑运算符的介绍，短路原则的介绍与应用" />
+<link rel="canonical" href="http://localhost:4000/2018/06/01/js-logic-compute" />
+<meta property="og:url" content="http://localhost:4000/2018/06/01/js-logic-compute" />
+<meta property="og:site_name" content="苏梓鑫的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-01T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="JavaScript 逻辑运算符 “&amp;&amp;” 和 “   ” 短路原则的应用" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2018/06/01/js-logic-compute","headline":"JavaScript 逻辑运算符 “&amp;&amp;” 和 “   ” 短路原则的应用","dateModified":"2018-06-01T00:00:00+08:00","datePublished":"2018-06-01T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018/06/01/js-logic-compute"},"description":"JavaScript 中逻辑运算符的介绍，短路原则的介绍与应用","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+    <header>
+        <nav class="top-nav">
+            
+            <div class="nav-wrapper">
+                <div class="container">
+                    
+                    <a class="page-title" href="/">苏梓鑫的博客</a>
+                    <p class="head-message">学习&nbsp;&nbsp;总结&nbsp;&nbsp;分享&nbsp;&nbsp;提升</p>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <a href="#" data-target="slide-out" class="sidenav-trigger top-nav full hide-on-large-only">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+        <ul id="slide-out" class="sidenav sidenav-fixed" style="background-color:#ddd">
+            <li>
+                <div class="userView">
+                    <img class="user-bg" src="/assets/img/bg.png" />
+                    <a class="user-avatar" href="https://github.com/suzixin" target="_blank">
+                        <img class="circle z-depth-2" src="/assets/img/user.png" width="64" />
+                    </a>
+                    <div class="white-text user-info">
+                        苏梓鑫 <i>(Knight Huang)</i><br>
+                        adahsuzixin@gmail.com
+                    </div>
+                </div>
+            </li>
+            <li><a class="waves-effect" href="/"><i class="material-icons">home</i>Home - 主页</a></li>
+            <li><a class="waves-effect" href="/projects"><i class="material-icons">description</i>Github - 项目</a></li>
+            <li><a class="waves-effect" href="/categories"><i class="material-icons">sort</i>Categories - 目录</a></li>
+            <li><a class="waves-effect" href="/tags"><i class="material-icons">label</i>Tags - 标签</a></li>
+            <li><a class="waves-effect" href="/feed.xml" target="_blank"><i class="material-icons">rss_feed</i>RSS - 订阅</a></li>
+            <li><a class="waves-effect" href="/about"><i class="material-icons">person</i>About - 关于我</a></li>
+            <li><a class="waves-effect" href="/contact"><i class="material-icons">email</i>Contact - 联系我</a></li>
+            <!-- 华为云广告 -->
+            <li class="ad">
+                <!-- <a href="https://mp.weixin.qq.com/s/ujUoHc3grjO8LD_Bg1fckA" target="_blank"> -->
+                <!-- <a href="https://mp.weixin.qq.com/s/MTbMlhjAx8R4fc8Po90EXg" target="_blank">
+                    <img src="/assets/img/ad-huaweiyun.png" alt="" width="100%" />
+                </a>
+                <i class="material-icons" onclick="javascript:this.parentNode.style.display='none';">close</i> -->
+            </li>
+        </ul>
+    </header>
+    <main>
+
+<div class="container">
+    <div id="page-info">
+        <h1 class="page-title white-text">JavaScript 逻辑运算符 “&&” 和 “||” 短路原则的应用</h1>
+    </div>
+    <div id="page-content" class="row">
+        <div id="post-info">
+    <ul class="collapsible hoverable" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header grey lighten-4">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Date">date_range</i>
+                    01/06/2018 00:00<br />
+                    <div id="busuanzi_container_site_pv">点击量：<span style="display: inline;" id="busuanzi_value_page_pv"></span>次</div>
+                    <i id="indicate" class="right material-icons tooltipped" data-position="left" data-delay="30"
+                        data-tooltip="Show extra info">info</i>
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Categories">sort</i>
+                    
+                    
+                    
+                    <a href="/categories#javascript_cap"
+                        target="_blank">
+                        <div class="chip">JavaScript</div>
+                    </a>
+                    
+                </span>
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Tags">label</i>
+                    
+                    
+                    
+                    <a href="/tags#javascript逻辑运算" target="_blank">
+                        <div class="chip">javascript逻辑运算</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#短路原则_cap" target="_blank">
+                        <div class="chip">短路原则</div>
+                    </a>
+                    
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="divider"></div>
+<div id="post-content" class="row">
+    <div class="col s12">
+        <h1 id="逻辑运算符">逻辑运算符</h1>
+
+<p>在Javascript中，有逻辑运算符 <code class="language-plaintext highlighter-rouge">与 &amp;&amp;</code>, <code class="language-plaintext highlighter-rouge">或 ||</code>, <code class="language-plaintext highlighter-rouge">非 !</code>，常在条件句或循环中进行逻辑判断。</p>
+
+<p>例如：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">b</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">b</span> <span class="o">=</span> <span class="nx">c</span> <span class="o">||</span> <span class="nx">a</span> <span class="o">!=</span> <span class="nx">c</span><span class="p">))</span> 
+<span class="p">{</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">true</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> 
+<span class="p">{</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>括号中表达式值为<strong>真</strong>，最后提示“true”。</p>
+
+<h1 id="短路原则">短路原则</h1>
+
+<p>在逻辑运算中，这是一个通用的原则，这是由于表达式从左到右执行的特性，为了减少运算量而给运算器规定的操作。主要针对 <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> 和 <code class="language-plaintext highlighter-rouge">||</code> 两种运算。</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">&amp;&amp;</code> 的判断是<strong>同真为真，一假为假</strong>，则运算如果左边的表达式值为 <code class="language-plaintext highlighter-rouge">false</code>，那么就不会再执行右边的表达式了，如果左表达式为 <code class="language-plaintext highlighter-rouge">true</code>，就会继续执行右表达式；</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">||</code> 的判断是<strong>一真为真，同假为假</strong>，则运算如果坐表达式值为 <code class="language-plaintext highlighter-rouge">true</code>，那么就不用执行右边的表达式了，如果左表达式为 <code class="language-plaintext highlighter-rouge">false</code>，就会继续执行右表达式；</p>
+  </li>
+</ul>
+
+<p>举例说明：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">msg1</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">(</span><span class="mi">1</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">msg2</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">||</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">msg3</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">(</span><span class="mi">1</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">||</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">msg4</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>结果是提示<strong>“msg1”</strong>和<strong>“msg4”</strong>。原理如上述。</p>
+
+<p>因此，如果有以下表达式：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> 
+<span class="p">{</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">true</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> 
+<span class="p">{</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>也许你会使用<strong>三目运算</strong>简化成这样：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">?</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">true</span><span class="dl">"</span><span class="p">)</span> <span class="p">:</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>其实也可以这样写：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">true</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h1 id="javascript中的应用">Javascript中的应用</h1>
+
+<p>在javascript中，只有<code class="language-plaintext highlighter-rouge">对象(Object)</code>和布尔值<code class="language-plaintext highlighter-rouge">true</code>为真，其它例如 <code class="language-plaintext highlighter-rouge">undefined</code>, <code class="language-plaintext highlighter-rouge">NaN</code>, <code class="language-plaintext highlighter-rouge">false</code> 等，值为 <code class="language-plaintext highlighter-rouge">false</code>。为被定义的对象或未赋值变量也是 <code class="language-plaintext highlighter-rouge">false</code>，因为其值都是 <code class="language-plaintext highlighter-rouge">undefined</code>，这里就可以应用于检查某变量是否<strong>已定义</strong>。</p>
+
+<p>举例说明：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">b</span><span class="p">;</span>
+<span class="nx">a</span> <span class="o">&amp;&amp;</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">defined</span><span class="dl">"</span><span class="p">);</span>       <span class="c1">//已定义a，提示“defined”</span>
+<span class="nx">o</span> <span class="o">&amp;&amp;</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">defined</span><span class="dl">"</span><span class="p">);</span>       <span class="c1">//已定义对象o，提示“defined”</span>
+<span class="nb">Object</span> <span class="o">&amp;&amp;</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">defined</span><span class="dl">"</span><span class="p">);</span>  <span class="c1">//Object是一个已知的全局对象，提示“defined”</span>
+<span class="nx">b</span> <span class="o">||</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">not defined</span><span class="dl">"</span><span class="p">);</span>   <span class="c1">//b未赋值，提示“not defined”</span>
+<span class="nx">p</span> <span class="o">||</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">not defined</span><span class="dl">"</span><span class="p">);</span>   <span class="c1">//未定义p，提示“not defined”</span>
+</code></pre></div></div>
+
+<p>除了这个也能衍生出其它相同原理的应用，类似于判断赋值 <code class="language-plaintext highlighter-rouge">var  a = (b &gt; 0) &amp;&amp; '9'</code> 或判断定义变量 <code class="language-plaintext highlighter-rouge">var abc = abc || ""</code> 等。</p>
+
+<p>js中使用这种方法可以减少代码量，提示性能，但同时也降低了代码<strong>可读性</strong>，比如个人觉得还是看以下代码比较舒适：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">true</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>方法的选择就要视情况而权衡了。</p>
+
+    </div>
+</div>
+<hr>
+
+<!-- valine 评论插件 -->
+<h3>评论：</h3>
+<div class="comments"></div>
+<hr>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '.comments',
+        appId: '4XY3DoTJmibNe3rHeAKOxqzl-gzGzoHsz',
+        appKey: 'vjothQHALvgTQF9GrSgj577a',
+        avatar: 'robohash',
+        placeholder: '留下你的评论吧（支持Markdown）~',
+        // visitor: true,
+    })
+</script>
+
+<!-- 微信公众号 -->
+<div class="program-knight">
+    <p>技术文章推送</p>
+    <p>手机、电脑实用软件分享</p>
+    <img src="/assets/img/knight.png" alt="微信搜索公众号: 程序骑士" title="微信搜索公众号: 程序骑士">
+    <div>
+        <img src="/assets/img/wechat.png" alt="wechat">
+        <b>微信公众号：程序骑士</b>
+    </div>
+</div>
+<!--百度资源自动提交-->
+
+
+    </div>
+</div>
+
+</main>
+
+<footer class="page-footer teal">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <p class="footer-message grey-text text-lighten-3">以勤劳的双手，用心敲写明天</p>
+                <hr>
+                <p class="visit-statistics">
+                    <span id="busuanzi_container_site_pv">访问量：<span id="busuanzi_value_site_pv"></span>次</span>&nbsp;
+                    <span id="busuanzi_container_site_pv">访客量：<span id="busuanzi_value_site_uv"></span>人次</span>
+                </p>
+                <p class="grey-text text-lighten-4">基于 jekyll 的 Github Pages 个人博客网站
+</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Copyright &#xA9; 2021 苏梓鑫的博客. All rights reserved. Powered by
+            <a href=https://github.com/suzixin/suzixin.github.io>knightyun</a>.
+        </div>
+    </div>
+    <!-- Search box -->
+    <div class="search">
+        <i class="material-icons search-icon search-start">search</i>
+        <input type="text" class="search-input" placeholder="Searching...（支持正则表达式）" />
+        <i class="material-icons search-icon search-clear">clear</i>
+        <div class="search-results z-depth-4"></div>
+    </div>
+    <!-- 右下角功能按钮 -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue z-depth-4">
+            <i class="large material-icons">apps</i>
+        </a>
+        <ul>
+            <li class="category-btn hide">
+                <!-- 文章目录按钮 -->
+                <a class="sidenav-trigger btn-floating blue lighten-2" data-target="category">
+                    <i class="material-icons">format_list_bulleted</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: searchInput.focus()">
+                    <i class="material-icons">search</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, 0);">
+                    <i class="material-icons">publish</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, document.body.clientHeight);">
+                    <i class="material-icons">file_download</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 文章目录侧栏 -->
+    <ul id="category" class="hide sidenav no-autoinit grey lighten-4 grey-text text-darken-3">
+        <li>
+            <p class="center-align">目录</p>
+        </li>
+    </ul>
+</footer>
+
+
+    
+    <script src="/assets/js/min/materialize.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/post.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/particles.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/main.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/search.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/gen-category.min.js"></script>
+    
+
+
+
+
+<!-- 以下为插入的第三方网站分析代码 -->
+
+</body>
+
+</html>

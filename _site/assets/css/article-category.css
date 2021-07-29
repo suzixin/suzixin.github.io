@@ -1,0 +1,1 @@
+#category li{white-space:nowrap;height:2.5rem}#category li a{position:relative;font-weight:bold}#category li a:hover{color:maroon}#category li a:before{content:"∟";position:absolute;left:10px;bottom:5px;font-size:12px}

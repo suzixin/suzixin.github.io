@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 360 -->
+    <meta name="360-site-verification" content="fa6ca3a9a0330e9cecabee0a9fe1d52a" />
+    <!-- 搜狗 -->
+    <meta name="sogou_site_verification" content="oatSp9uAV5" />
+    <!--熊掌号 -->
+    <meta name="baidu-site-verification" content="Wkb0Jzk8yx" />
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="IJrXvaK-Luj-lCGP7tymcCbkcfMKi82Y8V21qN9ZT0s" />
+    <title>
+        
+            Git 仓库中文件名大小写问题
+        
+    </title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/assets/css/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+    
+
+    
+        
+        <link rel="stylesheet" href="/assets/css/page.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/post.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/syntax.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/article-category.css">
+        
+    
+
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">	
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Git 仓库中文件名大小写问题" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="description" content="关于 git 中的文件名大小写识别问题与解决方法" />
+<meta property="og:description" content="关于 git 中的文件名大小写识别问题与解决方法" />
+<link rel="canonical" href="http://localhost:4000/2021/01/18/git-ignorecase" />
+<meta property="og:url" content="http://localhost:4000/2021/01/18/git-ignorecase" />
+<meta property="og:site_name" content="苏梓鑫的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-18T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Git 仓库中文件名大小写问题" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2021/01/18/git-ignorecase","headline":"Git 仓库中文件名大小写问题","dateModified":"2021-01-18T00:00:00+08:00","datePublished":"2021-01-18T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021/01/18/git-ignorecase"},"description":"关于 git 中的文件名大小写识别问题与解决方法","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+    <header>
+        <nav class="top-nav">
+            
+            <div class="nav-wrapper">
+                <div class="container">
+                    
+                    <a class="page-title" href="/">苏梓鑫的博客</a>
+                    <p class="head-message">学习&nbsp;&nbsp;总结&nbsp;&nbsp;分享&nbsp;&nbsp;提升</p>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <a href="#" data-target="slide-out" class="sidenav-trigger top-nav full hide-on-large-only">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+        <ul id="slide-out" class="sidenav sidenav-fixed" style="background-color:#ddd">
+            <li>
+                <div class="userView">
+                    <img class="user-bg" src="/assets/img/bg.png" />
+                    <a class="user-avatar" href="https://github.com/suzixin" target="_blank">
+                        <img class="circle z-depth-2" src="/assets/img/user.png" width="64" />
+                    </a>
+                    <div class="white-text user-info">
+                        苏梓鑫 <i>(Knight Huang)</i><br>
+                        adahsuzixin@gmail.com
+                    </div>
+                </div>
+            </li>
+            <li><a class="waves-effect" href="/"><i class="material-icons">home</i>Home - 主页</a></li>
+            <li><a class="waves-effect" href="/projects"><i class="material-icons">description</i>Github - 项目</a></li>
+            <li><a class="waves-effect" href="/categories"><i class="material-icons">sort</i>Categories - 目录</a></li>
+            <li><a class="waves-effect" href="/tags"><i class="material-icons">label</i>Tags - 标签</a></li>
+            <li><a class="waves-effect" href="/feed.xml" target="_blank"><i class="material-icons">rss_feed</i>RSS - 订阅</a></li>
+            <li><a class="waves-effect" href="/about"><i class="material-icons">person</i>About - 关于我</a></li>
+            <li><a class="waves-effect" href="/contact"><i class="material-icons">email</i>Contact - 联系我</a></li>
+            <!-- 华为云广告 -->
+            <li class="ad">
+                <!-- <a href="https://mp.weixin.qq.com/s/ujUoHc3grjO8LD_Bg1fckA" target="_blank"> -->
+                <!-- <a href="https://mp.weixin.qq.com/s/MTbMlhjAx8R4fc8Po90EXg" target="_blank">
+                    <img src="/assets/img/ad-huaweiyun.png" alt="" width="100%" />
+                </a>
+                <i class="material-icons" onclick="javascript:this.parentNode.style.display='none';">close</i> -->
+            </li>
+        </ul>
+    </header>
+    <main>
+
+<div class="container">
+    <div id="page-info">
+        <h1 class="page-title white-text">Git 仓库中文件名大小写问题</h1>
+    </div>
+    <div id="page-content" class="row">
+        <div id="post-info">
+    <ul class="collapsible hoverable" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header grey lighten-4">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Date">date_range</i>
+                    18/01/2021 00:00<br />
+                    <div id="busuanzi_container_site_pv">点击量：<span style="display: inline;" id="busuanzi_value_page_pv"></span>次</div>
+                    <i id="indicate" class="right material-icons tooltipped" data-position="left" data-delay="30"
+                        data-tooltip="Show extra info">info</i>
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Categories">sort</i>
+                    
+                    
+                    
+                    <a href="/categories#git_cap"
+                        target="_blank">
+                        <div class="chip">Git</div>
+                    </a>
+                    
+                </span>
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Tags">label</i>
+                    
+                    
+                    
+                    <a href="/tags#git" target="_blank">
+                        <div class="chip">git</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#大小写_cap" target="_blank">
+                        <div class="chip">大小写</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#ignorecase" target="_blank">
+                        <div class="chip">ignorecase</div>
+                    </a>
+                    
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="divider"></div>
+<div id="post-content" class="row">
+    <div class="col s12">
+        <p>首先，Windows 下 git 默认配置是对文件/文件夹名称的大小写不敏感：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--get</span> core.ignorecase
+
+<span class="c"># true</span>
+</code></pre></div></div>
+
+<p>这就导致了一些时候的难以预料问题的产生，针对这个配置，先引用一下官方帮助文档的原话：</p>
+<blockquote>
+  <p>The default is <code class="language-plaintext highlighter-rouge">false</code>, except <code class="language-plaintext highlighter-rouge">git-clone</code> or <code class="language-plaintext highlighter-rouge">git-init</code> will probe and set core.ignoreCase <code class="language-plaintext highlighter-rouge">true</code> if appropriate when the repository is created.</p>
+</blockquote>
+
+<p>即 git 默认对大小写敏感，但是会在仓库克隆或初始化时，根据当前系统来设置是否忽略大小写，比如 Windows 下会设置为 <code class="language-plaintext highlighter-rouge">true</code>，即不敏感，而 Linux 中不会忽略；相信有不少开发者的项目开发与协同工作都是在 <strong>Windows</strong> 系统下进行的，下面就列出 git 的这种机制会导致的问题与解决思路；</p>
+
+<h3 id="规范重命名">规范重命名</h3>
+
+<p>如果分支上直接在编辑器或资源管理器上修改项目中的文件名（只变更大小写），本地虽然可以调试通过，但是 git 并不会识别和记录这个修改，所以下一次提交推送时并不会带上这个重命名修改，远程仓库中这个文件名还是保持不变；</p>
+
+<p>因此，如果检出其他分支或者其他协作者拉取代码，项目就会报错，因为一个本地文件的名称如果由小写变成了大写，使用这个文件的代码部分也改成了大写，推送到远程后，远程的这个文件依然是小写，但远程上使用该文件的代码却成功变成了大写，那边启动项目就多半会提示文件不存在了；</p>
+
+<p>对于这种情况 git 提供了一种规范的做法，使用 <code class="language-plaintext highlighter-rouge">git mv</code> 命令：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nb">mv </span>test.txt TEST.txt
+</code></pre></div></div>
+
+<p>以此来实现对文件的重命名，同时 git 也会将其识别为 <code class="language-plaintext highlighter-rouge">Rename</code> 的变更类型，然后正常提交推送就能同步到远程仓库了；如果是重命名文件夹，由于 Windows 下对文件夹的大小写也不敏感（-_-），所以直接使用上面的方法会失败：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nb">mv </span>test-dir TEST-DIR
+
+<span class="c"># Rename from 'test-dir' to 'Test-dir/test-dir' failed.</span>
+</code></pre></div></div>
+
+<p>这里就只有迂回一下，先把文件夹命名成其他名称，然后再命名为大写就行了：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nb">mv </span>test-dir tmp
+git <span class="nb">mv </span>tmp TEST-DIR
+</code></pre></div></div>
+
+<h3 id="修改配置">修改配置</h3>
+
+<p>可以选择直接修改 git 配置为不忽略大小写：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config core.ignorecase <span class="nb">false</span>
+</code></pre></div></div>
+
+<p>然后直接在资源管理器或编辑器中修改文件名大小写，git 就会识别到了，而且是被识别为 <code class="language-plaintext highlighter-rouge">untracked</code> 类型的变更，这依然是 Windows 下对文件名大小写不敏感导致的（=_=），如果直接推送到远程的话，那么远程仓库就会同时存在大小写<strong>两个版本</strong>的文件（github/gitlab 服务器通常都是 Linux 系统），为后期维护添加隐患，本地在分支间切换时也可能出现以下报错：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: The following untracked working tree files would be overwritten by checkout:
+        test.txt
+Please move or remove them before you switch branches.
+Aborting
+</code></pre></div></div>
+
+<p>这种情况下依然需要使用一些迂回的办法，就是先把要重命名的文件改成其他临时名称，提交一次（<code class="language-plaintext highlighter-rouge">git commit</code>），然后再把临时名称改成想要的名称，再提交一次，最后推送到远程，这样本地和远程都只保留下一个文件了；</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># rename test.txt --&gt; tmp</span>
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"..."</span>
+
+<span class="c"># rename tmp --&gt; TEST.TXT</span>
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"..."</span>
+
+git push
+</code></pre></div></div>
+
+<p>所以不管是 Windows 还是其他系统下，还是不要轻易修改 git 默认的 <code class="language-plaintext highlighter-rouge">core.ignorecase</code> 配置，使用规范的 <code class="language-plaintext highlighter-rouge">git mv</code> 做法就好；</p>
+
+    </div>
+</div>
+<hr>
+
+<!-- valine 评论插件 -->
+<h3>评论：</h3>
+<div class="comments"></div>
+<hr>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '.comments',
+        appId: '4XY3DoTJmibNe3rHeAKOxqzl-gzGzoHsz',
+        appKey: 'vjothQHALvgTQF9GrSgj577a',
+        avatar: 'robohash',
+        placeholder: '留下你的评论吧（支持Markdown）~',
+        // visitor: true,
+    })
+</script>
+
+<!-- 微信公众号 -->
+<div class="program-knight">
+    <p>技术文章推送</p>
+    <p>手机、电脑实用软件分享</p>
+    <img src="/assets/img/knight.png" alt="微信搜索公众号: 程序骑士" title="微信搜索公众号: 程序骑士">
+    <div>
+        <img src="/assets/img/wechat.png" alt="wechat">
+        <b>微信公众号：程序骑士</b>
+    </div>
+</div>
+<!--百度资源自动提交-->
+
+
+    </div>
+</div>
+
+</main>
+
+<footer class="page-footer teal">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <p class="footer-message grey-text text-lighten-3">以勤劳的双手，用心敲写明天</p>
+                <hr>
+                <p class="visit-statistics">
+                    <span id="busuanzi_container_site_pv">访问量：<span id="busuanzi_value_site_pv"></span>次</span>&nbsp;
+                    <span id="busuanzi_container_site_pv">访客量：<span id="busuanzi_value_site_uv"></span>人次</span>
+                </p>
+                <p class="grey-text text-lighten-4">基于 jekyll 的 Github Pages 个人博客网站
+</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Copyright &#xA9; 2021 苏梓鑫的博客. All rights reserved. Powered by
+            <a href=https://github.com/suzixin/suzixin.github.io>knightyun</a>.
+        </div>
+    </div>
+    <!-- Search box -->
+    <div class="search">
+        <i class="material-icons search-icon search-start">search</i>
+        <input type="text" class="search-input" placeholder="Searching...（支持正则表达式）" />
+        <i class="material-icons search-icon search-clear">clear</i>
+        <div class="search-results z-depth-4"></div>
+    </div>
+    <!-- 右下角功能按钮 -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue z-depth-4">
+            <i class="large material-icons">apps</i>
+        </a>
+        <ul>
+            <li class="category-btn hide">
+                <!-- 文章目录按钮 -->
+                <a class="sidenav-trigger btn-floating blue lighten-2" data-target="category">
+                    <i class="material-icons">format_list_bulleted</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: searchInput.focus()">
+                    <i class="material-icons">search</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, 0);">
+                    <i class="material-icons">publish</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, document.body.clientHeight);">
+                    <i class="material-icons">file_download</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 文章目录侧栏 -->
+    <ul id="category" class="hide sidenav no-autoinit grey lighten-4 grey-text text-darken-3">
+        <li>
+            <p class="center-align">目录</p>
+        </li>
+    </ul>
+</footer>
+
+
+    
+    <script src="/assets/js/min/materialize.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/post.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/particles.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/main.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/search.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/gen-category.min.js"></script>
+    
+
+
+
+
+<!-- 以下为插入的第三方网站分析代码 -->
+
+</body>
+
+</html>

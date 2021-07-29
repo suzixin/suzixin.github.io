@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 360 -->
+    <meta name="360-site-verification" content="fa6ca3a9a0330e9cecabee0a9fe1d52a" />
+    <!-- 搜狗 -->
+    <meta name="sogou_site_verification" content="oatSp9uAV5" />
+    <!--熊掌号 -->
+    <meta name="baidu-site-verification" content="Wkb0Jzk8yx" />
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="IJrXvaK-Luj-lCGP7tymcCbkcfMKi82Y8V21qN9ZT0s" />
+    <title>
+        
+            C 语言之变量存储类型与链接属性
+        
+    </title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/assets/css/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+    
+
+    
+        
+        <link rel="stylesheet" href="/assets/css/page.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/post.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/syntax.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/article-category.css">
+        
+    
+
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">	
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="C 语言之变量存储类型与链接属性" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="description" content="C语言的变量存储类型与链接属性的区别分析" />
+<meta property="og:description" content="C语言的变量存储类型与链接属性的区别分析" />
+<link rel="canonical" href="http://localhost:4000/2018/04/28/c-storage-type" />
+<meta property="og:url" content="http://localhost:4000/2018/04/28/c-storage-type" />
+<meta property="og:site_name" content="苏梓鑫的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-04-28T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="C 语言之变量存储类型与链接属性" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2018/04/28/c-storage-type","headline":"C 语言之变量存储类型与链接属性","dateModified":"2018-04-28T00:00:00+08:00","datePublished":"2018-04-28T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018/04/28/c-storage-type"},"description":"C语言的变量存储类型与链接属性的区别分析","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+    <header>
+        <nav class="top-nav">
+            
+            <div class="nav-wrapper">
+                <div class="container">
+                    
+                    <a class="page-title" href="/">苏梓鑫的博客</a>
+                    <p class="head-message">学习&nbsp;&nbsp;总结&nbsp;&nbsp;分享&nbsp;&nbsp;提升</p>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <a href="#" data-target="slide-out" class="sidenav-trigger top-nav full hide-on-large-only">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+        <ul id="slide-out" class="sidenav sidenav-fixed" style="background-color:#ddd">
+            <li>
+                <div class="userView">
+                    <img class="user-bg" src="/assets/img/bg.png" />
+                    <a class="user-avatar" href="https://github.com/suzixin" target="_blank">
+                        <img class="circle z-depth-2" src="/assets/img/user.png" width="64" />
+                    </a>
+                    <div class="white-text user-info">
+                        苏梓鑫 <i>(Knight Huang)</i><br>
+                        adahsuzixin@gmail.com
+                    </div>
+                </div>
+            </li>
+            <li><a class="waves-effect" href="/"><i class="material-icons">home</i>Home - 主页</a></li>
+            <li><a class="waves-effect" href="/projects"><i class="material-icons">description</i>Github - 项目</a></li>
+            <li><a class="waves-effect" href="/categories"><i class="material-icons">sort</i>Categories - 目录</a></li>
+            <li><a class="waves-effect" href="/tags"><i class="material-icons">label</i>Tags - 标签</a></li>
+            <li><a class="waves-effect" href="/feed.xml" target="_blank"><i class="material-icons">rss_feed</i>RSS - 订阅</a></li>
+            <li><a class="waves-effect" href="/about"><i class="material-icons">person</i>About - 关于我</a></li>
+            <li><a class="waves-effect" href="/contact"><i class="material-icons">email</i>Contact - 联系我</a></li>
+            <!-- 华为云广告 -->
+            <li class="ad">
+                <!-- <a href="https://mp.weixin.qq.com/s/ujUoHc3grjO8LD_Bg1fckA" target="_blank"> -->
+                <!-- <a href="https://mp.weixin.qq.com/s/MTbMlhjAx8R4fc8Po90EXg" target="_blank">
+                    <img src="/assets/img/ad-huaweiyun.png" alt="" width="100%" />
+                </a>
+                <i class="material-icons" onclick="javascript:this.parentNode.style.display='none';">close</i> -->
+            </li>
+        </ul>
+    </header>
+    <main>
+
+<div class="container">
+    <div id="page-info">
+        <h1 class="page-title white-text">C 语言之变量存储类型与链接属性</h1>
+    </div>
+    <div id="page-content" class="row">
+        <div id="post-info">
+    <ul class="collapsible hoverable" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header grey lighten-4">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Date">date_range</i>
+                    28/04/2018 00:00<br />
+                    <div id="busuanzi_container_site_pv">点击量：<span style="display: inline;" id="busuanzi_value_page_pv"></span>次</div>
+                    <i id="indicate" class="right material-icons tooltipped" data-position="left" data-delay="30"
+                        data-tooltip="Show extra info">info</i>
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Categories">sort</i>
+                    
+                    
+                    
+                    <a href="/categories#c语言_cap"
+                        target="_blank">
+                        <div class="chip">C语言</div>
+                    </a>
+                    
+                </span>
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Tags">label</i>
+                    
+                    
+                    
+                    <a href="/tags#存储类型_cap" target="_blank">
+                        <div class="chip">存储类型</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#链接属性_cap" target="_blank">
+                        <div class="chip">链接属性</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#静态变量static_cap" target="_blank">
+                        <div class="chip">静态变量static</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#extern" target="_blank">
+                        <div class="chip">extern</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#寄存器_cap" target="_blank">
+                        <div class="chip">寄存器</div>
+                    </a>
+                    
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="divider"></div>
+<div id="post-content" class="row">
+    <div class="col s12">
+        <p>C语言中一个重要的东西就是弄清申明变量的类型、作用域、存储类型、链接属性等，例如是整型还是浮点型，存储于普通内存还是堆栈或者寄存器，作用于全局还是局部，能否被其他文件 引用等。</p>
+
+<h1 id="链接属性">链接属性</h1>
+
+<p>申明变量或函数时需要<strong>标识符</strong>，标识符的链接属性一共有三种：<code class="language-plaintext highlighter-rouge">external(外部)</code>, <code class="language-plaintext highlighter-rouge">internal(内部)</code>, <code class="language-plaintext highlighter-rouge">none(无)</code>，external和internal常用，<strong>none</strong>表示无链接属性，该标识符的多个申明被当成独立不同的实体。</p>
+
+<p>顾名思义，<strong>external</strong>表示能被其它源文件访问的变量或函数，<strong>internal</strong>则不能被其它源文件访问，并且<strong>缺省</strong>情况下<strong>代码块(block)外部</strong>的变量为<strong>external</strong>属性，也就是外部变量，<strong>代码块内部</strong>的变量为<strong>internal</strong>属性，即局部变量.</p>
+
+<p>如果需要改变链接属性需要使用 <code class="language-plaintext highlighter-rouge">extern</code> 和 <code class="language-plaintext highlighter-rouge">static</code> 关键字，<code class="language-plaintext highlighter-rouge">extern</code> 是转化为<strong>external</strong>属性，<code class="language-plaintext highlighter-rouge">static</code> 是转化为<strong>internal</strong>属性。
+举例说明：</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include&lt;stdio.h&gt;
+</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>              <span class="cm">/* 这里是代码块外部，external 属性，缺省为"extern" */</span>
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">aa</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>     <span class="cm">/* 与上面效果一样 */</span>
+<span class="k">static</span> <span class="kt">int</span> <span class="n">aaa</span> <span class="o">=</span> <span class="mi">111</span><span class="p">;</span>   <span class="cm">/* 这里申明的是 internal 属性，不能被其它源文件访问 */</span>
+<span class="kt">void</span> <span class="nf">example</span><span class="p">()</span>          <span class="cm">/* 这里申明的 example() 函数也是external属性，能被其它源文件访问 */</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>          <span class="cm">/* 这里是代码块内部，internal 属性 */</span>
+	<span class="k">extern</span> <span class="kt">int</span> <span class="n">bb</span> <span class="o">=</span> <span class="mi">22</span><span class="p">;</span> <span class="cm">/* 这里的意思是访问其它源文件的全局变量 */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<blockquote>
+  <p><strong>注意上面指出的代码块内部和外部，定义的函数的花括号之外叫做代码块外部，之内叫做代码块内部。</strong>
+<strong>代码块外部缺省为<code class="language-plaintext highlighter-rouge">extern</code>，并且代码块外部使用<code class="language-plaintext highlighter-rouge">extern</code>表示被其它源文件访问，代码块内部使用<code class="language-plaintext highlighter-rouge">extern</code>表示访问其它文件的外部变量。</strong></p>
+</blockquote>
+
+<h1 id="存储类型">存储类型</h1>
+
+<p>存储类型指申明的变量将被存储到什么地方去，并且与其存储周期有关，就是这个变量何时被创建，何时被销毁，保持多久。</p>
+
+<p>存储类型有三种：
+静态变量(<code class="language-plaintext highlighter-rouge">static</code>) —&gt; 存储于普通内存。
+自动变量(<code class="language-plaintext highlighter-rouge">auto</code>)   —&gt; 存储于堆栈。
+寄存器变量(<code class="language-plaintext highlighter-rouge">register</code>) —&gt; 存储于寄存器。</p>
+
+<h6 id="静态变量">静态变量</h6>
+<p>任何代码块之外定义的变量，总是处于静态内存中，无需使用 <code class="language-plaintext highlighter-rouge">static</code> 关键字，在程序运行<strong>之前</strong>创建，程序整个执行期间<strong>始终存在</strong>。</p>
+
+<h6 id="自动变量">自动变量</h6>
+<p>代码块内部申明的变量，并且<strong>缺省</strong>情况下都是(<code class="language-plaintext highlighter-rouge">auto</code>)类型，所以很少使用，存储于堆栈中，程序执行到申明变量处被创建，离开后被销毁，每次在堆栈中占据的内存位置都<strong>可能不同</strong>。</p>
+
+<h6 id="寄存器变量">寄存器变量</h6>
+<p>用于申明<strong>自动变量</strong>，即在<strong>代码块内部</strong>使用，使这类变量存储于寄存器中，<strong>寄存器中的变量比内存中的变量访问效率更高</strong>。
+但是，如果有<strong>太多</strong>变量申明为 <code class="language-plaintext highlighter-rouge">register</code> ，只会选取前几个存储于寄存器中，其它处理为普通自动变量。</p>
+
+<p>通常把<strong>使用频率最高</strong>的变量申明为寄存器变量，或者指针申明为寄存器变量，以提高效率。例如可以把函数的形参申明为寄存器变量（有可能它节省的时间空间开销抵不上复制这几个值的开销）。</p>
+
+<h6 id="综合举例">综合举例</h6>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include&lt;stdio.h&gt;
+</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>                  <span class="cm">/* 静态变量(static)，这里不能使用 register */</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>              <span class="cm">/* 自动变量，省略 auto */</span>
+	<span class="k">register</span> <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>     <span class="cm">/* 寄存器变量(register) */</span>
+	<span class="kt">int</span> <span class="n">aaa</span><span class="p">(</span><span class="k">register</span> <span class="kt">int</span> <span class="n">d</span><span class="p">)</span> <span class="cm">/* 申明函数形参为 register */</span>
+	<span class="k">static</span> <span class="kt">int</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>       <span class="cm">/* 申明静态变量，和变量 b 一个属性 */</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h6 id="初始化">初始化</h6>
+<p>静态变量在不指定初始值的时候，初始化为 <code class="language-plaintext highlighter-rouge">0</code>；
+自动变量是否初始化赋值，并无效率的改变（每次执行都要重新初始化），这也是它的优点：可以用任何“表达式”作为初始值。例如：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int add(int a)
+{
+	int b = a + 1;      /* 将表达式 a + 1 的值初始化给 b */
+	return b;
+}
+</code></pre></div></div>
+
+<h1 id="注意">注意</h1>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">static</code> 申明函数或代码块之外的变量时，只修改<strong>链接属性</strong> ``external<code class="language-plaintext highlighter-rouge"> 为 </code>internal`，<strong>存储类型</strong>和<strong>作用域</strong>不变。</li>
+  <li><code class="language-plaintext highlighter-rouge">static</code> 申明代码块内部变量时，将自动变量修改为<strong>静态变量</strong>，但是<strong>链接属性</strong>和<strong>作用域</strong>不变。</li>
+</ul>
+
+<h6 id="综合举例-1">综合举例</h6>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include&lt;stdio.h&gt;
+</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>             <span class="cm">/* 链接属性为 external，缺省 extern */</span>
+<span class="k">static</span> <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>      <span class="cm">/* 修改连接属性为静态变量，不能被其它源文件访问，依然为全局变量，存储于静态内存中 */</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>         <span class="cm">/* 自动变量，存储到堆栈 */</span>
+	<span class="k">static</span> <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>  <span class="cm">/* 静态变量，存储到普通内存，依然不能被其它源文件访问 */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+    </div>
+</div>
+<hr>
+
+<!-- valine 评论插件 -->
+<h3>评论：</h3>
+<div class="comments"></div>
+<hr>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '.comments',
+        appId: '4XY3DoTJmibNe3rHeAKOxqzl-gzGzoHsz',
+        appKey: 'vjothQHALvgTQF9GrSgj577a',
+        avatar: 'robohash',
+        placeholder: '留下你的评论吧（支持Markdown）~',
+        // visitor: true,
+    })
+</script>
+
+<!-- 微信公众号 -->
+<div class="program-knight">
+    <p>技术文章推送</p>
+    <p>手机、电脑实用软件分享</p>
+    <img src="/assets/img/knight.png" alt="微信搜索公众号: 程序骑士" title="微信搜索公众号: 程序骑士">
+    <div>
+        <img src="/assets/img/wechat.png" alt="wechat">
+        <b>微信公众号：程序骑士</b>
+    </div>
+</div>
+<!--百度资源自动提交-->
+
+
+    </div>
+</div>
+
+</main>
+
+<footer class="page-footer teal">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <p class="footer-message grey-text text-lighten-3">以勤劳的双手，用心敲写明天</p>
+                <hr>
+                <p class="visit-statistics">
+                    <span id="busuanzi_container_site_pv">访问量：<span id="busuanzi_value_site_pv"></span>次</span>&nbsp;
+                    <span id="busuanzi_container_site_pv">访客量：<span id="busuanzi_value_site_uv"></span>人次</span>
+                </p>
+                <p class="grey-text text-lighten-4">基于 jekyll 的 Github Pages 个人博客网站
+</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Copyright &#xA9; 2021 苏梓鑫的博客. All rights reserved. Powered by
+            <a href=https://github.com/suzixin/suzixin.github.io>knightyun</a>.
+        </div>
+    </div>
+    <!-- Search box -->
+    <div class="search">
+        <i class="material-icons search-icon search-start">search</i>
+        <input type="text" class="search-input" placeholder="Searching...（支持正则表达式）" />
+        <i class="material-icons search-icon search-clear">clear</i>
+        <div class="search-results z-depth-4"></div>
+    </div>
+    <!-- 右下角功能按钮 -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue z-depth-4">
+            <i class="large material-icons">apps</i>
+        </a>
+        <ul>
+            <li class="category-btn hide">
+                <!-- 文章目录按钮 -->
+                <a class="sidenav-trigger btn-floating blue lighten-2" data-target="category">
+                    <i class="material-icons">format_list_bulleted</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: searchInput.focus()">
+                    <i class="material-icons">search</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, 0);">
+                    <i class="material-icons">publish</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, document.body.clientHeight);">
+                    <i class="material-icons">file_download</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 文章目录侧栏 -->
+    <ul id="category" class="hide sidenav no-autoinit grey lighten-4 grey-text text-darken-3">
+        <li>
+            <p class="center-align">目录</p>
+        </li>
+    </ul>
+</footer>
+
+
+    
+    <script src="/assets/js/min/materialize.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/post.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/particles.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/main.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/search.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/gen-category.min.js"></script>
+    
+
+
+
+
+<!-- 以下为插入的第三方网站分析代码 -->
+
+</body>
+
+</html>

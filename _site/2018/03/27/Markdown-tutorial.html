@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 360 -->
+    <meta name="360-site-verification" content="fa6ca3a9a0330e9cecabee0a9fe1d52a" />
+    <!-- 搜狗 -->
+    <meta name="sogou_site_verification" content="oatSp9uAV5" />
+    <!--熊掌号 -->
+    <meta name="baidu-site-verification" content="Wkb0Jzk8yx" />
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="IJrXvaK-Luj-lCGP7tymcCbkcfMKi82Y8V21qN9ZT0s" />
+    <title>
+        
+            Markdown 简明教程
+        
+    </title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/assets/css/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+    
+
+    
+        
+        <link rel="stylesheet" href="/assets/css/page.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/post.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/syntax.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/article-category.css">
+        
+    
+
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">	
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Markdown 简明教程" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="description" content="简要 markdown 语法" />
+<meta property="og:description" content="简要 markdown 语法" />
+<link rel="canonical" href="http://localhost:4000/2018/03/27/Markdown-tutorial" />
+<meta property="og:url" content="http://localhost:4000/2018/03/27/Markdown-tutorial" />
+<meta property="og:site_name" content="苏梓鑫的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-27T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Markdown 简明教程" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2018/03/27/Markdown-tutorial","headline":"Markdown 简明教程","dateModified":"2018-03-27T00:00:00+08:00","datePublished":"2018-03-27T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018/03/27/Markdown-tutorial"},"description":"简要 markdown 语法","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+    <header>
+        <nav class="top-nav">
+            
+            <div class="nav-wrapper">
+                <div class="container">
+                    
+                    <a class="page-title" href="/">苏梓鑫的博客</a>
+                    <p class="head-message">学习&nbsp;&nbsp;总结&nbsp;&nbsp;分享&nbsp;&nbsp;提升</p>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <a href="#" data-target="slide-out" class="sidenav-trigger top-nav full hide-on-large-only">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+        <ul id="slide-out" class="sidenav sidenav-fixed" style="background-color:#ddd">
+            <li>
+                <div class="userView">
+                    <img class="user-bg" src="/assets/img/bg.png" />
+                    <a class="user-avatar" href="https://github.com/suzixin" target="_blank">
+                        <img class="circle z-depth-2" src="/assets/img/user.png" width="64" />
+                    </a>
+                    <div class="white-text user-info">
+                        苏梓鑫 <i>(Knight Huang)</i><br>
+                        adahsuzixin@gmail.com
+                    </div>
+                </div>
+            </li>
+            <li><a class="waves-effect" href="/"><i class="material-icons">home</i>Home - 主页</a></li>
+            <li><a class="waves-effect" href="/projects"><i class="material-icons">description</i>Github - 项目</a></li>
+            <li><a class="waves-effect" href="/categories"><i class="material-icons">sort</i>Categories - 目录</a></li>
+            <li><a class="waves-effect" href="/tags"><i class="material-icons">label</i>Tags - 标签</a></li>
+            <li><a class="waves-effect" href="/feed.xml" target="_blank"><i class="material-icons">rss_feed</i>RSS - 订阅</a></li>
+            <li><a class="waves-effect" href="/about"><i class="material-icons">person</i>About - 关于我</a></li>
+            <li><a class="waves-effect" href="/contact"><i class="material-icons">email</i>Contact - 联系我</a></li>
+            <!-- 华为云广告 -->
+            <li class="ad">
+                <!-- <a href="https://mp.weixin.qq.com/s/ujUoHc3grjO8LD_Bg1fckA" target="_blank"> -->
+                <!-- <a href="https://mp.weixin.qq.com/s/MTbMlhjAx8R4fc8Po90EXg" target="_blank">
+                    <img src="/assets/img/ad-huaweiyun.png" alt="" width="100%" />
+                </a>
+                <i class="material-icons" onclick="javascript:this.parentNode.style.display='none';">close</i> -->
+            </li>
+        </ul>
+    </header>
+    <main>
+
+<div class="container">
+    <div id="page-info">
+        <h1 class="page-title white-text">Markdown 简明教程</h1>
+    </div>
+    <div id="page-content" class="row">
+        <div id="post-info">
+    <ul class="collapsible hoverable" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header grey lighten-4">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Date">date_range</i>
+                    27/03/2018 00:00<br />
+                    <div id="busuanzi_container_site_pv">点击量：<span style="display: inline;" id="busuanzi_value_page_pv"></span>次</div>
+                    <i id="indicate" class="right material-icons tooltipped" data-position="left" data-delay="30"
+                        data-tooltip="Show extra info">info</i>
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Categories">sort</i>
+                    
+                    
+                    
+                    <a href="/categories#编程_cap"
+                        target="_blank">
+                        <div class="chip">编程</div>
+                    </a>
+                    
+                </span>
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Tags">label</i>
+                    
+                    
+                    
+                    <a href="/tags#markdown" target="_blank">
+                        <div class="chip">markdown</div>
+                    </a>
+                    
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="divider"></div>
+<div id="post-content" class="row">
+    <div class="col s12">
+        <h2 id="markdown-及扩展">Markdown 及扩展</h2>
+
+<blockquote>
+  <p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank"> [ 维基百科 ]</a></p>
+</blockquote>
+
+<p>使用简单的符号标识不同的标题，将某些文字标记为<strong>粗体</strong>或者<em>斜体</em>，创建一个<a href="http://www.csdn.net">链接</a>等，详细语法参考帮助？。</p>
+
+<p>本编辑器支持 <strong>Markdown Extra</strong> , 　扩展了很多好用的功能。具体请参考<a href="https://github.com/jmcmanus/pagedown-extra" title="Pagedown Extra">Github</a>.</p>
+
+<h3 id="表格">表格</h3>
+
+<p><strong>Markdown　Extra</strong>　表格语法：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>项目</th>
+      <th>价格</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Computer</td>
+      <td>$1600</td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>$12</td>
+    </tr>
+    <tr>
+      <td>Pipe</td>
+      <td>$1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>写法：</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>项目     | 价格
+---------|------
+Computer | $1600
+Phone    | $12
+Pipe     | $1
+</code></pre></div></div>
+
+<p>可以使用冒号来定义对齐方式：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">项目</th>
+      <th style="text-align: right">价格</th>
+      <th style="text-align: center">数量</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Computer</td>
+      <td style="text-align: right">1600 元</td>
+      <td style="text-align: center">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Phone</td>
+      <td style="text-align: right">12 元</td>
+      <td style="text-align: center">12</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pipe</td>
+      <td style="text-align: right">1 元</td>
+      <td style="text-align: center">234</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>写法：</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| 项目      |   价格  |  数量 |
+|:--------- |--------:|:----:|
+| Computer  | 1600 元 |  5   |
+| Phone     |   12 元 |  12  |
+| Pipe      |    1 元 | 234  |
+</code></pre></div></div>
+
+<h3 id="插入图片">插入图片</h3>
+<blockquote>
+  <p>格式一：</p>
+</blockquote>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code> !<span class="p">[</span><span class="nv">picture-name</span><span class="p">](</span><span class="sx">http://xxx.com/xxx.png</span><span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>格式二：(方便设置图片尺寸)</p>
+</blockquote>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://xxx.com/xxx.png"</span> <span class="na">alt=</span><span class="s">"download-failed"</span> <span class="na">width=</span><span class="s">"XXXpx"</span>  <span class="na">height=</span><span class="s">"XXXpx"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h3 id="定义列表">定义列表</h3>
+
+<p><strong>Markdown Extra</strong> 定义列表语法：</p>
+<ul>
+  <li>项目１</li>
+  <li>项目２
+    <ul>
+      <li>定义 A
+        <ul>
+          <li>定义 a</li>
+        </ul>
+      </li>
+      <li>定义 B</li>
+    </ul>
+  </li>
+</ul>
+
+<dl>
+  <dt>项目３</dt>
+  <dd>定义 C</dd>
+  <dd>
+    <p>定义 D</p>
+
+    <blockquote>
+      <p>定义 E</p>
+    </blockquote>
+  </dd>
+</dl>
+
+<p>写法：</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-</span> 项目１
+<span class="p">-</span> 项目２
+<span class="p">  -</span> 定义 A
+<span class="p">    -</span> 定义 a
+<span class="p">  -</span> 定义 B
+
+项目３
+:   定义 C
+
+:   定义 D<span class="sb">
+
+	&gt; 定义 E
+</span></code></pre></div></div>
+
+<h3 id="代码块">代码块</h3>
+<p>代码块语法遵循标准markdown代码，例如：</p>
+<blockquote>
+  <p>python:</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">requires_authorization</span>
+<span class="k">def</span> <span class="nf">somefunc</span><span class="p">(</span><span class="n">param1</span><span class="o">=</span><span class="s">''</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="s">'''A docstring'''</span>
+    <span class="k">if</span> <span class="n">param1</span> <span class="o">&gt;</span> <span class="n">param2</span><span class="p">:</span> <span class="c1"># interesting
+</span>        <span class="k">print</span> <span class="s">'Greater'</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">param2</span> <span class="o">-</span> <span class="n">param1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">None</span>
+<span class="k">class</span> <span class="nc">SomeClass</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">message</span> <span class="o">=</span> <span class="s">'''interpreter
+... prompt'''</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>c语言:</p>
+</blockquote>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Hello world!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="脚注">脚注</h3>
+
+<p>生成一个脚注[^footnote].
+  [^footnote]: 这里是 <strong>脚注</strong> 的 <em>内容</em>.</p>
+
+<p>写法：</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>生成一个脚注[^footnote].
+  <span class="p">[</span><span class="ss">^footnote</span><span class="p">]:</span> <span class="sx">这里是</span> <span class="gs">**脚注**</span> 的 <span class="ge">*内容*</span>.
+</code></pre></div></div>
+
+<h3 id="数学公式">数学公式</h3>
+
+<p>使用 MathJax 渲染 <em>LaTex</em> 数学公式，详见 <a href="http://math.stackexchange.com/">math.stackexchange.com</a>.</p>
+
+<h4 id="行内公式">行内公式</h4>
+
+<p>数学公式为：$ \Gamma(n) = (n-1)!\quad\forall n\in\mathbb N $。</p>
+
+<p>写法：</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>数学公式为：$ <span class="se">\G</span>amma(n) = (n-1)!<span class="se">\q</span>uad<span class="se">\f</span>orall n<span class="se">\i</span>n<span class="se">\m</span>athbb N $。
+</code></pre></div></div>
+
+<h4 id="块级公式">块级公式：</h4>
+
+\[x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]
+
+<p>写法：</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$$ x = <span class="se">\d</span>frac{-b <span class="se">\p</span>m <span class="se">\s</span>qrt{b^2 - 4ac}}{2a} $$
+</code></pre></div></div>
+
+<p>更多LaTex语法请参考 <a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">这里</a>.</p>
+
+<h2 id="浏览器兼容">浏览器兼容</h2>
+
+<ol>
+  <li>目前，本编辑器对 <strong>Chrome</strong> 浏览器支持最为完整。建议大家使用较新版本的 Chrome。</li>
+  <li><strong>IE9</strong> 以下不支持</li>
+  <li><strong>IE9，10，11</strong> 存在以下问题
+    <ol>
+      <li>不支持离线功能</li>
+      <li>IE9 不支持文件导入导出</li>
+      <li>IE10 不支持拖拽文件导入</li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="常用-markdown-编辑器推荐">常用 Markdown 编辑器推荐</h2>
+
+<ol>
+  <li><strong>Markdownpad</strong>： 详情请点击 <a href="http://markdownpad.com/">官网</a>。
+（貌似专业版需要收取一定dollars$，需要序列号自行baidu。）</li>
+  <li><strong>Markpad</strong>：详情前往 <a href="http://markpad.fluid.impa.br/">官网</a>。
+（推荐使用，Microsoft Store也有，完全免费，支持及时效果浏览。）</li>
+  <li>
+    <p><strong>CSDN博客编辑器</strong>：CSDN网站内置编辑器。（这篇文件就是这样写出来的-_-)</p>
+  </li>
+  <li>
+    <p><strong>Harropad</strong>: <a href="http://pad.haroopress.com/user.html">官网</a></p>
+  </li>
+  <li><strong>Retext</strong>: 简单强大的文本编辑器，可控制输出格式：pdf, html等，仅支持Linux（推荐）.<a href="https://github.com/retext-project/retext">下载</a></li>
+</ol>
+
+
+    </div>
+</div>
+<hr>
+
+<!-- valine 评论插件 -->
+<h3>评论：</h3>
+<div class="comments"></div>
+<hr>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '.comments',
+        appId: '4XY3DoTJmibNe3rHeAKOxqzl-gzGzoHsz',
+        appKey: 'vjothQHALvgTQF9GrSgj577a',
+        avatar: 'robohash',
+        placeholder: '留下你的评论吧（支持Markdown）~',
+        // visitor: true,
+    })
+</script>
+
+<!-- 微信公众号 -->
+<div class="program-knight">
+    <p>技术文章推送</p>
+    <p>手机、电脑实用软件分享</p>
+    <img src="/assets/img/knight.png" alt="微信搜索公众号: 程序骑士" title="微信搜索公众号: 程序骑士">
+    <div>
+        <img src="/assets/img/wechat.png" alt="wechat">
+        <b>微信公众号：程序骑士</b>
+    </div>
+</div>
+<!--百度资源自动提交-->
+
+
+    </div>
+</div>
+
+</main>
+
+<footer class="page-footer teal">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <p class="footer-message grey-text text-lighten-3">以勤劳的双手，用心敲写明天</p>
+                <hr>
+                <p class="visit-statistics">
+                    <span id="busuanzi_container_site_pv">访问量：<span id="busuanzi_value_site_pv"></span>次</span>&nbsp;
+                    <span id="busuanzi_container_site_pv">访客量：<span id="busuanzi_value_site_uv"></span>人次</span>
+                </p>
+                <p class="grey-text text-lighten-4">基于 jekyll 的 Github Pages 个人博客网站
+</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Copyright &#xA9; 2021 苏梓鑫的博客. All rights reserved. Powered by
+            <a href=https://github.com/suzixin/suzixin.github.io>knightyun</a>.
+        </div>
+    </div>
+    <!-- Search box -->
+    <div class="search">
+        <i class="material-icons search-icon search-start">search</i>
+        <input type="text" class="search-input" placeholder="Searching...（支持正则表达式）" />
+        <i class="material-icons search-icon search-clear">clear</i>
+        <div class="search-results z-depth-4"></div>
+    </div>
+    <!-- 右下角功能按钮 -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue z-depth-4">
+            <i class="large material-icons">apps</i>
+        </a>
+        <ul>
+            <li class="category-btn hide">
+                <!-- 文章目录按钮 -->
+                <a class="sidenav-trigger btn-floating blue lighten-2" data-target="category">
+                    <i class="material-icons">format_list_bulleted</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: searchInput.focus()">
+                    <i class="material-icons">search</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, 0);">
+                    <i class="material-icons">publish</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, document.body.clientHeight);">
+                    <i class="material-icons">file_download</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 文章目录侧栏 -->
+    <ul id="category" class="hide sidenav no-autoinit grey lighten-4 grey-text text-darken-3">
+        <li>
+            <p class="center-align">目录</p>
+        </li>
+    </ul>
+</footer>
+
+
+    
+    <script src="/assets/js/min/materialize.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/post.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/particles.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/main.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/search.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/gen-category.min.js"></script>
+    
+
+
+
+
+<!-- 以下为插入的第三方网站分析代码 -->
+
+</body>
+
+</html>

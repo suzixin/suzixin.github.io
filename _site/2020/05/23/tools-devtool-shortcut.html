@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 360 -->
+    <meta name="360-site-verification" content="fa6ca3a9a0330e9cecabee0a9fe1d52a" />
+    <!-- 搜狗 -->
+    <meta name="sogou_site_verification" content="oatSp9uAV5" />
+    <!--熊掌号 -->
+    <meta name="baidu-site-verification" content="Wkb0Jzk8yx" />
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="IJrXvaK-Luj-lCGP7tymcCbkcfMKi82Y8V21qN9ZT0s" />
+    <title>
+        
+            提升开发效率的 Chrome 开发者工具快捷键参考
+        
+    </title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/assets/css/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+    
+
+    
+        
+        <link rel="stylesheet" href="/assets/css/page.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/post.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/syntax.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/article-category.css">
+        
+    
+
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">	
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="提升开发效率的 Chrome 开发者工具快捷键参考" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="description" content="介绍与总结 Chrome 浏览器开发者工具(devtool)中的常用快捷键" />
+<meta property="og:description" content="介绍与总结 Chrome 浏览器开发者工具(devtool)中的常用快捷键" />
+<link rel="canonical" href="http://localhost:4000/2020/05/23/tools-devtool-shortcut" />
+<meta property="og:url" content="http://localhost:4000/2020/05/23/tools-devtool-shortcut" />
+<meta property="og:site_name" content="苏梓鑫的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-23T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="提升开发效率的 Chrome 开发者工具快捷键参考" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2020/05/23/tools-devtool-shortcut","headline":"提升开发效率的 Chrome 开发者工具快捷键参考","dateModified":"2020-05-23T00:00:00+08:00","datePublished":"2020-05-23T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/05/23/tools-devtool-shortcut"},"description":"介绍与总结 Chrome 浏览器开发者工具(devtool)中的常用快捷键","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+    <header>
+        <nav class="top-nav">
+            
+            <div class="nav-wrapper">
+                <div class="container">
+                    
+                    <a class="page-title" href="/">苏梓鑫的博客</a>
+                    <p class="head-message">学习&nbsp;&nbsp;总结&nbsp;&nbsp;分享&nbsp;&nbsp;提升</p>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <a href="#" data-target="slide-out" class="sidenav-trigger top-nav full hide-on-large-only">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+        <ul id="slide-out" class="sidenav sidenav-fixed" style="background-color:#ddd">
+            <li>
+                <div class="userView">
+                    <img class="user-bg" src="/assets/img/bg.png" />
+                    <a class="user-avatar" href="https://github.com/suzixin" target="_blank">
+                        <img class="circle z-depth-2" src="/assets/img/user.png" width="64" />
+                    </a>
+                    <div class="white-text user-info">
+                        苏梓鑫 <i>(Knight Huang)</i><br>
+                        adahsuzixin@gmail.com
+                    </div>
+                </div>
+            </li>
+            <li><a class="waves-effect" href="/"><i class="material-icons">home</i>Home - 主页</a></li>
+            <li><a class="waves-effect" href="/projects"><i class="material-icons">description</i>Github - 项目</a></li>
+            <li><a class="waves-effect" href="/categories"><i class="material-icons">sort</i>Categories - 目录</a></li>
+            <li><a class="waves-effect" href="/tags"><i class="material-icons">label</i>Tags - 标签</a></li>
+            <li><a class="waves-effect" href="/feed.xml" target="_blank"><i class="material-icons">rss_feed</i>RSS - 订阅</a></li>
+            <li><a class="waves-effect" href="/about"><i class="material-icons">person</i>About - 关于我</a></li>
+            <li><a class="waves-effect" href="/contact"><i class="material-icons">email</i>Contact - 联系我</a></li>
+            <!-- 华为云广告 -->
+            <li class="ad">
+                <!-- <a href="https://mp.weixin.qq.com/s/ujUoHc3grjO8LD_Bg1fckA" target="_blank"> -->
+                <!-- <a href="https://mp.weixin.qq.com/s/MTbMlhjAx8R4fc8Po90EXg" target="_blank">
+                    <img src="/assets/img/ad-huaweiyun.png" alt="" width="100%" />
+                </a>
+                <i class="material-icons" onclick="javascript:this.parentNode.style.display='none';">close</i> -->
+            </li>
+        </ul>
+    </header>
+    <main>
+
+<div class="container">
+    <div id="page-info">
+        <h1 class="page-title white-text">提升开发效率的 Chrome 开发者工具快捷键参考</h1>
+    </div>
+    <div id="page-content" class="row">
+        <div id="post-info">
+    <ul class="collapsible hoverable" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header grey lighten-4">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Date">date_range</i>
+                    23/05/2020 00:00<br />
+                    <div id="busuanzi_container_site_pv">点击量：<span style="display: inline;" id="busuanzi_value_page_pv"></span>次</div>
+                    <i id="indicate" class="right material-icons tooltipped" data-position="left" data-delay="30"
+                        data-tooltip="Show extra info">info</i>
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Categories">sort</i>
+                    
+                    
+                    
+                    <a href="/categories#工具_cap"
+                        target="_blank">
+                        <div class="chip">工具</div>
+                    </a>
+                    
+                </span>
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Tags">label</i>
+                    
+                    
+                    
+                    <a href="/tags#chrome" target="_blank">
+                        <div class="chip">chrome</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#devtool" target="_blank">
+                        <div class="chip">devtool</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#开发者工具_cap" target="_blank">
+                        <div class="chip">开发者工具</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#快捷键_cap" target="_blank">
+                        <div class="chip">快捷键</div>
+                    </a>
+                    
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="divider"></div>
+<div id="post-content" class="row">
+    <div class="col s12">
+        <p>本文只介绍 Chrome 一些主要和常用的快捷键，在其它浏览器的开发者工具中可类比，大部分快捷键作用都相同，只有个别差异。</p>
+
+<h2 id="全局所有面板">全局（所有面板）</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>功能</th>
+      <th>快捷键</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>打开开发者工具</td>
+      <td><code class="language-plaintext highlighter-rouge">F12</code> / <code class="language-plaintext highlighter-rouge">Ctrl + Shift + I</code></td>
+      <td>普通打开</td>
+    </tr>
+    <tr>
+      <td>打开 Console</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + Shift + J</code></td>
+      <td>打开工具并进入 Console 面板</td>
+    </tr>
+    <tr>
+      <td>检查元素</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + Shift + C</code></td>
+      <td>进入 Elements 面板后开始选取页面元素</td>
+    </tr>
+    <tr>
+      <td>开发者工具设置</td>
+      <td><code class="language-plaintext highlighter-rouge">?</code>/<code class="language-plaintext highlighter-rouge">F1</code></td>
+      <td>开发者工具的所有相关设置</td>
+    </tr>
+    <tr>
+      <td>切换上一个面板</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + [</code></td>
+      <td>向左切换一个面板</td>
+    </tr>
+    <tr>
+      <td>切换下一个面板</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + ]</code></td>
+      <td>向右切换一个面板</td>
+    </tr>
+    <tr>
+      <td>切换工具停靠位置</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + Shift + D</code></td>
+      <td>即整个工具相对于浏览器的停靠位置，具体在悬浮、左侧、右侧、底部哪两个间切换，取决于最近两次操作</td>
+    </tr>
+    <tr>
+      <td>切换设备模式</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + Shift + M</code></td>
+      <td>普通模式和响应式设备编辑模式间切换</td>
+    </tr>
+    <tr>
+      <td>切换抽屉工具栏</td>
+      <td><code class="language-plaintext highlighter-rouge">Esc</code></td>
+      <td>切换显示工具底部的弹出式工具栏，如 Console 等</td>
+    </tr>
+    <tr>
+      <td>刷新网页</td>
+      <td><code class="language-plaintext highlighter-rouge">F5</code>/<code class="language-plaintext highlighter-rouge">Ctrl + R</code></td>
+      <td>普通刷新页面，会读取 memory cache 和 disk cache</td>
+    </tr>
+    <tr>
+      <td>强制刷新</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + F5</code>/<code class="language-plaintext highlighter-rouge">Ctrl + Shift + R</code></td>
+      <td>禁用缓存刷新，类似于勾选 <code class="language-plaintext highlighter-rouge">disable cache</code> 后刷新</td>
+    </tr>
+    <tr>
+      <td>当前面板中搜索</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + F</code></td>
+      <td>当前面板中搜索文本，如 Elements, Console 等</td>
+    </tr>
+    <tr>
+      <td>所有资源中搜索</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + Shift + F</code></td>
+      <td>在当前网页加载的所有资源（Sources）中搜索文本</td>
+    </tr>
+    <tr>
+      <td>按文件名搜索</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + O</code>/<code class="language-plaintext highlighter-rouge">Ctrl + P</code></td>
+      <td>同样搜索所有资源，只是搜索对象限制在文件名称上</td>
+    </tr>
+    <tr>
+      <td>放大字体</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + +</code></td>
+      <td>放大整个开发者工具的字体与图形（不包括网页）</td>
+    </tr>
+    <tr>
+      <td>缩小字体</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + -</code></td>
+      <td>缩小开发者工具字体与图形的尺寸</td>
+    </tr>
+    <tr>
+      <td>恢复字体大小</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + 0</code></td>
+      <td>将开发者工具的字体与图形尺寸恢复默认大小</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="elements元素面板">Elements（元素）面板</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>功能</th>
+      <th>快捷键</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>撤消更改</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + Z</code></td>
+      <td>撤销对 HTML 内容的修改</td>
+    </tr>
+    <tr>
+      <td>重做更改</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + Y</code></td>
+      <td>恢复撤销前的修改</td>
+    </tr>
+    <tr>
+      <td>展开节点</td>
+      <td><code class="language-plaintext highlighter-rouge">→</code>（右方向键）</td>
+      <td>展开当前折叠的 HTML 元素节点</td>
+    </tr>
+    <tr>
+      <td>折叠节点</td>
+      <td><code class="language-plaintext highlighter-rouge">←</code>（左方向键）</td>
+      <td>折叠当前展开的 HTML 元素节点</td>
+    </tr>
+    <tr>
+      <td>递归展开节点</td>
+      <td><code class="language-plaintext highlighter-rouge">Alt + →</code></td>
+      <td>递归地展开当前折叠的 HTML 元素节点</td>
+    </tr>
+    <tr>
+      <td>递归折叠节点</td>
+      <td><code class="language-plaintext highlighter-rouge">Alt + ←</code></td>
+      <td>递归地折叠当前展开的 HTML 元素节点</td>
+    </tr>
+    <tr>
+      <td>编辑节点属性</td>
+      <td><code class="language-plaintext highlighter-rouge">Enter</code></td>
+      <td>编辑所在元素节点的属性值（第一个属性的）</td>
+    </tr>
+    <tr>
+      <td>编辑下个属性</td>
+      <td><code class="language-plaintext highlighter-rouge">Tab</code></td>
+      <td>按下 Enter 编辑属性后，按 Tab 可以依次切换到后面的属性</td>
+    </tr>
+    <tr>
+      <td>编辑上个属性</td>
+      <td><code class="language-plaintext highlighter-rouge">Shift + Tab</code></td>
+      <td>切换到当前元素节点的上一个属性值进行编辑</td>
+    </tr>
+    <tr>
+      <td>隐藏节点</td>
+      <td><code class="language-plaintext highlighter-rouge">H</code></td>
+      <td>在页面中隐藏当前元素节点，实质是设置 <code class="language-plaintext highlighter-rouge">visibility: hidden !important;</code> 样式</td>
+    </tr>
+    <tr>
+      <td>编辑 HTML</td>
+      <td><code class="language-plaintext highlighter-rouge">F2</code></td>
+      <td>以 HTML 的形式编辑当前元素节点内容，类似于右键菜单的 <code class="language-plaintext highlighter-rouge">Edit as HTML</code></td>
+    </tr>
+    <tr>
+      <td>编辑源样式</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + 点击</code></td>
+      <td>Style（样式）栏中，Ctrl + 鼠标点击 CSS 规则（选择器、属性或属性值）时，会跳转到源文件的相应位置</td>
+    </tr>
+    <tr>
+      <td>切换颜色类型</td>
+      <td><code class="language-plaintext highlighter-rouge">Shift + 点击</code></td>
+      <td>Shift + 点击样式颜色值左边的取色框时，色值类型会在 <code class="language-plaintext highlighter-rouge">#, rgb(), hls()</code> 之间切换</td>
+    </tr>
+    <tr>
+      <td>增/减数值</td>
+      <td><code class="language-plaintext highlighter-rouge">↑</code>/<code class="language-plaintext highlighter-rouge">↓</code>（上、下方向键）</td>
+      <td>单次增/减大小为 1 单位</td>
+    </tr>
+    <tr>
+      <td>0.1 倍增/减值</td>
+      <td><code class="language-plaintext highlighter-rouge">Alt + ↑</code>/<code class="language-plaintext highlighter-rouge">Alt + ↓</code></td>
+      <td>单次增/减 0.1 倍单位值</td>
+    </tr>
+    <tr>
+      <td>10 倍增/减值</td>
+      <td><code class="language-plaintext highlighter-rouge">Shift + ↑</code>/<code class="language-plaintext highlighter-rouge">Shift + ↓</code></td>
+      <td>单次增/减 10 倍单位值</td>
+    </tr>
+    <tr>
+      <td>100 倍增/减值</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + ↑</code>/<code class="language-plaintext highlighter-rouge">Ctrl + ↓</code></td>
+      <td>单次增/减 100 倍单位值</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="console控制台面板">Console（控制台）面板</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>功能</th>
+      <th>快捷键</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>清空输出</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + L</code></td>
+      <td>清空控制台的历史输出</td>
+    </tr>
+    <tr>
+      <td>聚焦输入</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + `</code>（反引号）</td>
+      <td>把输入焦点聚焦到控制台输入框中，其它面板中使用则打开 Console 抽屉栏</td>
+    </tr>
+    <tr>
+      <td>接受建议</td>
+      <td><code class="language-plaintext highlighter-rouge">Enter</code>/<code class="language-plaintext highlighter-rouge">→</code></td>
+      <td>接受代码提示的第一个建议项</td>
+    </tr>
+    <tr>
+      <td>切换命令</td>
+      <td><code class="language-plaintext highlighter-rouge">↑</code>/<code class="language-plaintext highlighter-rouge">↓</code></td>
+      <td>切换上/下一条历史输入命令</td>
+    </tr>
+    <tr>
+      <td>运行代码</td>
+      <td><code class="language-plaintext highlighter-rouge">Enter</code></td>
+      <td>回车运行输入的代码</td>
+    </tr>
+    <tr>
+      <td>换行输入</td>
+      <td><code class="language-plaintext highlighter-rouge">Shift + Enter</code></td>
+      <td>由于直接回车是运行代码，所以想换行输入需要加 Shift</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="sources资源面板">Sources（资源）面板</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>功能</th>
+      <th>快捷键</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>执行脚本</td>
+      <td><code class="language-plaintext highlighter-rouge">F8</code>/<code class="language-plaintext highlighter-rouge">Ctrl + \</code></td>
+      <td>切换执行或暂停脚本</td>
+    </tr>
+    <tr>
+      <td>单步执行</td>
+      <td><code class="language-plaintext highlighter-rouge">F10</code>/<code class="language-plaintext highlighter-rouge">Ctrl + '</code></td>
+      <td>（Debugger 栏中 ）单步调试脚本</td>
+    </tr>
+    <tr>
+      <td>单步进入</td>
+      <td><code class="language-plaintext highlighter-rouge">F11</code>/<code class="language-plaintext highlighter-rouge">Ctrl + ;</code></td>
+      <td>单步进入调试（遇到函数就跳入）</td>
+    </tr>
+    <tr>
+      <td>单步跳出</td>
+      <td><code class="language-plaintext highlighter-rouge">Shift + F11</code>/<code class="language-plaintext highlighter-rouge">Ctrl + Shift + ;</code></td>
+      <td>单步跳出调试（跳出当前函数）</td>
+    </tr>
+    <tr>
+      <td>下个调用帧</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + .</code>（英文句号）</td>
+      <td>调试时切换到调用栈（Call Stack 栏）中当前帧的下面一帧</td>
+    </tr>
+    <tr>
+      <td>上个调用帧</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + ,</code>（英文逗号）</td>
+      <td>调试时切换到当前调用的帧上面一帧（当前为栈顶则忽略）</td>
+    </tr>
+    <tr>
+      <td>输出变量值</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + Shift + E</code></td>
+      <td>在控制台输出编辑器中所选中的变量的值</td>
+    </tr>
+    <tr>
+      <td>观察变量值</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + Shift + A</code></td>
+      <td>将编辑器中选中的变量值添加到 Watch 栏中</td>
+    </tr>
+    <tr>
+      <td>切换断点</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + B</code></td>
+      <td>当焦点位于代码编辑器中时，用于切换当前行是否设置为断点</td>
+    </tr>
+    <tr>
+      <td>切换启用断点</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + Shift + B</code></td>
+      <td>切换当前行的断点是否启用（不会删除断点）</td>
+    </tr>
+    <tr>
+      <td>切换启用全部断点</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + F8</code></td>
+      <td>切换所有设置的断点是否启用</td>
+    </tr>
+    <tr>
+      <td>编辑断点</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + Alt + B</code></td>
+      <td>编辑当前行的断点类型（Breakpoint, Conditional Breakpoint, Logpoint）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="代码编辑器sources-面板中">代码编辑器（Sources 面板中）</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>功能</th>
+      <th>快捷键</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>切换注释</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + /</code></td>
+      <td>为当前行或选中内容添加/取消注释</td>
+    </tr>
+    <tr>
+      <td>保存修改</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + S</code></td>
+      <td>保存对文件的修改（需要先启用侧栏的 Overrides 功能）</td>
+    </tr>
+    <tr>
+      <td>保存所有更改</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + Alt + S</code></td>
+      <td>保存编辑器打开的所有文件，同样需要启用 Overrides</td>
+    </tr>
+    <tr>
+      <td>转到匹配括号</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + M</code></td>
+      <td>跳转到与当前光标位置的括号匹配的另一个括号处</td>
+    </tr>
+    <tr>
+      <td>添加匹配项</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + D</code></td>
+      <td>跳转并添加选择下一个与选择文本匹配的文本</td>
+    </tr>
+    <tr>
+      <td>撤销匹配项</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + U</code></td>
+      <td>返回并撤销选择一个匹配项，与 <code class="language-plaintext highlighter-rouge">Ctrl + D</code> 相反</td>
+    </tr>
+    <tr>
+      <td>转到行</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + G</code></td>
+      <td>跳转到指定行数</td>
+    </tr>
+    <tr>
+      <td>转到成员</td>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + Shift + O</code></td>
+      <td>跳转到当前文件中的指定成员函数</td>
+    </tr>
+    <tr>
+      <td>上个编辑处</td>
+      <td><code class="language-plaintext highlighter-rouge">Alt + -</code></td>
+      <td>跳转到上一个光标位于的编辑位置</td>
+    </tr>
+    <tr>
+      <td>下个编辑处</td>
+      <td><code class="language-plaintext highlighter-rouge">Alt + +</code></td>
+      <td>跳转到下一个编辑位置</td>
+    </tr>
+    <tr>
+      <td>关闭活动标签</td>
+      <td><code class="language-plaintext highlighter-rouge">Alt + W</code></td>
+      <td>关闭当前编辑的标签（文件）</td>
+    </tr>
+    <tr>
+      <td>增/减CSS值</td>
+      <td><code class="language-plaintext highlighter-rouge">Alt + ↑</code>/<code class="language-plaintext highlighter-rouge">Alt +↓</code></td>
+      <td>编辑 CSS 源文件时，可对当前数值增/减 1 一个单位</td>
+    </tr>
+    <tr>
+      <td>10 倍增/减CSS值</td>
+      <td><code class="language-plaintext highlighter-rouge">Alt + PageUp↑</code>/<code class="language-plaintext highlighter-rouge">Alt + PageDown</code></td>
+      <td>CSS 中对当前数值增/减 10 一个单位</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+</div>
+<hr>
+
+<!-- valine 评论插件 -->
+<h3>评论：</h3>
+<div class="comments"></div>
+<hr>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '.comments',
+        appId: '4XY3DoTJmibNe3rHeAKOxqzl-gzGzoHsz',
+        appKey: 'vjothQHALvgTQF9GrSgj577a',
+        avatar: 'robohash',
+        placeholder: '留下你的评论吧（支持Markdown）~',
+        // visitor: true,
+    })
+</script>
+
+<!-- 微信公众号 -->
+<div class="program-knight">
+    <p>技术文章推送</p>
+    <p>手机、电脑实用软件分享</p>
+    <img src="/assets/img/knight.png" alt="微信搜索公众号: 程序骑士" title="微信搜索公众号: 程序骑士">
+    <div>
+        <img src="/assets/img/wechat.png" alt="wechat">
+        <b>微信公众号：程序骑士</b>
+    </div>
+</div>
+<!--百度资源自动提交-->
+
+
+    </div>
+</div>
+
+</main>
+
+<footer class="page-footer teal">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <p class="footer-message grey-text text-lighten-3">以勤劳的双手，用心敲写明天</p>
+                <hr>
+                <p class="visit-statistics">
+                    <span id="busuanzi_container_site_pv">访问量：<span id="busuanzi_value_site_pv"></span>次</span>&nbsp;
+                    <span id="busuanzi_container_site_pv">访客量：<span id="busuanzi_value_site_uv"></span>人次</span>
+                </p>
+                <p class="grey-text text-lighten-4">基于 jekyll 的 Github Pages 个人博客网站
+</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Copyright &#xA9; 2021 苏梓鑫的博客. All rights reserved. Powered by
+            <a href=https://github.com/suzixin/suzixin.github.io>knightyun</a>.
+        </div>
+    </div>
+    <!-- Search box -->
+    <div class="search">
+        <i class="material-icons search-icon search-start">search</i>
+        <input type="text" class="search-input" placeholder="Searching...（支持正则表达式）" />
+        <i class="material-icons search-icon search-clear">clear</i>
+        <div class="search-results z-depth-4"></div>
+    </div>
+    <!-- 右下角功能按钮 -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue z-depth-4">
+            <i class="large material-icons">apps</i>
+        </a>
+        <ul>
+            <li class="category-btn hide">
+                <!-- 文章目录按钮 -->
+                <a class="sidenav-trigger btn-floating blue lighten-2" data-target="category">
+                    <i class="material-icons">format_list_bulleted</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: searchInput.focus()">
+                    <i class="material-icons">search</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, 0);">
+                    <i class="material-icons">publish</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, document.body.clientHeight);">
+                    <i class="material-icons">file_download</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 文章目录侧栏 -->
+    <ul id="category" class="hide sidenav no-autoinit grey lighten-4 grey-text text-darken-3">
+        <li>
+            <p class="center-align">目录</p>
+        </li>
+    </ul>
+</footer>
+
+
+    
+    <script src="/assets/js/min/materialize.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/post.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/particles.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/main.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/search.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/gen-category.min.js"></script>
+    
+
+
+
+
+<!-- 以下为插入的第三方网站分析代码 -->
+
+</body>
+
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 360 -->
+    <meta name="360-site-verification" content="fa6ca3a9a0330e9cecabee0a9fe1d52a" />
+    <!-- 搜狗 -->
+    <meta name="sogou_site_verification" content="oatSp9uAV5" />
+    <!--熊掌号 -->
+    <meta name="baidu-site-verification" content="Wkb0Jzk8yx" />
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="IJrXvaK-Luj-lCGP7tymcCbkcfMKi82Y8V21qN9ZT0s" />
+    <title>
+        
+            个人博客网站添加文章搜索功能
+        
+    </title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/assets/css/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+    
+
+    
+        
+        <link rel="stylesheet" href="/assets/css/page.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/post.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/syntax.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/article-category.css">
+        
+    
+
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">	
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="个人博客网站添加文章搜索功能" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="description" content="为个人博客网站添加文章搜索模块" />
+<meta property="og:description" content="为个人博客网站添加文章搜索模块" />
+<link rel="canonical" href="http://localhost:4000/2019/03/04/articles-search" />
+<meta property="og:url" content="http://localhost:4000/2019/03/04/articles-search" />
+<meta property="og:site_name" content="苏梓鑫的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-04T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="个人博客网站添加文章搜索功能" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2019/03/04/articles-search","headline":"个人博客网站添加文章搜索功能","dateModified":"2019-03-04T00:00:00+08:00","datePublished":"2019-03-04T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2019/03/04/articles-search"},"description":"为个人博客网站添加文章搜索模块","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+    <header>
+        <nav class="top-nav">
+            
+            <div class="nav-wrapper">
+                <div class="container">
+                    
+                    <a class="page-title" href="/">苏梓鑫的博客</a>
+                    <p class="head-message">学习&nbsp;&nbsp;总结&nbsp;&nbsp;分享&nbsp;&nbsp;提升</p>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <a href="#" data-target="slide-out" class="sidenav-trigger top-nav full hide-on-large-only">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+        <ul id="slide-out" class="sidenav sidenav-fixed" style="background-color:#ddd">
+            <li>
+                <div class="userView">
+                    <img class="user-bg" src="/assets/img/bg.png" />
+                    <a class="user-avatar" href="https://github.com/suzixin" target="_blank">
+                        <img class="circle z-depth-2" src="/assets/img/user.png" width="64" />
+                    </a>
+                    <div class="white-text user-info">
+                        苏梓鑫 <i>(Knight Huang)</i><br>
+                        adahsuzixin@gmail.com
+                    </div>
+                </div>
+            </li>
+            <li><a class="waves-effect" href="/"><i class="material-icons">home</i>Home - 主页</a></li>
+            <li><a class="waves-effect" href="/projects"><i class="material-icons">description</i>Github - 项目</a></li>
+            <li><a class="waves-effect" href="/categories"><i class="material-icons">sort</i>Categories - 目录</a></li>
+            <li><a class="waves-effect" href="/tags"><i class="material-icons">label</i>Tags - 标签</a></li>
+            <li><a class="waves-effect" href="/feed.xml" target="_blank"><i class="material-icons">rss_feed</i>RSS - 订阅</a></li>
+            <li><a class="waves-effect" href="/about"><i class="material-icons">person</i>About - 关于我</a></li>
+            <li><a class="waves-effect" href="/contact"><i class="material-icons">email</i>Contact - 联系我</a></li>
+            <!-- 华为云广告 -->
+            <li class="ad">
+                <!-- <a href="https://mp.weixin.qq.com/s/ujUoHc3grjO8LD_Bg1fckA" target="_blank"> -->
+                <!-- <a href="https://mp.weixin.qq.com/s/MTbMlhjAx8R4fc8Po90EXg" target="_blank">
+                    <img src="/assets/img/ad-huaweiyun.png" alt="" width="100%" />
+                </a>
+                <i class="material-icons" onclick="javascript:this.parentNode.style.display='none';">close</i> -->
+            </li>
+        </ul>
+    </header>
+    <main>
+
+<div class="container">
+    <div id="page-info">
+        <h1 class="page-title white-text">个人博客网站添加文章搜索功能</h1>
+    </div>
+    <div id="page-content" class="row">
+        <div id="post-info">
+    <ul class="collapsible hoverable" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header grey lighten-4">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Date">date_range</i>
+                    04/03/2019 00:00<br />
+                    <div id="busuanzi_container_site_pv">点击量：<span style="display: inline;" id="busuanzi_value_page_pv"></span>次</div>
+                    <i id="indicate" class="right material-icons tooltipped" data-position="left" data-delay="30"
+                        data-tooltip="Show extra info">info</i>
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Categories">sort</i>
+                    
+                    
+                    
+                    <a href="/categories#网站_cap"
+                        target="_blank">
+                        <div class="chip">网站</div>
+                    </a>
+                    
+                </span>
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Tags">label</i>
+                    
+                    
+                    
+                    <a href="/tags#文章搜索_cap" target="_blank">
+                        <div class="chip">文章搜索</div>
+                    </a>
+                    
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="divider"></div>
+<div id="post-content" class="row">
+    <div class="col s12">
+        <p>现在很多网站页面里都有搜索模块，包括在线搜索、站内搜索等等，尤其是博客类网站，文章搜索功能就显得比较重要，现在以个人博客网站为例，详细介绍如何给页面添加搜索功能模块，至于如何搭建个人博客网站，可以参考这篇文章：<a href="https://knightyun.github.io/2018/04/01/github-pages-blog">https://knightyun.github.io/2018/04/01/github-pages-blog</a>；</p>
+
+<h1 id="功能分析">功能分析</h1>
+<p>为网页添加搜索模块的第三方网站有不少，实现效果也都不错，既然人家都能通过代码实现此功能，与其过度依赖第三方，何不自己研究一下原理自己实现呢<em>_</em>；</p>
+
+<p>网页内搜索功能无非就是在文本输入框内输入一串想要搜索的关键字符串，点击搜索按钮后查找匹配出站内所有文章的匹配结果进行输出，再附上一个文章的链接；针对这个功能，作者本人第一时间想到的则是前端领域里的 <strong>Ajax</strong>，利用 <strong>XMLHttpRequest()</strong> 实现数据的交互，不清楚的可以自行百度快速补习，然后一般博客类网站都有 <strong>RSS</strong> 订阅功能及其数据页面，不清楚的也可以迅速百度了解一下，其实就是站内某个目录内存在一个叫 <strong>feed.xml</strong> 或者类似名字的页面，XML格式的，早期用于实现新闻内容订阅的，现在用的也比较广泛，里面存储的就是文章相关的一些数据，因此我们就可以获取这个文件里面的所有内容然后实现搜索匹配；</p>
+
+<p>如果像我一样用 <strong>Gihub Pages</strong> 搭建的个人博客网站的话，无论用的 <strong>jekyll</strong> 或者 <strong>hexo</strong>，一般这个 feed.xml 文件就位于 <strong>根目录</strong> 下，并且该文件同时记录着某一篇文章所对应的 <strong>标题、页面链接、文章内容</strong> 等内容，这三个部分后面将用到，xml 内容大致如下：</p>
+
+<p><img src="https://i.loli.net/2019/03/04/5c7d2c5c9a6ee.png" alt="rss" /></p>
+
+<p>当然有其他更好的实现方法可以自行参考或者在文末评论，那么接下来便通过这个方法来一步步实现搜素功能；</p>
+
+<h1 id="功能实现">功能实现</h1>
+<p>先预览一下页面最终的实现效果：</p>
+
+<p><img src="https://i.loli.net/2019/03/04/5c7cea40495b1.png" alt="search-box" /></p>
+
+<p>或者在这里：<a href="https://knightyun.github.io/">https://knightyun.github.io/</a> 预览我的博客的搜索模块的最终实现；</p>
+
+<h5 id="html部分">HTML部分</h5>
+<p>即页面样式，组成很简单，即一个文本输入框<code class="language-plaintext highlighter-rouge">&lt;input&gt;</code>和一个搜索图标，这里图标可以自行搜索下载一个，或者像下面一样使用在线图标，全部代码如下：</p>
+
+<p>先在<code class="language-plaintext highlighter-rouge">&lt;header&gt;&lt;/header&gt;</code>内部添加以下代码，使用在线图标：</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"https://fonts.googleapis.com/icon?family=Material+Icons"</span>
+      <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>然后在网页内需要添加搜索栏的合适位置添加以下代码，一般放在顶部导航栏：</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"search"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"material-icons search-icon search-start"</span><span class="nt">&gt;</span>search<span class="nt">&lt;/i&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"search-input"</span> <span class="na">placeholder=</span><span class="s">"Searching..."</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"material-icons search-icon search-clear"</span><span class="nt">&gt;</span>clear<span class="nt">&lt;/i&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"search-results"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>上面的<strong>clear</strong>是一个清除输入框内容的图标，<strong>search-results</strong>是用于输出匹配到的结果的板块；</p>
+
+<h5 id="css部分">CSS部分</h5>
+<p>然后来看一下<strong>CSS</strong>样式代码，仅供参考：</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.search</span> <span class="p">{</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span>
+    <span class="nl">line-height</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+    <span class="nl">padding-right</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.search</span> <span class="nc">.search-icon</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="nl">line-height</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+    <span class="nl">cursor</span><span class="p">:</span> <span class="nb">pointer</span><span class="p">;</span>
+    <span class="py">user-select</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.search</span> <span class="nc">.search-input</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">30%</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+    <span class="nl">line-height</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="m">#ddd</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.search</span> <span class="nc">.search-clear</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.search</span> <span class="nc">.search-results</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">z-index</span><span class="p">:</span> <span class="m">1000</span><span class="p">;</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+    <span class="nl">top</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+    <span class="nl">right</span><span class="p">:</span> <span class="m">50px</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
+    <span class="nl">max-height</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
+    <span class="nl">overflow</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="nl">background</span><span class="p">:</span> <span class="m">#ccc</span><span class="p">;</span>
+    <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">.3rem</span> <span class="m">.5rem</span> <span class="m">#333</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.search</span> <span class="nc">.search-results</span> <span class="nc">.result-item</span> <span class="p">{</span>
+    <span class="nl">background</span><span class="p">:</span> <span class="no">aqua</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="m">#000</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+    <span class="nl">cursor</span><span class="p">:</span> <span class="nb">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>样式可以自行随意调整，最终感觉好看就OK；</p>
+
+<h5 id="javascript部分">JavaScript部分</h5>
+<p>接下来就是重头戏了，也是实现搜索功能的核心部分，搜索逻辑的实现；</p>
+
+<p>再来大致分析一下逻辑，和实现的思路：</p>
+
+<ol>
+  <li>利用XMLHttpRequest()获取站内feed.xml内的所有数据，保存到一个XML DOM对象中；</li>
+  <li>将XML对象中的文章标题、链接、内容、索引等通过<code class="language-plaintext highlighter-rouge">getElementsByTagName()</code>等方法获取并保存到对应数组变量中；</li>
+  <li>用户在输入框输入查找内容，提交后内容保存到一个字符串类型变量中；</li>
+  <li>遍历保存文章内容的数组，通过<code class="language-plaintext highlighter-rouge">.search()</code>等方法和输入值进行匹配；</li>
+  <li>匹配成功后得到所有匹配成功的数组元素的索引值，该索引值也是该内容的标题、链接数组对应的索引值；</li>
+  <li>将最终搜集的文章标题、链接，以及匹配到的内容片段摘取输出到页面；</li>
+</ol>
+
+<p>这里附上最终的 js 实现代码与注释：</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素</span>
+<span class="kd">var</span> <span class="nx">searchBtn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.search-start</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">searchClear</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.search-clear</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">searchInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.search-input</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">searchResults</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.search-results</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// 申明保存文章的标题、链接、内容的数组变量</span>
+<span class="kd">var</span> <span class="nx">searchValue</span> <span class="o">=</span> <span class="dl">''</span><span class="p">,</span>
+    <span class="nx">arrItems</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="nx">arrContents</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="nx">arrLinks</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="nx">arrTitles</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="nx">arrResults</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="nx">indexItem</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="nx">itemLength</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">tmpDiv</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">div</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">tmpDiv</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">result-item</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// ajax 的兼容写法</span>
+<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">()</span> <span class="o">||</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="dl">'</span><span class="s1">Microsoft.XMLHTTP</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">xml</span> <span class="o">=</span> <span class="nx">xhr</span><span class="p">.</span><span class="nx">responseXML</span><span class="p">;</span>
+        <span class="nx">arrItems</span> <span class="o">=</span> <span class="nx">xml</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="dl">'</span><span class="s1">item</span><span class="dl">'</span><span class="p">);</span>
+        <span class="nx">itemLength</span> <span class="o">=</span> <span class="nx">arrItems</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+        
+        <span class="c1">// 遍历并保存所有文章对应的标题、链接、内容到对应的数组中</span>
+        <span class="c1">// 同时过滤掉 HTML 标签</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">itemLength</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">arrContents</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arrItems</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="dl">'</span><span class="s1">description</span><span class="dl">'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span>
+                <span class="nx">childNodes</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">nodeValue</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;.*</span><span class="se">?</span><span class="sr">&gt;/g</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+            <span class="nx">arrLinks</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arrItems</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="dl">'</span><span class="s1">link</span><span class="dl">'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span>
+                <span class="nx">childNodes</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">nodeValue</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;.*</span><span class="se">?</span><span class="sr">&gt;/g</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+            <span class="nx">arrTitles</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arrItems</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="dl">'</span><span class="s1">title</span><span class="dl">'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span>
+                <span class="nx">childNodes</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">nodeValue</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;.*</span><span class="se">?</span><span class="sr">&gt;/g</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 开始获取根目录下 feed.xml 文件内的数据</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">/feed.xml</span><span class="dl">'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+
+<span class="nx">searchBtn</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nx">searchConfirm</span><span class="p">;</span>
+
+<span class="c1">// 清空按钮点击函数</span>
+<span class="nx">searchClear</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">searchInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+    <span class="nx">searchResults</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">none</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">searchClear</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">none</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 输入框内容变化后就开始匹配，可以不用点按钮</span>
+<span class="c1">// 经测试，onkeydown, onchange 等方法效果不太理想，</span>
+<span class="c1">// 存在输入延迟等问题，最后发现触发 input 事件最理想，</span>
+<span class="c1">// 并且可以处理中文输入法拼写的变化</span>
+<span class="nx">searchInput</span><span class="p">.</span><span class="nx">oninput</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">searchConfirm</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">searchInput</span><span class="p">.</span><span class="nx">onfocus</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">searchResults</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">block</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">searchConfirm</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">searchInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">==</span> <span class="dl">''</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">searchResults</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">none</span><span class="dl">'</span><span class="p">;</span>
+        <span class="nx">searchClear</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">none</span><span class="dl">'</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">searchInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/^</span><span class="se">\s</span><span class="sr">+$/</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 检测输入值全是空白的情况</span>
+        <span class="nx">searchInit</span><span class="p">();</span>
+        <span class="kd">var</span> <span class="nx">itemDiv</span> <span class="o">=</span> <span class="nx">tmpDiv</span><span class="p">.</span><span class="nx">cloneNode</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="nx">itemDiv</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">请输入有效内容...</span><span class="dl">'</span><span class="p">;</span>
+        <span class="nx">searchResults</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">itemDiv</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// 合法输入值的情况</span>
+        <span class="nx">searchInit</span><span class="p">();</span>
+        <span class="nx">searchValue</span> <span class="o">=</span> <span class="nx">searchInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+        <span class="c1">// 在标题、内容中查找</span>
+        <span class="nx">searchMatching</span><span class="p">(</span><span class="nx">arrTitles</span><span class="p">,</span> <span class="nx">arrContents</span><span class="p">,</span> <span class="nx">searchValue</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 每次搜索完成后的初始化</span>
+<span class="kd">function</span> <span class="nx">searchInit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">arrResults</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">indexItem</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">searchResults</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+    <span class="nx">searchResults</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">block</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">searchClear</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">block</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">searchMatching</span><span class="p">(</span><span class="nx">arr1</span><span class="p">,</span> <span class="nx">arr2</span><span class="p">,</span> <span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 忽略输入大小写</span>
+    <span class="nx">input</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="dl">'</span><span class="s1">i</span><span class="dl">'</span><span class="p">);</span>
+    <span class="c1">// 在所有文章标题、内容中匹配查询值</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">itemLength</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">arr1</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">search</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="nx">arr2</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">search</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// 优先搜索标题</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">arr1</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">search</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">arr1</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">arr2</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nx">indexItem</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>  <span class="c1">// 保存匹配值的索引</span>
+            <span class="kd">var</span> <span class="nx">indexContent</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">search</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+            <span class="c1">// 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度</span>
+            <span class="kd">var</span> <span class="nx">l</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">3</span><span class="p">;</span>
+            <span class="kd">var</span> <span class="nx">step</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+            
+            <span class="c1">// 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本</span>
+            <span class="nx">arrResults</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">slice</span><span class="p">(</span><span class="nx">indexContent</span> <span class="o">-</span> <span class="nx">step</span><span class="p">,</span> <span class="nx">indexContent</span><span class="p">)</span> <span class="o">+</span>
+                <span class="dl">'</span><span class="s1">&lt;mark&gt;</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">slice</span><span class="p">(</span><span class="nx">indexContent</span><span class="p">,</span> <span class="nx">indexContent</span> <span class="o">+</span> <span class="nx">l</span><span class="p">)</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">&lt;/mark&gt;</span><span class="dl">'</span> <span class="o">+</span>
+                <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">slice</span><span class="p">(</span><span class="nx">indexContent</span> <span class="o">+</span> <span class="nx">l</span><span class="p">,</span> <span class="nx">indexContent</span> <span class="o">+</span> <span class="nx">l</span> <span class="o">+</span> <span class="nx">step</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 输出总共匹配到的数目</span>
+    <span class="kd">var</span> <span class="nx">totalDiv</span> <span class="o">=</span> <span class="nx">tmpDiv</span><span class="p">.</span><span class="nx">cloneNode</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="nx">totalDiv</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">总匹配：&lt;b&gt;</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">indexItem</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">&lt;/b&gt; 项</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">searchResults</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">totalDiv</span><span class="p">);</span>
+
+    <span class="c1">// 未匹配到内容的情况</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">indexItem</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">itemDiv</span> <span class="o">=</span> <span class="nx">tmpDiv</span><span class="p">.</span><span class="nx">cloneNode</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="nx">itemDiv</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">未匹配到内容...</span><span class="dl">'</span><span class="p">;</span>
+        <span class="nx">searchResults</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">itemDiv</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 将所有匹配内容进行组合</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arrResults</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">itemDiv</span> <span class="o">=</span> <span class="nx">tmpDiv</span><span class="p">.</span><span class="nx">cloneNode</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="nx">itemDiv</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">&lt;b&gt;《</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">arrTitles</span><span class="p">[</span><span class="nx">indexItem</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">+</span>
+            <span class="dl">'</span><span class="s1">》&lt;/b&gt;&lt;hr /&gt;</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">arrResults</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="nx">itemDiv</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="dl">'</span><span class="s1">onclick</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">changeHref(arrLinks[indexItem[</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">]])</span><span class="dl">'</span><span class="p">);</span>
+        <span class="nx">searchResults</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">itemDiv</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">changeHref</span><span class="p">(</span><span class="nx">href</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// 在当前页面点开链接的情况</span>
+    <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">href</span><span class="p">;</span>
+
+    <span class="c1">// 在新标签页面打开链接的代码，与上面二者只能取一个，自行决定</span>
+    <span class="c1">// window.open(href);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>可以把上面的代码保存到<code class="language-plaintext highlighter-rouge">search-box.js</code>这样的 js 文件中，然后引入到 html 页面里；</p>
+
+<p>看一下最终效果：
+<img src="https://i.loli.net/2019/03/04/5c7d2d2c18d93.png" alt="final" /></p>
+
+<p>或者来我的主页查看：<strong><a href="https://knightyun.github.io/">https://knightyun.github.io/</a></strong></p>
+
+    </div>
+</div>
+<hr>
+
+<!-- valine 评论插件 -->
+<h3>评论：</h3>
+<div class="comments"></div>
+<hr>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '.comments',
+        appId: '4XY3DoTJmibNe3rHeAKOxqzl-gzGzoHsz',
+        appKey: 'vjothQHALvgTQF9GrSgj577a',
+        avatar: 'robohash',
+        placeholder: '留下你的评论吧（支持Markdown）~',
+        // visitor: true,
+    })
+</script>
+
+<!-- 微信公众号 -->
+<div class="program-knight">
+    <p>技术文章推送</p>
+    <p>手机、电脑实用软件分享</p>
+    <img src="/assets/img/knight.png" alt="微信搜索公众号: 程序骑士" title="微信搜索公众号: 程序骑士">
+    <div>
+        <img src="/assets/img/wechat.png" alt="wechat">
+        <b>微信公众号：程序骑士</b>
+    </div>
+</div>
+<!--百度资源自动提交-->
+
+
+    </div>
+</div>
+
+</main>
+
+<footer class="page-footer teal">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <p class="footer-message grey-text text-lighten-3">以勤劳的双手，用心敲写明天</p>
+                <hr>
+                <p class="visit-statistics">
+                    <span id="busuanzi_container_site_pv">访问量：<span id="busuanzi_value_site_pv"></span>次</span>&nbsp;
+                    <span id="busuanzi_container_site_pv">访客量：<span id="busuanzi_value_site_uv"></span>人次</span>
+                </p>
+                <p class="grey-text text-lighten-4">基于 jekyll 的 Github Pages 个人博客网站
+</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Copyright &#xA9; 2021 苏梓鑫的博客. All rights reserved. Powered by
+            <a href=https://github.com/suzixin/suzixin.github.io>knightyun</a>.
+        </div>
+    </div>
+    <!-- Search box -->
+    <div class="search">
+        <i class="material-icons search-icon search-start">search</i>
+        <input type="text" class="search-input" placeholder="Searching...（支持正则表达式）" />
+        <i class="material-icons search-icon search-clear">clear</i>
+        <div class="search-results z-depth-4"></div>
+    </div>
+    <!-- 右下角功能按钮 -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue z-depth-4">
+            <i class="large material-icons">apps</i>
+        </a>
+        <ul>
+            <li class="category-btn hide">
+                <!-- 文章目录按钮 -->
+                <a class="sidenav-trigger btn-floating blue lighten-2" data-target="category">
+                    <i class="material-icons">format_list_bulleted</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: searchInput.focus()">
+                    <i class="material-icons">search</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, 0);">
+                    <i class="material-icons">publish</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, document.body.clientHeight);">
+                    <i class="material-icons">file_download</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 文章目录侧栏 -->
+    <ul id="category" class="hide sidenav no-autoinit grey lighten-4 grey-text text-darken-3">
+        <li>
+            <p class="center-align">目录</p>
+        </li>
+    </ul>
+</footer>
+
+
+    
+    <script src="/assets/js/min/materialize.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/post.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/particles.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/main.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/search.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/gen-category.min.js"></script>
+    
+
+
+
+
+<!-- 以下为插入的第三方网站分析代码 -->
+
+</body>
+
+</html>

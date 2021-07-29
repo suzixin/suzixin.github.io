@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 360 -->
+    <meta name="360-site-verification" content="fa6ca3a9a0330e9cecabee0a9fe1d52a" />
+    <!-- 搜狗 -->
+    <meta name="sogou_site_verification" content="oatSp9uAV5" />
+    <!--熊掌号 -->
+    <meta name="baidu-site-verification" content="Wkb0Jzk8yx" />
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="IJrXvaK-Luj-lCGP7tymcCbkcfMKi82Y8V21qN9ZT0s" />
+    <title>
+        
+            贪吃蛇 C 语言源码与算法分析
+        
+    </title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/assets/css/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+    
+
+    
+        
+        <link rel="stylesheet" href="/assets/css/page.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/post.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/syntax.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/article-category.css">
+        
+    
+
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">	
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="贪吃蛇 C 语言源码与算法分析" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="description" content="C 语言贪吃蛇算法详细分析与源代码" />
+<meta property="og:description" content="C 语言贪吃蛇算法详细分析与源代码" />
+<link rel="canonical" href="http://localhost:4000/2018/04/24/c-gluttonous-snake" />
+<meta property="og:url" content="http://localhost:4000/2018/04/24/c-gluttonous-snake" />
+<meta property="og:site_name" content="苏梓鑫的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-04-24T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="贪吃蛇 C 语言源码与算法分析" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2018/04/24/c-gluttonous-snake","headline":"贪吃蛇 C 语言源码与算法分析","dateModified":"2018-04-24T00:00:00+08:00","datePublished":"2018-04-24T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018/04/24/c-gluttonous-snake"},"description":"C 语言贪吃蛇算法详细分析与源代码","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+    <header>
+        <nav class="top-nav">
+            
+            <div class="nav-wrapper">
+                <div class="container">
+                    
+                    <a class="page-title" href="/">苏梓鑫的博客</a>
+                    <p class="head-message">学习&nbsp;&nbsp;总结&nbsp;&nbsp;分享&nbsp;&nbsp;提升</p>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <a href="#" data-target="slide-out" class="sidenav-trigger top-nav full hide-on-large-only">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+        <ul id="slide-out" class="sidenav sidenav-fixed" style="background-color:#ddd">
+            <li>
+                <div class="userView">
+                    <img class="user-bg" src="/assets/img/bg.png" />
+                    <a class="user-avatar" href="https://github.com/suzixin" target="_blank">
+                        <img class="circle z-depth-2" src="/assets/img/user.png" width="64" />
+                    </a>
+                    <div class="white-text user-info">
+                        苏梓鑫 <i>(Knight Huang)</i><br>
+                        adahsuzixin@gmail.com
+                    </div>
+                </div>
+            </li>
+            <li><a class="waves-effect" href="/"><i class="material-icons">home</i>Home - 主页</a></li>
+            <li><a class="waves-effect" href="/projects"><i class="material-icons">description</i>Github - 项目</a></li>
+            <li><a class="waves-effect" href="/categories"><i class="material-icons">sort</i>Categories - 目录</a></li>
+            <li><a class="waves-effect" href="/tags"><i class="material-icons">label</i>Tags - 标签</a></li>
+            <li><a class="waves-effect" href="/feed.xml" target="_blank"><i class="material-icons">rss_feed</i>RSS - 订阅</a></li>
+            <li><a class="waves-effect" href="/about"><i class="material-icons">person</i>About - 关于我</a></li>
+            <li><a class="waves-effect" href="/contact"><i class="material-icons">email</i>Contact - 联系我</a></li>
+            <!-- 华为云广告 -->
+            <li class="ad">
+                <!-- <a href="https://mp.weixin.qq.com/s/ujUoHc3grjO8LD_Bg1fckA" target="_blank"> -->
+                <!-- <a href="https://mp.weixin.qq.com/s/MTbMlhjAx8R4fc8Po90EXg" target="_blank">
+                    <img src="/assets/img/ad-huaweiyun.png" alt="" width="100%" />
+                </a>
+                <i class="material-icons" onclick="javascript:this.parentNode.style.display='none';">close</i> -->
+            </li>
+        </ul>
+    </header>
+    <main>
+
+<div class="container">
+    <div id="page-info">
+        <h1 class="page-title white-text">贪吃蛇 C 语言源码与算法分析</h1>
+    </div>
+    <div id="page-content" class="row">
+        <div id="post-info">
+    <ul class="collapsible hoverable" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header grey lighten-4">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Date">date_range</i>
+                    24/04/2018 00:00<br />
+                    <div id="busuanzi_container_site_pv">点击量：<span style="display: inline;" id="busuanzi_value_page_pv"></span>次</div>
+                    <i id="indicate" class="right material-icons tooltipped" data-position="left" data-delay="30"
+                        data-tooltip="Show extra info">info</i>
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Categories">sort</i>
+                    
+                    
+                    
+                    <a href="/categories#c语言_cap"
+                        target="_blank">
+                        <div class="chip">C语言</div>
+                    </a>
+                    
+                </span>
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Tags">label</i>
+                    
+                    
+                    
+                    <a href="/tags#贪吃蛇源码_cap" target="_blank">
+                        <div class="chip">贪吃蛇源码</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#c语言贪吃蛇_cap" target="_blank">
+                        <div class="chip">C语言贪吃蛇</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#gluttonous-snake" target="_blank">
+                        <div class="chip">gluttonous-snake</div>
+                    </a>
+                    
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="divider"></div>
+<div id="post-content" class="row">
+    <div class="col s12">
+        <p>经典的贪吃蛇游戏算法，无疑是一个较大的挑战，综合性较高，像我这种刚入门C语言的也差不多花了整整一周时间才差不多理解透彻，内部包含了较多的函数，数组，二维数组，循环等思想。
+Github项目地址：<a href="https://github.com/knightyun/gluttonousSnake/">https://github.com/knightyun/gluttonousSnake/</a></p>
+
+<p>接下来以C语言为例，针对此算法截取代码片段进行详细分析，源码位于文章<a href="#end">底部</a>。</p>
+
+<h1 id="算法分析">算法分析</h1>
+
+<h2 id="概述">概述</h2>
+
+<p>首先分析一下，贪吃蛇最基本和重要的动作，一段在屏幕上移动和转向的躯干，但是C语言没有移动字符的函数，只能不断向屏幕打印输出和清屏实现移动，躯干位置在屏幕上的变化可以用二维坐标系实现，用一个二维数组保存屏幕所有可见内容的x，y坐标，并赋予几种初始值，然后用函数打印出各种值对应的字符，再用循环和坐标值自增自减实现移动。使用输入函数判断方向，随机函数生成食物，根据头部坐标判断撞墙或吃到自己而结束游戏。</p>
+
+<h2 id="头文件">头文件</h2>
+
+<p>Windows环境中需要包含的头文件：</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include&lt;stdio.h&gt;     
+#include&lt;stdlib.h&gt; 
+#include&lt;Windows.h&gt;       </span><span class="cm">/*需要使用system("cls")清屏函数*/</span><span class="cp">
+#include&lt;conio.h&gt;         </span><span class="cm">/*非标准库函数，VS中自带，需要使用_getch()函数获取输入*/</span><span class="cp">
+#include&lt;time.h&gt;          </span><span class="cm">/*使用随机数函数需要使用time()函数*/</span><span class="cp">
+</span></code></pre></div></div>
+
+<h2 id="预定义">预定义</h2>
+
+<p>游戏内可自定义设置界面宽度与高度，需要给二维数组定义一个最大值：</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define MAXX 10000                </span><span class="cm">/* 定义游戏最大界面宽度坐标值 */</span><span class="cp">
+#define MAXY 10000                </span><span class="cm">/* 定义最大高度 */</span><span class="cp">
+</span></code></pre></div></div>
+
+<h2 id="申明变量">申明变量</h2>
+
+<p>需要用到的变量和功能如下：</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">speed</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>                    <span class="cm">/* 设置蛇移动速度 */</span>
+<span class="kt">int</span> <span class="n">mapArr</span><span class="p">[</span><span class="n">MAXX</span><span class="p">][</span><span class="n">MAXY</span><span class="p">];</span>            <span class="cm">/* 保存界面坐标值的二维数组 */</span>
+<span class="kt">int</span> <span class="n">inputX</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">inputY</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>      <span class="cm">/* 默认游戏界面宽度和高度 */</span>
+<span class="kt">int</span> <span class="n">randX</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">randY</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>        <span class="cm">/* 生成的随机食物的坐标值 */</span>
+<span class="kt">int</span> <span class="n">foodFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                  <span class="cm">/* 判断是否更新食物 */</span>
+<span class="kt">int</span> <span class="n">sx</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>				   <span class="cm">/* 设置蛇身坐标值 */</span>
+<span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>				           <span class="cm">/* 蛇身长度 */</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">body</span><span class="p">[</span><span class="n">MAXX</span> <span class="o">*</span> <span class="n">MAXY</span><span class="p">];</span>			   <span class="cm">/* 储存蛇身的指针数组 */</span>
+<span class="kt">char</span> <span class="n">input</span> <span class="o">=</span> <span class="sc">'6'</span><span class="p">;</span>			       <span class="cm">/* 默认移动方向 */</span>
+<span class="kt">int</span> <span class="n">overFlag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>                  <span class="cm">/* 判断游戏结束，撞墙或吃到自己 */</span>
+<span class="kt">int</span> <span class="n">moveX</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">moveY</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>          <span class="cm">/* 游戏开始的动画效果坐标值 */</span>
+<span class="kt">int</span> <span class="n">moveFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                  <span class="cm">/* 开始动画的循环判断 */</span>
+</code></pre></div></div>
+<blockquote>
+  <p>这里使用了指针数组控制蛇身，方便赋值
+数组中的参数虽然不能是变量，但是可以是宏定义</p>
+</blockquote>
+
+<h2 id="函数">函数</h2>
+<p>接下来就是重要环节了，分析实现游戏效果的各个函数。</p>
+
+<ul>
+  <li>第一步，定义初始化函数 <code class="language-plaintext highlighter-rouge">InitMap()</code> 将屏幕上每个点通过二维数组赋予坐标值 x、y，确定游戏界面的大小，我们将四周的墙赋值为 <code class="language-plaintext highlighter-rouge">1</code>，中间空白赋值为 <code class="language-plaintext highlighter-rouge">0</code>，蛇身赋值为 <code class="language-plaintext highlighter-rouge">2</code>，随机出现的食物赋值为 <code class="language-plaintext highlighter-rouge">3</code>。</li>
+  <li>第二步，定义 <code class="language-plaintext highlighter-rouge">PrintMap()</code> 函数给每个 坐标值打印对应的字符，我们将墙用字符 <code class="language-plaintext highlighter-rouge">+</code> 表示，空白用空字符 <code class="language-plaintext highlighter-rouge">" "</code> 表示，蛇身用星号 <code class="language-plaintext highlighter-rouge">*</code> 表示，食物用字符 <code class="language-plaintext highlighter-rouge">@</code> 表示。</li>
+  <li>第三步，定义函数 <code class="language-plaintext highlighter-rouge">StartMsg()</code> 显示屏幕信息，提示控制的按键。</li>
+  <li>第四步，定义函数 <code class="language-plaintext highlighter-rouge">GetSet()</code> 使玩家可以自定义游戏界面宽和高和移动速度，使用 <code class="language-plaintext highlighter-rouge">scanf()</code> 函数获取并改变默认界面尺寸。</li>
+  <li>第五步，定义函数 <code class="language-plaintext highlighter-rouge">SetRandNum()</code> 在界面中随机出现食物，并且不与蛇身和墙重叠，使用 <code class="language-plaintext highlighter-rouge">srand(time(0))</code> 初始随机函数，然后用一个循环不断用随机函数 <code class="language-plaintext highlighter-rouge">rand()</code> 生成随机坐标值，直到所生成位置是空白为止。</li>
+  <li>第六步，最核心的算法，较为复杂，定义函数 <code class="language-plaintext highlighter-rouge">SetSnakeNum()</code> 设置蛇身的坐标值，并通过通过输入判断前进方向，以设置的速度时间间隔不断自增或自减坐标值实现移动，里面用到了 <code class="language-plaintext highlighter-rouge">_kbhit()</code> 函数，作用是：有用户输入时，返回值为<strong>真</strong>，无输入时值为<strong>假</strong>。还有 <code class="language-plaintext highlighter-rouge">_getch()</code> 函数与 <code class="language-plaintext highlighter-rouge">getchar()</code> 的区别：<code class="language-plaintext highlighter-rouge">_getch()</code> 输入值后不用输入回车就能获取输入值。感觉最不好理解的就是蛇身的转弯算法，我的方法是：<strong>蛇身每一节在每一次循环不断继承前一节的值</strong>，然后蛇头位置不断获得新坐标值，这样就能实现身体的转向，这里就可以用到之前定义的指针数组 <code class="language-plaintext highlighter-rouge">*body[]</code> 来实现。算法中还需要<strong>注意</strong>的一点是，蛇身朝某个方向移动时，只能控制另外两个方向，例如向右移动时不能控制向左移动。然后随后的函数就好说了。</li>
+  <li>第七步，定义函数 <code class="language-plaintext highlighter-rouge">EatFood()</code> 实现遇到食物坐标值时，增加一节蛇身长度值 <code class="language-plaintext highlighter-rouge">l</code> 。</li>
+  <li>第八步，定义函数 <code class="language-plaintext highlighter-rouge">StartGame()</code> 来综合之前的函数并开始游戏，需要通过 <code class="language-plaintext highlighter-rouge">overFlag</code> 判断游戏结束。</li>
+  <li>第九步，定义函数 <code class="language-plaintext highlighter-rouge">SetMoveNum()</code> 实现游戏开始时的动画效果，对于游戏存在意义不大，仅供研究训练思维和算法。</li>
+  <li>第十步，定义函数 <code class="language-plaintext highlighter-rouge">JudgeEnd()</code> 判断之前的函数 <code class="language-plaintext highlighter-rouge">SetMuveNum()</code> 的结束时刻，然后不断循环动画效果。</li>
+  <li>第十一步，定义函数 <code class="language-plaintext highlighter-rouge">StartView()</code> 开始游戏，按任意键游戏正式开始。</li>
+</ul>
+
+<p>下面是函数申明：</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">InitMap</span><span class="p">();</span>                   <span class="cm">/* initialize the background coordinate system */</span>
+<span class="kt">void</span> <span class="nf">PrintMap</span><span class="p">();</span>                  <span class="cm">/* print every point in the arr mapArr to the screen */</span>
+<span class="kt">void</span> <span class="nf">StartMsg</span><span class="p">();</span>                  <span class="cm">/* start message */</span>
+<span class="kt">void</span> <span class="nf">GetSet</span><span class="p">();</span>                    <span class="cm">/* judge whether to edit the game setting */</span>
+<span class="kt">void</span> <span class="nf">SetRandNum</span><span class="p">();</span>                <span class="cm">/* set a random 'food' point in the screen */</span>
+<span class="kt">void</span> <span class="nf">SetSnakeNum</span><span class="p">();</span>               <span class="cm">/* the most complex and important algorithm of this game */</span>
+<span class="kt">void</span> <span class="nf">EatFood</span><span class="p">();</span>                   <span class="cm">/* judge when to eat food and elongate the body */</span>
+<span class="kt">void</span> <span class="nf">StartGame</span><span class="p">();</span>                 <span class="cm">/* start the game */</span>
+<span class="kt">void</span> <span class="nf">SetMoveNum</span><span class="p">();</span>                <span class="cm">/* algorithm of the start animation, some complex */</span>
+<span class="kt">void</span> <span class="nf">JudgeEnd</span><span class="p">();</span>                  <span class="cm">/* judge the end of the animation and loop again*/</span>
+<span class="kt">void</span> <span class="nf">StartView</span><span class="p">();</span>                 <span class="cm">/* start the start animation view */</span>
+</code></pre></div></div>
+
+<h1 id="源码-">源码 <span id="end"></span></h1>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;Windows.h&gt;                </span><span class="cm">/* use the function 'system("cls")' to clear screen */</span><span class="cp">
+#include&lt;conio.h&gt;                 </span><span class="cm">/* use the function '_getch()' to get input */</span><span class="cp">
+#include&lt;time.h&gt;                  </span><span class="cm">/* the random function need the 'time()' function */</span><span class="cp">
+#include "public-fun.h"
+</span>
+<span class="cp">#define MAXX 10000                </span><span class="cm">/* define the max width of game space */</span><span class="cp">
+#define MAXY 10000                </span><span class="cm">/* define the max height */</span><span class="cp">
+</span>
+<span class="kt">void</span> <span class="nf">InitMap</span><span class="p">();</span>                   <span class="cm">/* initialize the background coordinate system */</span>
+<span class="kt">void</span> <span class="nf">PrintMap</span><span class="p">();</span>                  <span class="cm">/* print every point in the arr mapArr to the screen */</span>
+<span class="kt">void</span> <span class="nf">StartMsg</span><span class="p">();</span>                  <span class="cm">/* start message */</span>
+<span class="kt">void</span> <span class="nf">GetSet</span><span class="p">();</span>                    <span class="cm">/* judge whether to edit the game setting */</span>
+<span class="kt">void</span> <span class="nf">SetRandNum</span><span class="p">();</span>                <span class="cm">/* set a random 'food' point in the screen */</span>
+<span class="kt">void</span> <span class="nf">SetSnakeNum</span><span class="p">();</span>               <span class="cm">/* the most complex and important algorithm of this game */</span>
+<span class="kt">void</span> <span class="nf">EatFood</span><span class="p">();</span>                   <span class="cm">/* judge when to eat food and elongate the body */</span>
+<span class="kt">void</span> <span class="nf">StartGame</span><span class="p">();</span>                 <span class="cm">/* start the game */</span>
+<span class="kt">void</span> <span class="nf">SetMoveNum</span><span class="p">();</span>                <span class="cm">/* algorithm of the start animation, some complex */</span>
+<span class="kt">void</span> <span class="nf">JudgeEnd</span><span class="p">();</span>                  <span class="cm">/* judge the end of the animation and loop again*/</span>
+<span class="kt">void</span> <span class="nf">StartView</span><span class="p">();</span>                 <span class="cm">/* start the start animation view */</span>
+
+<span class="kt">int</span> <span class="n">speed</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>                   <span class="cm">/* default snake move speed */</span>
+<span class="kt">int</span> <span class="n">mapArr</span><span class="p">[</span><span class="n">MAXX</span><span class="p">][</span><span class="n">MAXY</span><span class="p">];</span>            <span class="cm">/* arr to store the point in the screen */</span>
+<span class="kt">int</span> <span class="n">inputX</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">inputY</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>      <span class="cm">/* default width and height */</span>
+<span class="kt">int</span> <span class="n">randX</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">randY</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>        <span class="cm">/* set a random food point in the background */</span>
+<span class="kt">int</span> <span class="n">foodFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                  <span class="cm">/* judge when to change random food point*/</span>
+<span class="kt">int</span> <span class="n">sx</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>				<span class="cm">/* body x, y point */</span>
+<span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>						<span class="cm">/* body lenth */</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">body</span><span class="p">[</span><span class="n">MAXX</span> <span class="o">*</span> <span class="n">MAXY</span><span class="p">];</span>				<span class="cm">/* body array pointer */</span>
+<span class="kt">char</span> <span class="n">input</span> <span class="o">=</span> <span class="sc">'6'</span><span class="p">;</span>			     	<span class="cm">/* default direction */</span>
+<span class="kt">int</span> <span class="n">overFlag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>                 <span class="cm">/* judge when the game over, hit wall or eat self*/</span>
+<span class="kt">int</span> <span class="n">moveX</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">moveY</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>         <span class="cm">/* start move effect */</span>
+<span class="kt">int</span> <span class="n">moveFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                <span class="cm">/* restart the loop effection */</span>
+
+<span class="kt">void</span> <span class="nf">GetSet</span><span class="p">()</span> 
+<span class="p">{</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"请输入游戏空间的宽度：</span><span class="se">\n</span><span class="s">(Please enter the width of game space:)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="n">scanf_s</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">inputX</span><span class="p">);</span>	
+	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"请输入游戏空间的高度：</span><span class="se">\n</span><span class="s">(Please enter the height of game space:)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="n">scanf_s</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">inputY</span><span class="p">);</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"请输入游戏速度（1 到 n，1 最慢）：</span><span class="se">\n</span><span class="s">Please enter the speed of snake moving:(1 is slowest)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="n">scanf_s</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">speed</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">InitMap</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">inputY</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">inputX</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span>
+
+		<span class="p">{</span>
+			<span class="k">if</span> <span class="p">((</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">inputX</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">inputY</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+			<span class="p">{</span>
+				<span class="n">mapArr</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="k">else</span>
+			<span class="p">{</span>
+				<span class="n">mapArr</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">PrintMap</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">inputY</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">inputX</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">switch</span> <span class="p">(</span><span class="n">mapArr</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">])</span>
+			<span class="p">{</span>
+			<span class="k">case</span> <span class="mi">0</span><span class="p">:</span>
+				<span class="n">printf</span><span class="p">(</span><span class="s">" "</span><span class="p">);</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+				<span class="n">printf</span><span class="p">(</span><span class="s">"+"</span><span class="p">);</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+				<span class="n">printf</span><span class="p">(</span><span class="s">"*"</span><span class="p">);</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+				<span class="n">printf</span><span class="p">(</span><span class="s">"@"</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">StartMsg</span><span class="p">()</span>   
+<span class="p">{</span>
+	<span class="n">printf</span>
+	<span class="p">(</span><span class="s">"'2(top)', '8(down)', '4(left)', 6(right)' 或 </span><span class="se">\n</span><span class="s">'w(top)', 'a(left)', 's(down)', 'd(right)'</span><span class="se">\n</span><span class="s">控制方向(control the direction)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">SetRandNum</span><span class="p">()</span> 
+<span class="p">{</span>
+	<span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+	<span class="k">while</span> <span class="p">((</span><span class="n">mapArr</span><span class="p">[</span><span class="n">randX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">randY</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">foodFlag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+	<span class="p">{</span>
+		<span class="n">randX</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="p">(</span><span class="n">inputX</span> <span class="o">-</span> <span class="mi">2</span><span class="p">),</span> <span class="n">randY</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="p">(</span><span class="n">inputY</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="n">mapArr</span><span class="p">[</span><span class="n">randX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">randY</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>	<span class="cm">/* set foot number 3 */</span>
+	<span class="n">foodFlag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">SetSnakeNum</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">_kbhit</span><span class="p">())</span>         <span class="cm">/* if there is an input, get it; if not, go on	*/</span>
+	<span class="p">{</span>
+		<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">_getch</span><span class="p">();</span>		
+		<span class="k">switch</span> <span class="p">(</span><span class="n">input</span><span class="p">)</span>
+		<span class="p">{</span>
+		<span class="k">case</span> <span class="sc">'2'</span><span class="p">:</span>
+		<span class="k">case</span> <span class="sc">'w'</span><span class="p">:</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="sc">'4'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'6'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'a'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'d'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'2'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'w'</span><span class="p">)</span>
+				<span class="n">input</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+			<span class="k">break</span><span class="p">;</span>
+		<span class="k">case</span> <span class="sc">'8'</span><span class="p">:</span>
+		<span class="k">case</span> <span class="sc">'s'</span><span class="p">:</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="sc">'4'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'6'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'a'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'d'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'8'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'s'</span><span class="p">)</span>
+				<span class="n">input</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+			<span class="k">break</span><span class="p">;</span>
+		<span class="k">case</span> <span class="sc">'4'</span><span class="p">:</span>
+		<span class="k">case</span> <span class="sc">'a'</span><span class="p">:</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="sc">'2'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'8'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'w'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'s'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'4'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'a'</span><span class="p">)</span>
+				<span class="n">input</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+			<span class="k">break</span><span class="p">;</span>
+		<span class="k">case</span> <span class="sc">'6'</span><span class="p">:</span>
+		<span class="k">case</span> <span class="sc">'d'</span><span class="p">:</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="sc">'2'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'8'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'w'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'s'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'6'</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="sc">'d'</span><span class="p">)</span>
+				<span class="n">input</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+			<span class="k">break</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">switch</span> <span class="p">(</span><span class="n">input</span><span class="p">)</span>				<span class="cm">/* judge the direction by value of input */</span>
+	<span class="p">{</span>
+	<span class="k">case</span> <span class="sc">'2'</span><span class="p">:</span>					<span class="cm">/* up */</span>
+	<span class="k">case</span> <span class="sc">'w'</span><span class="p">:</span>
+		<span class="n">sy</span><span class="o">--</span><span class="p">;</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="k">case</span> <span class="sc">'8'</span><span class="p">:</span>					<span class="cm">/* down */</span>
+	<span class="k">case</span> <span class="sc">'s'</span><span class="p">:</span>
+		<span class="n">sy</span><span class="o">++</span><span class="p">;</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="k">case</span> <span class="sc">'4'</span><span class="p">:</span>					<span class="cm">/* left */</span>
+	<span class="k">case</span> <span class="sc">'a'</span><span class="p">:</span>
+		<span class="n">sx</span><span class="o">--</span><span class="p">;</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="k">case</span> <span class="sc">'6'</span><span class="p">:</span>					<span class="cm">/* right */</span>
+	<span class="k">case</span> <span class="sc">'d'</span><span class="p">:</span>
+		<span class="n">sx</span><span class="o">++</span><span class="p">;</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>           <span class="cm">/*  every point's address of body move back one point */</span>
+	<span class="p">{</span>
+		<span class="n">body</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">body</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+		<span class="o">*</span><span class="n">body</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>                 <span class="cm">/* change value by pointer */</span>
+	<span class="p">}</span>
+	<span class="n">body</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">mapArr</span><span class="p">[</span><span class="n">sx</span><span class="p">][</span><span class="n">sy</span><span class="p">];</span>
+	<span class="k">if</span> <span class="p">((</span><span class="o">*</span><span class="n">body</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="o">*</span><span class="n">body</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">))</span>    <span class="cm">/* judge when the snake hit the wall or eat itself */</span>
+	<span class="p">{</span>
+		<span class="n">overFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="o">*</span><span class="n">body</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>              <span class="cm">/* assign the head of snake by pointer */</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">EatFood</span><span class="p">()</span> 
+<span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">body</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">l</span><span class="o">++</span><span class="p">;</span>
+		<span class="n">foodFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">StartGame</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">sx</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="n">sy</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="n">input</span> <span class="o">=</span> <span class="sc">'6'</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">j</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">l</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>             <span class="cm">/* assign the snake body initial address value*/</span>
+	<span class="p">{</span>
+		<span class="n">body</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">mapArr</span><span class="p">[</span><span class="n">sx</span> <span class="o">-</span> <span class="n">j</span><span class="p">][</span><span class="n">sy</span><span class="p">];</span>   
+	<span class="p">}</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">overFlag</span><span class="p">)</span>    <span class="cm">/* loop until the game over */</span>
+	<span class="p">{</span>
+		<span class="n">InitMap</span><span class="p">();</span>
+		<span class="n">SetSnakeNum</span><span class="p">();</span>
+		<span class="n">SetRandNum</span><span class="p">();</span>
+		<span class="n">EatFood</span><span class="p">();</span>
+		<span class="n">PrintMap</span><span class="p">();</span>
+		<span class="n">StartMsg</span><span class="p">();</span>
+		<span class="n">Sleep</span><span class="p">(</span><span class="mi">1000</span><span class="o">/</span><span class="n">speed</span><span class="p">);</span>
+		<span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">SetMoveNum</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="cm">/* x move 1 -- (X - 2 ); y move 1 -- (Y - 2) */</span>
+	<span class="cm">/* move x from left to right */</span>
+	<span class="k">if</span> <span class="p">((</span><span class="n">moveY</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">moveFlag</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">moveX</span> <span class="o">&lt;</span> <span class="n">inputX</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">moveFlag</span><span class="p">))</span>
+	<span class="p">{</span>
+		<span class="n">mapArr</span><span class="p">[</span><span class="n">moveX</span><span class="p">][</span><span class="n">moveY</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+		<span class="n">moveX</span><span class="o">++</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="cm">/* move y from top to buttom */</span>
+	<span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">moveX</span> <span class="o">==</span> <span class="n">inputX</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">moveFlag</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">moveY</span> <span class="o">&lt;</span> <span class="n">inputY</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">moveFlag</span><span class="p">))</span>
+	<span class="p">{</span>
+		<span class="n">mapArr</span><span class="p">[</span><span class="n">moveX</span><span class="p">][</span><span class="n">moveY</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+		<span class="n">moveY</span><span class="o">++</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="cm">/* move x from right to left */</span>
+	<span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">moveY</span> <span class="o">==</span> <span class="n">inputY</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">moveFlag</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">moveX</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">moveFlag</span><span class="p">))</span>
+	<span class="p">{</span>
+		<span class="n">mapArr</span><span class="p">[</span><span class="n">moveX</span><span class="p">][</span><span class="n">moveY</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+		<span class="n">moveX</span><span class="o">--</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="cm">/* move y from buttom to top */</span>
+	<span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">moveX</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">moveFlag</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">moveY</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">moveFlag</span><span class="p">))</span>
+	<span class="p">{</span>
+		<span class="n">mapArr</span><span class="p">[</span><span class="n">moveX</span><span class="p">][</span><span class="n">moveY</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+		<span class="n">moveY</span><span class="o">--</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">moveY</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">moveFlag</span><span class="p">)</span>     <span class="cm">/* judge when to jump to a deeper layer */</span>
+		<span class="p">{</span>
+			<span class="n">moveFlag</span><span class="o">++</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">JudgeEnd</span><span class="p">()</span> 
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">inputY</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">inputX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">mapArr</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+				<span class="k">goto</span> <span class="n">out</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">moveX</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">moveY</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="n">InitMap</span><span class="p">();</span>
+	<span class="n">moveFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nl">out:</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">StartView</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">moveX</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">moveY</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">moveFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">startFlag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="n">InitMap</span><span class="p">();</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">startFlag</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">SetMoveNum</span><span class="p">();</span>
+		<span class="n">PrintMap</span><span class="p">();</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"按任意键开始游戏：</span><span class="se">\n</span><span class="s">(Press any key to start game: )</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+		<span class="n">Sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+		<span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+		<span class="n">JudgeEnd</span><span class="p">();</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">_kbhit</span><span class="p">())</span>
+		<span class="p">{</span>
+			<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">_getch</span><span class="p">();</span>
+			<span class="k">if</span> <span class="p">((</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'2'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'w'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'8'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'s'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'4'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'a'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'6'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="sc">'d'</span><span class="p">))</span>
+				<span class="n">startFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>             <span class="cm">/* main function */</span>
+<span class="p">{</span>
+	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"是否修改设置（修改输入“y”,否则按任意键）：</span><span class="se">\n</span><span class="s">Edit the game setting or not ? (Press 'y' to edit, or press another key to go on:)</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">_getch</span><span class="p">()</span> <span class="o">==</span> <span class="sc">'y'</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">GetSet</span><span class="p">();</span>          
+		<span class="p">}</span>
+		<span class="n">StartView</span><span class="p">();</span>  <span class="cm">/* an animation before game start */</span>
+		<span class="n">StartGame</span><span class="p">();</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"Game Over !!!</span><span class="se">\n</span><span class="s">游戏结束，按任意键继续：</span><span class="se">\n</span><span class="s">(Press any key to restart: )</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+		<span class="n">_getch</span><span class="p">();</span>
+		<span class="n">overFlag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>   <span class="cm">/* restart the game by the flag */</span>
+		<span class="n">system</span><span class="p">(</span><span class="s">"cls"</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span> 
+</code></pre></div></div>
+
+<p>有更简单的算法欢迎评论指正！</p>
+
+<h1 id="返回顶部">返回<a href="#home">顶部</a></h1>
+
+    </div>
+</div>
+<hr>
+
+<!-- valine 评论插件 -->
+<h3>评论：</h3>
+<div class="comments"></div>
+<hr>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '.comments',
+        appId: '4XY3DoTJmibNe3rHeAKOxqzl-gzGzoHsz',
+        appKey: 'vjothQHALvgTQF9GrSgj577a',
+        avatar: 'robohash',
+        placeholder: '留下你的评论吧（支持Markdown）~',
+        // visitor: true,
+    })
+</script>
+
+<!-- 微信公众号 -->
+<div class="program-knight">
+    <p>技术文章推送</p>
+    <p>手机、电脑实用软件分享</p>
+    <img src="/assets/img/knight.png" alt="微信搜索公众号: 程序骑士" title="微信搜索公众号: 程序骑士">
+    <div>
+        <img src="/assets/img/wechat.png" alt="wechat">
+        <b>微信公众号：程序骑士</b>
+    </div>
+</div>
+<!--百度资源自动提交-->
+
+
+    </div>
+</div>
+
+</main>
+
+<footer class="page-footer teal">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <p class="footer-message grey-text text-lighten-3">以勤劳的双手，用心敲写明天</p>
+                <hr>
+                <p class="visit-statistics">
+                    <span id="busuanzi_container_site_pv">访问量：<span id="busuanzi_value_site_pv"></span>次</span>&nbsp;
+                    <span id="busuanzi_container_site_pv">访客量：<span id="busuanzi_value_site_uv"></span>人次</span>
+                </p>
+                <p class="grey-text text-lighten-4">基于 jekyll 的 Github Pages 个人博客网站
+</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Copyright &#xA9; 2021 苏梓鑫的博客. All rights reserved. Powered by
+            <a href=https://github.com/suzixin/suzixin.github.io>knightyun</a>.
+        </div>
+    </div>
+    <!-- Search box -->
+    <div class="search">
+        <i class="material-icons search-icon search-start">search</i>
+        <input type="text" class="search-input" placeholder="Searching...（支持正则表达式）" />
+        <i class="material-icons search-icon search-clear">clear</i>
+        <div class="search-results z-depth-4"></div>
+    </div>
+    <!-- 右下角功能按钮 -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue z-depth-4">
+            <i class="large material-icons">apps</i>
+        </a>
+        <ul>
+            <li class="category-btn hide">
+                <!-- 文章目录按钮 -->
+                <a class="sidenav-trigger btn-floating blue lighten-2" data-target="category">
+                    <i class="material-icons">format_list_bulleted</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: searchInput.focus()">
+                    <i class="material-icons">search</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, 0);">
+                    <i class="material-icons">publish</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, document.body.clientHeight);">
+                    <i class="material-icons">file_download</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 文章目录侧栏 -->
+    <ul id="category" class="hide sidenav no-autoinit grey lighten-4 grey-text text-darken-3">
+        <li>
+            <p class="center-align">目录</p>
+        </li>
+    </ul>
+</footer>
+
+
+    
+    <script src="/assets/js/min/materialize.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/post.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/particles.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/main.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/search.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/gen-category.min.js"></script>
+    
+
+
+
+
+<!-- 以下为插入的第三方网站分析代码 -->
+
+</body>
+
+</html>

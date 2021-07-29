@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 360 -->
+    <meta name="360-site-verification" content="fa6ca3a9a0330e9cecabee0a9fe1d52a" />
+    <!-- 搜狗 -->
+    <meta name="sogou_site_verification" content="oatSp9uAV5" />
+    <!--熊掌号 -->
+    <meta name="baidu-site-verification" content="Wkb0Jzk8yx" />
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="IJrXvaK-Luj-lCGP7tymcCbkcfMKi82Y8V21qN9ZT0s" />
+    <title>
+        
+            Linux 初识之 Kali Linux 系统安装详细教程（虚拟机）
+        
+    </title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/assets/css/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+    
+
+    
+        
+        <link rel="stylesheet" href="/assets/css/page.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/post.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/syntax.css">
+        
+    
+        
+        <link rel="stylesheet" href="/assets/css/article-category.css">
+        
+    
+
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">	
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Linux 初识之 Kali Linux 系统安装详细教程（虚拟机）" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="description" content="Kali Linux系统在虚拟机上的详细图文安装教程" />
+<meta property="og:description" content="Kali Linux系统在虚拟机上的详细图文安装教程" />
+<link rel="canonical" href="http://localhost:4000/2018/04/15/kali-linux-install" />
+<meta property="og:url" content="http://localhost:4000/2018/04/15/kali-linux-install" />
+<meta property="og:site_name" content="苏梓鑫的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-04-15T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Linux 初识之 Kali Linux 系统安装详细教程（虚拟机）" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2018/04/15/kali-linux-install","headline":"Linux 初识之 Kali Linux 系统安装详细教程（虚拟机）","dateModified":"2018-04-15T00:00:00+08:00","datePublished":"2018-04-15T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018/04/15/kali-linux-install"},"description":"Kali Linux系统在虚拟机上的详细图文安装教程","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+    <header>
+        <nav class="top-nav">
+            
+            <div class="nav-wrapper">
+                <div class="container">
+                    
+                    <a class="page-title" href="/">苏梓鑫的博客</a>
+                    <p class="head-message">学习&nbsp;&nbsp;总结&nbsp;&nbsp;分享&nbsp;&nbsp;提升</p>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <a href="#" data-target="slide-out" class="sidenav-trigger top-nav full hide-on-large-only">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+        <ul id="slide-out" class="sidenav sidenav-fixed" style="background-color:#ddd">
+            <li>
+                <div class="userView">
+                    <img class="user-bg" src="/assets/img/bg.png" />
+                    <a class="user-avatar" href="https://github.com/suzixin" target="_blank">
+                        <img class="circle z-depth-2" src="/assets/img/user.png" width="64" />
+                    </a>
+                    <div class="white-text user-info">
+                        苏梓鑫 <i>(Knight Huang)</i><br>
+                        adahsuzixin@gmail.com
+                    </div>
+                </div>
+            </li>
+            <li><a class="waves-effect" href="/"><i class="material-icons">home</i>Home - 主页</a></li>
+            <li><a class="waves-effect" href="/projects"><i class="material-icons">description</i>Github - 项目</a></li>
+            <li><a class="waves-effect" href="/categories"><i class="material-icons">sort</i>Categories - 目录</a></li>
+            <li><a class="waves-effect" href="/tags"><i class="material-icons">label</i>Tags - 标签</a></li>
+            <li><a class="waves-effect" href="/feed.xml" target="_blank"><i class="material-icons">rss_feed</i>RSS - 订阅</a></li>
+            <li><a class="waves-effect" href="/about"><i class="material-icons">person</i>About - 关于我</a></li>
+            <li><a class="waves-effect" href="/contact"><i class="material-icons">email</i>Contact - 联系我</a></li>
+            <!-- 华为云广告 -->
+            <li class="ad">
+                <!-- <a href="https://mp.weixin.qq.com/s/ujUoHc3grjO8LD_Bg1fckA" target="_blank"> -->
+                <!-- <a href="https://mp.weixin.qq.com/s/MTbMlhjAx8R4fc8Po90EXg" target="_blank">
+                    <img src="/assets/img/ad-huaweiyun.png" alt="" width="100%" />
+                </a>
+                <i class="material-icons" onclick="javascript:this.parentNode.style.display='none';">close</i> -->
+            </li>
+        </ul>
+    </header>
+    <main>
+
+<div class="container">
+    <div id="page-info">
+        <h1 class="page-title white-text">Linux 初识之 Kali Linux 系统安装详细教程（虚拟机）</h1>
+    </div>
+    <div id="page-content" class="row">
+        <div id="post-info">
+    <ul class="collapsible hoverable" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header grey lighten-4">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Date">date_range</i>
+                    15/04/2018 00:00<br />
+                    <div id="busuanzi_container_site_pv">点击量：<span style="display: inline;" id="busuanzi_value_page_pv"></span>次</div>
+                    <i id="indicate" class="right material-icons tooltipped" data-position="left" data-delay="30"
+                        data-tooltip="Show extra info">info</i>
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Categories">sort</i>
+                    
+                    
+                    
+                    <a href="/categories#linux_cap"
+                        target="_blank">
+                        <div class="chip">Linux</div>
+                    </a>
+                    
+                </span>
+                <span>
+                    <i class="material-icons tooltipped" data-position="left" data-delay="30" data-tooltip="Tags">label</i>
+                    
+                    
+                    
+                    <a href="/tags#kali系统安装" target="_blank">
+                        <div class="chip">kali系统安装</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#linux" target="_blank">
+                        <div class="chip">linux</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#虚拟机安装_cap" target="_blank">
+                        <div class="chip">虚拟机安装</div>
+                    </a>
+                    
+                    
+                    
+                    <a href="/tags#vmware_cap" target="_blank">
+                        <div class="chip">VMware</div>
+                    </a>
+                    
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="divider"></div>
+<div id="post-content" class="row">
+    <div class="col s12">
+        <h1 id="目录-">目录 <span id="home"></span></h1>
+<ul>
+  <li><a href="#1">一、Kali Linux 介绍</a>
+    <ul>
+      <li><a href="#1.1">1、Linux</a></li>
+      <li><a href="#1.2">2、Kali</a></li>
+    </ul>
+  </li>
+  <li><a href="#2">二、虚拟机安装与配置</a>
+    <ul>
+      <li><a href="#2.1">1、下载</a></li>
+      <li><a href="#2.2">2、安装配置</a></li>
+    </ul>
+  </li>
+  <li><a href="#3">三、Kali系统安装与配置</a></li>
+</ul>
+
+<hr />
+
+<h1 id="一kali-linux-介绍-">一、Kali Linux 介绍 <span id="1"></span></h1>
+
+<h2 id="1linux-">1、Linux <span id="1.1"></span></h2>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad333eb8df19.jpg" alt="timg2.jpg" /></p>
+
+<p>引用一下<a href="https://baike.baidu.com/item/linux/27050?fr=aladdin">百度百科</a>：</p>
+
+<p>Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的UNIX工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。</p>
+
+<p>Linux有多个发行版本，以下是<a href="https://www.linux.org/">官网</a>提供下载的一些版本：</p>
+
+<hr />
+<p><img src="https://i.loli.net/2018/04/15/5ad33ed9a2cb8.jpg" alt="20180415140406753.jpg" /></p>
+
+<hr />
+
+<h2 id="2kali-">2、Kali <span id="1.2"></span></h2>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad3332fef322.jpg" alt="timg.jpg" /></p>
+
+<p>kali是linux其中一个发行版，基于Debian，前身是BackTrack（简称BT系统）。kali系统内置大量渗透测试软件，黑客工具箱已不足以形容它，可以说是巨大的渗透系统，涵盖了多个领域，如无线网络、数字取证、服务器、密码、系统漏洞等等，知名软件有：wireshark、aircrack-ng、nmap、hashcat、metasploit-framework(msf)。</p>
+
+<h1 id="二虚拟机软安装与配置-">二、虚拟机软安装与配置 <span id="2"></span></h1>
+
+<h2 id="1下载-">1、下载 <span id="2.1"></span></h2>
+
+<p>这里将详细介绍在Windows虚拟机中安装kali linux，使用的虚拟机软件是 <strong>VMware</strong>，可以去<a href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html">官网下载</a>最新版本，<strong>注意：</strong> VMware 10.0版本之后只支持<strong>64位</strong>系统，如果是32位系统用户需要下载10.0及之前的版本。
+然后下载发型版的kali linux，<a href="https://www.kali.org/downloads/">官网下载</a>，根据自己情况选择下载32位或64位，完整版或者轻便版，这里我下载的64位完整版。</p>
+
+<h2 id="1安装配置-">1、安装配置 <span id="2.2"></span></h2>
+
+<p>接下来一步步安装：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33ed9b4f7a.jpg" alt="20180415144118372.jpg" /></p>
+
+<p>选择安装位置，注意保证空间充足：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33ed9b13c4.jpg" alt="20180415144303213.jpg" /></p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33ed9afe91.jpg" alt="20180415144404353.jpg" /></p>
+
+<p>等待安装完成：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33ed9b279d.jpg" alt="20180415144453641.jpg" /></p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33ed9b7ebf.jpg" alt="20180415144527264.jpg" /></p>
+
+<p>这是试用版本，需要购买密钥，鼓励购买正版，蛮穷的可以使用以下任一密钥：</p>
+
+<blockquote>
+  <p>FF31K-AHZD1-H8ETZ-8WWEZ-WUUVA</p>
+  <blockquote>
+    <p>CV7T2-6WY5Q-48EWP-ZXY7X-QGUWD</p>
+  </blockquote>
+</blockquote>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33ed9ae9ca.jpg" alt="20180415144552593.jpg" /></p>
+
+<p>安装完成，然后新建虚拟机：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33ed9b66b3.jpg" alt="20180415144927247.jpg" /></p>
+
+<p>选择推荐的即可：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33ed9b3abd.jpg" alt="20180415145002833.jpg" /></p>
+
+<p>这里选择安装程序映像文件，浏览选择刚才下载的kali linux文件，后缀是 <code class="language-plaintext highlighter-rouge">.iso</code>：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33ed9b9401.jpg" alt="20180415145126392.jpg" /></p>
+
+<p>选择操作系统“linux”，版本是“Debian”：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33f949f756.jpg" alt="20180415145812273.jpg" /></p>
+
+<p>名称随便取，然后选择虚拟机文件存放位置：</p>
+
+<blockquote>
+  <p><strong>注意选择合适位置，这里需要存放几十G的虚拟磁盘文件</strong></p>
+</blockquote>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33f94a5c83.jpg" alt="20180415145936586.jpg" /></p>
+
+<p>设置虚拟磁盘的大小，一般不能低于默认值，下面一般选择单个文件，方便：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33f94b523f.jpg" alt="20180415150112131.jpg" /></p>
+
+<p>新建完成，硬件可以之后自定义：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33f94b3b28.jpg" alt="20180415150311408.jpg" /></p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33f94e3f6e.jpg" alt="20180415150339668.jpg" /></p>
+
+<p>觉得默认配置不合适可以自定义调整，例如修改内存大小，增加磁盘：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33f9503b03.jpg" alt="20180415150430194.jpg" /></p>
+
+<p>设置网络适配器模式，可以桥接物理网络（例如电脑连接wifi，虚拟机就和电脑连接同一个wifi），或者NAT模式（类似于电脑成为一个路由器，虚拟机连接电脑的热点），如果不想联网，只用于物理机和虚拟机之间的交流，可以选择主机模式：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33f94f1e46.jpg" alt="20180415150747931.jpg" /></p>
+
+<p>虚拟机配置完成，接下来开始安装 kali 系统。</p>
+
+<h1 id="三kali系统安装与配置-">三、Kali系统安装与配置 <span id="3"></span></h1>
+
+<p>点击启动虚拟机：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33f94edca2.jpg" alt="20180415152337260.jpg" /></p>
+
+<p>鼠标点击安装界面，之后用键盘方向键和Enter键操作：</p>
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">Live</code> 开头的不是系统安装，类似于Windows PE，用于恢复系统，其他选项可以不用管，也暂时用不着。
+<strong>这里我们选择简单的图形化安装</strong> <code class="language-plaintext highlighter-rouge">Graphical install</code> 
+此时鼠标无法操作，退出虚拟机操作界面使用 <code class="language-plaintext highlighter-rouge">ctrl + alt</code> 键。</p>
+</blockquote>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33f94d2cb9.jpg" alt="2018041515321839.jpg" /></p>
+
+<p>选择简体中文：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad33f94eae89.jpg" alt="20180415153852638.jpg" /></p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad3403ff0501.jpg" alt="20180415153941517.jpg" /></p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad340400b3b8.jpg" alt="20180415154023144.jpg" /></p>
+
+<p>等待配置一会：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad3404025f68.jpg" alt="20180415154326948.jpg" /></p>
+
+<p>设置主机名称，和Windows的主机名一样：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad3404034393.jpg" alt="20180415154445426.jpg" /></p>
+
+<p>可以暂时不用输入：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad34040359fa.jpg" alt="2018041515470772.jpg" /></p>
+
+<p>设置用户密码登录：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad340404446a.jpg" alt="20180415154826476.jpg" /></p>
+
+<p>等待配置：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad34040310fe.jpg" alt="20180415154926766.jpg" /></p>
+
+<p>可以选择使用整个磁盘：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad3404040f96.jpg" alt="20180415155254743.jpg" /></p>
+
+<hr />
+<p><strong>注：</strong></p>
+
+<p>这里简单介绍一下里面的 <code class="language-plaintext highlighter-rouge">LVM</code> 选项：
+详见<a href="https://baike.baidu.com/item/LVM/6571177?fr=aladdin">百度百科</a>，LVM是 Logical Volume Manager（逻辑卷管理）的简写，它是Linux环境下对磁盘分区进行管理的一种机制。安装Linux时常出现的一个问题就是合理分区，根据使用情况设置 <code class="language-plaintext highlighter-rouge">/boot</code>, <code class="language-plaintext highlighter-rouge">/var</code>,  <code class="language-plaintext highlighter-rouge">/home</code> 等区块的大小，设置好之后再想要改变就很麻烦，要用分区工具压缩一部分的空闲区出去，然后合并到空间不足的区域。</p>
+
+<p>个人对LVM的理解是，它类似于使用一种<strong>文件夹</strong>的机制，直接使用整块磁盘，把每个分区设置成一种类似文件夹的存在，因为文件夹不会限制大小，因此就能动态调整各区的大小，方便管理。</p>
+
+<hr />
+
+<p>继续：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad340403f668.jpg" alt="20180415160939891.jpg" /></p>
+
+<p>可以使用推荐的：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad34040429bb.jpg" alt="201804151610212.jpg" /></p>
+
+<p>确定分配，或者更改区块大小和新增区块：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad3432baa37c.jpg" alt="20180415161246873.jpg" /></p>
+
+<p>确认写入：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad3432b9fe9b.jpg" alt="20180415161357309.jpg" /></p>
+
+<p>接下来安装时间有点长，喝杯茶休息一下 -_-</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad3432b8d7ed.jpg" alt="20180415161452740.jpg" /></p>
+
+<p>终于安装完成，半小时安静的过去了……
+这里选择不使用网络镜像：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad3432b91756.jpg" alt="20180415164804954.jpg" /></p>
+
+<p>配置GRUB：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad3432ba8703.jpg" alt="20180415165316774.jpg" /></p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad3432ba4ff0.jpg" alt="20180415165336903.jpg" /></p>
+
+<p>安装完成：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad343e7d33a7.jpg" alt="20180415165446531.jpg" /></p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad343e7cbddf.jpg" alt="20180415165502624.jpg" /></p>
+
+<p>选择启动，第二个选项是恢复模式：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad343e7d9d87.jpg" alt="20180415175203402.jpg" /></p>
+
+<p>初始用户名是 <strong>root</strong>：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad343e7d0471.jpg" alt="2018041517561331.jpg" /></p>
+
+<p>之前设置的密码：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad343e7d1c6b.jpg" alt="20180415185003860.jpg" /></p>
+
+<p>到此kali系统就安装完毕了：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad343e7e0f5c.jpg" alt="20180415185053453.jpg" /></p>
+
+<p>内置大量软件，更多功能可以自行发掘：</p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad343e7f2511.jpg" alt="20180415185744699.jpg" /></p>
+
+<p><img src="https://i.loli.net/2018/04/15/5ad343e7ef4bf.jpg" alt="20180415185813698.jpg" /></p>
+
+<hr />
+
+    </div>
+</div>
+<hr>
+
+<!-- valine 评论插件 -->
+<h3>评论：</h3>
+<div class="comments"></div>
+<hr>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '.comments',
+        appId: '4XY3DoTJmibNe3rHeAKOxqzl-gzGzoHsz',
+        appKey: 'vjothQHALvgTQF9GrSgj577a',
+        avatar: 'robohash',
+        placeholder: '留下你的评论吧（支持Markdown）~',
+        // visitor: true,
+    })
+</script>
+
+<!-- 微信公众号 -->
+<div class="program-knight">
+    <p>技术文章推送</p>
+    <p>手机、电脑实用软件分享</p>
+    <img src="/assets/img/knight.png" alt="微信搜索公众号: 程序骑士" title="微信搜索公众号: 程序骑士">
+    <div>
+        <img src="/assets/img/wechat.png" alt="wechat">
+        <b>微信公众号：程序骑士</b>
+    </div>
+</div>
+<!--百度资源自动提交-->
+
+
+    </div>
+</div>
+
+</main>
+
+<footer class="page-footer teal">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <p class="footer-message grey-text text-lighten-3">以勤劳的双手，用心敲写明天</p>
+                <hr>
+                <p class="visit-statistics">
+                    <span id="busuanzi_container_site_pv">访问量：<span id="busuanzi_value_site_pv"></span>次</span>&nbsp;
+                    <span id="busuanzi_container_site_pv">访客量：<span id="busuanzi_value_site_uv"></span>人次</span>
+                </p>
+                <p class="grey-text text-lighten-4">基于 jekyll 的 Github Pages 个人博客网站
+</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Copyright &#xA9; 2021 苏梓鑫的博客. All rights reserved. Powered by
+            <a href=https://github.com/suzixin/suzixin.github.io>knightyun</a>.
+        </div>
+    </div>
+    <!-- Search box -->
+    <div class="search">
+        <i class="material-icons search-icon search-start">search</i>
+        <input type="text" class="search-input" placeholder="Searching...（支持正则表达式）" />
+        <i class="material-icons search-icon search-clear">clear</i>
+        <div class="search-results z-depth-4"></div>
+    </div>
+    <!-- 右下角功能按钮 -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue z-depth-4">
+            <i class="large material-icons">apps</i>
+        </a>
+        <ul>
+            <li class="category-btn hide">
+                <!-- 文章目录按钮 -->
+                <a class="sidenav-trigger btn-floating blue lighten-2" data-target="category">
+                    <i class="material-icons">format_list_bulleted</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: searchInput.focus()">
+                    <i class="material-icons">search</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, 0);">
+                    <i class="material-icons">publish</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating blue lighten-2" href="javascript: scrollTo(0, document.body.clientHeight);">
+                    <i class="material-icons">file_download</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 文章目录侧栏 -->
+    <ul id="category" class="hide sidenav no-autoinit grey lighten-4 grey-text text-darken-3">
+        <li>
+            <p class="center-align">目录</p>
+        </li>
+    </ul>
+</footer>
+
+
+    
+    <script src="/assets/js/min/materialize.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/post.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/particles.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/main.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/search.min.js"></script>
+    
+
+    
+    <script src="/assets/js/min/gen-category.min.js"></script>
+    
+
+
+
+
+<!-- 以下为插入的第三方网站分析代码 -->
+
+</body>
+
+</html>

@@ -55,14 +55,14 @@ Example config of my website:
 
 # Global variable, can use it in HTML file,
 # for example: <h1>{{ site.title }}</h1> 
-title: 黄琦雲的博客 # title for your website
+title: 苏梓鑫的博客 # title for your website
 description: > # description for your website, useful for search engine exhibition.
-  基于 jekyll 的 Github Pages 个人博客网站，技术的学习、总结、分享与提升
+  基于 jekyll 的 Github Pages 个人博客网站
 url: "https://knightyun.github.io" # address of your website.
 github_repo: knightyun/knightyun.github.io
 github_profile: "https://github.com/knightyun" # your GitHub home page.
-user: "黄琦雲" # name in the sidebar
-user_email: "2386209384@qq.com" # contact email in the sidebar
+user: "苏梓鑫" # name in the sidebar
+user_email: "adahsuzixin@gmail.com" # contact email in the sidebar
 paginate: 5 # how many articles will show in your website home page.
 
 # configuration related to jekyll

@@ -2,11 +2,11 @@
 <rss version="2.0">
 
     <channel>
-        <title>黄琦雲的博客</title>
+        <title>苏梓鑫的博客</title>
         <link>http://localhost:4000</link>
-        <description>基于 jekyll 的 Github Pages 个人博客网站，技术的学习、总结、分享与提升
+        <description>基于 jekyll 的 Github Pages 个人博客网站
 </description>
-        <lastBuildDate>Thu, 29 Jul 2021 20:46:20 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 29 Jul 2021 20:58:57 +0800</lastBuildDate>
         
         <item>
             <title>JavaScript 求最小公倍数</title>

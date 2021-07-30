@@ -2,7 +2,7 @@
 title:  PostgreSQL 数据库内核分析-c1
 layout: post
 categories: PostgreSQL
-tags: PostgreSQL 代码架构
+tags: PostgreSQL 体系结构 书籍
 excerpt: PostgreSQL 数据库内核分析-c1
 ---
 # 1. PostgreSQL代码结构

@@ -2,7 +2,7 @@
 title:  PostgreSQL 数据库内核分析-c1
 layout: post
 categories: PostgreSQL
-tags: 公倍数 公约数
+tags: PostgreSQL 代码架构
 excerpt: PostgreSQL 数据库内核分析-c1
 ---
 # 1. PostgreSQL代码结构

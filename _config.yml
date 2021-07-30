@@ -21,7 +21,7 @@ user: "苏梓鑫" # 用于侧栏展示的名字
 user_email: "adahsuzixin@gmail.com" # 侧栏展示的联系方式
 paginate: 5 # 主页展示的博客文章数量
 nick_name: "欣宸" # 昵称
-english_name: "ZigSmith"
+english_name: "Zig Smith"
 # valine 评论插件配置
 valine:
   leancloud_appid: "4XY3DoTJmibNe3rHeAKOxqzl-gzGzoHsz"

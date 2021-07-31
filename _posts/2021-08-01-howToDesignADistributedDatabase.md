@@ -259,7 +259,7 @@ google的设计是叠罗汉。
     - pattern matching  
     - cargo包管理  
 
-# 6. what will the future be like?s
+# 6. what will the future be like?
 - 当IO不再是数据库瓶颈的时候， 如何重新设计数据结构？  
     - 把数据库的查询逻辑固话到SSD的control里  
     - 修改一些硬件的假设带来的性能提升是一个数量级的  

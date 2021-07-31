@@ -6,7 +6,7 @@ tags: 数据库内核 youtube
 excerpt: PingCap创始人samplNewSQL大神黄东旭的分享
 ---
 
-# 为什么我们需要一个新的分布式数据库
+# 1. 为什么我们需要一个新的分布式数据库
 - 数据增长快，分布式系统是主流的应对方式
 - 传统关系型数据库没有很好的scalability
     - 法一： 数据库自身sharding
@@ -16,8 +16,8 @@ excerpt: PingCap创始人samplNewSQL大神黄东旭的分享
 例如通过`ETL`来导出报表
 - SQL never dies VS Nosql System
 
-# NewSQL主流设计模式以及架构
-## Google Spanner/F1
+# 2. NewSQL主流设计模式以及架构
+## 2.1. Google Spanner/F1
 ![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20210731111753.png)
 
 Google Spanner存储系统的关键特性：
@@ -32,7 +32,7 @@ Google Spanner存储系统的关键特性：
 
 F1: 一个无状态的sql层，对接Google Spanner存储系统
 
-## Amazon Aurora
+## 2.2. Amazon Aurora
 ![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20210731112551.png)
 
 关键特性：
@@ -56,7 +56,7 @@ adaptive做的好，用户多， 可覆盖场景最全
 ------
 
 
-# TiDb的设计和实现
+# 3. TiDb的设计和实现
 - google spanner流派
 - share-nothing， 自底向上的设计
 - scalability是最初的特性
@@ -88,7 +88,7 @@ adaptive做的好，用户多， 可覆盖场景最全
 
 ------
 
-## TiDB Overview
+## 3.1. TiDB Overview
 - TiDB-无状态的SQL层(对标F1)
     - Distributed SQL Optimizer/Executor
 - TiKV-分布式KV存储引擎(对标Spanner
@@ -114,7 +114,7 @@ adaptive做的好，用户多， 可覆盖场景最全
 
 `PD`(placement driver)是从`spanner`中出来的。
 
-## Storage overview(TiKV)
+## 3.2. Storage overview(TiKV)
 ![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20210731143643.png)
 
 复用了facebook的[rocksdb](https://github.com/facebook/rocksdb)。
@@ -149,7 +149,7 @@ google的设计是叠罗汉。
 
 -------
 
-## Key designs in TiKV
+## 3.3. Key designs in TiKV
 - Why Raft？
     复制的模型过去只有主从。  
     mysql没法做到自动的、强一致性的replication。  
@@ -175,7 +175,7 @@ google的设计是叠罗汉。
 
 -----
 
-## Lifetime of a SQL in TiDB
+## 3.4. Lifetime of a SQL in TiDB
 ![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20210731151543.png)  
 
 `Selected Physical Plan`从数学上是一个有向无环图。
@@ -184,7 +184,7 @@ google的设计是叠罗汉。
 
 因为存储是分布式的存储， sql-engine是基于分布式存储引擎设计的， 它对数据节点的`locality`是有感知的。
 
-## Key designs in TiDB
+## 3.5. Key designs in TiDB
 - Why MySQL dialect？
     MySQL的用户群最多，迁移成本最低  
     而且做了mysql的一系列工具帮助用户在线迁移。
@@ -200,7 +200,7 @@ google的设计是叠罗汉。
 - How to support DDL for large table?
     参考[Online, Asynchronous Schema Change in F1](https://research.google.com/pubs/archive/41376.pdf)  
 
-## Distributed system is fragile
+## 3.6. Distributed system is fragile
 > -- Jeff Dean, LADIS 2009
 一年中的硬件问题的次数：  
 - ~5 racks out of 30 go wonky (50% packet loss)
@@ -214,7 +214,7 @@ google的设计是叠罗汉。
 - Network maintenances
 - Faulty equipment
 
-# 大规模分布式系统测试经验(以TiDB为例)
+# 4. 大规模分布式系统测试经验(以TiDB为例)
 在测试中引入`unstable`因素  
 - Testing in distributed system is really hard
 - 使用工具`covers all`来保证单元测试
@@ -240,7 +240,7 @@ google的设计是叠罗汉。
 网络状态的状态能彻底抽象， 能在testcase里做复现。  
 可以看TiKV里`Raft`相关的测试用例，里面有注释。
 
-# 分布式存储系统学习路径、经验
+# 5. 分布式存储系统学习路径、经验
 - Google papers(GFS/BigTable/Spanner/F1)
 - Consensus algorithms (Raft/Paxos)
     - [Paxos Made Live - An Engineering Perspective](https://research.google.com/archive/paxos_made_live.pdf)  
@@ -259,7 +259,7 @@ google的设计是叠罗汉。
     - pattern matching
     - cargo包管理
 
-# what will the future be like?s
+# 6. what will the future be like?s
 - 当IO不再是数据库瓶颈的时候， 如何重新设计数据结构？
     - 把数据库的查询逻辑固话到SSD的control里
     - 修改一些硬件的假设带来的性能提升是一个数量级的

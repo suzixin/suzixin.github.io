@@ -1,8 +1,8 @@
 ---
 title:  优秀的绵羊
 layout: post
-categories: 管理
-tags: 管理 体系结构 书籍
+categories: 教育
+tags: 教育 人生决策 书籍
 excerpt: 优秀的绵羊
 ---
 # 1. 前言

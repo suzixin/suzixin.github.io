@@ -1,8 +1,8 @@
 ---
 title:  穷查理宝典
 layout: post
-categories: 商业
-tags: 商业 投资 人生决策 书籍
+categories: 教育
+tags: 教育 投资 人生决策 书籍
 excerpt: 穷查理宝典
 ---
 # 1. 经济学有哪些缺陷呢？

@@ -41,13 +41,13 @@ F1: 一个无状态的sql层，对接Google Spanner存储系统
 - 优点： sql_parse和底下的存储引擎分离，业务兼容性好， 在业务量不大的业务代价较小，适合公有云业务。适合多租户业务。  
 - 缺点： 写入是单点写入，然后在存储层做复制，尽量保持副本之间的一致性。 由于存算分离， 计算层是瓶颈，没法做高效的locality。  
 
-> 观众的小问题2： 说说[codis](https://github.com/CodisLabs/codis)这个大规模分布式缓存项目
+> 观众的小问题1： 说说[codis](https://github.com/CodisLabs/codis)这个大规模分布式缓存项目
 
 redis-sharding-middleware ： 在使用redis做缓存时的集群方案，对外呈现单节点。
 
 ------
 
-> 观众的小问题3： 说说`spark sql`
+> 观众的小问题2： 说说`spark sql`
 
 - 生态系统很成功  
 adaptive做的好，用户多， 可覆盖场景最全
@@ -75,14 +75,14 @@ adaptive做的好，用户多， 可覆盖场景最全
 - 存算分离  
 计算层可以使用CPU、内存资源丰富的机器， 存储层可以使用io资源丰富的机器。
 
-> 观众的小问题4： TiDB的架构是微服务架构吗？
+> 观众的小问题3： TiDB的架构是微服务架构吗？
 
 狭义上的微服务有一个服务发现， RPC框架在不同的框架之间起串联作用。
 从广义上来说是的， 微服务本质是CSP，从思想上来说是相同的， 都利用了分层和去状态化的思想。
 
 ------
 
-> 观众的小问题5： 模块多是否会带来`communication overhead`？
+> 观众的小问题4： 模块多是否会带来`communication overhead`？
 
 分布式系统中`communication overhead`是不可避免的。
 
@@ -97,20 +97,20 @@ adaptive做的好，用户多， 可覆盖场景最全
 - PD(placement driver)-元信息管理、集群管理和调度(拥有全局视角的调度模块)  
 管理员的角色。
 
-> 观众的小问题6： `PD`是单点的吗？
+> 观众的小问题5： `PD`是单点的吗？
 
 逻辑上说是。但是其内部是有多个节点的， 通过`Raft`来通信。`PD`本身是`HA`高可用的。
 `PD`本身的`scale`是有问题的， 当前元信息存储量还不太大。
 集群有`1000`个`TiDB`节点， metadata才不到`100G`。
 解决办法： 可以使用一个小的`TiDB`来存储`PD`。
 
-> 观众的小问题7： `PD`的存储是否类似于[etcd](https://github.com/etcd-io/etcd)？
+> 观众的小问题6： `PD`的存储是否类似于[etcd](https://github.com/etcd-io/etcd)？
 
 是的。实际上`PD`的存储就是用的[etcd](https://github.com/etcd-io/etcd)的方法。
 
 ------
 
-> 观众的小问题8： `PD`这个词的出处？
+> 观众的小问题7： `PD`这个词的出处？
 
 `PD`(placement driver)是从`spanner`中出来的。
 
@@ -131,7 +131,7 @@ LSM-tree 可在API层面上实现lock-free snapshot
     - memory table  
     - 多线程的协调  
 
-> 观众的小问题9： 比较不同数据结构的优缺点
+> 观众的小问题8： 比较不同数据结构的优缺点
 
 - B-tree  
 存储介质是SSD的话，用B-tree的意义不大。
@@ -141,7 +141,7 @@ LSM-tree 可在API层面上实现lock-free snapshot
 随机写入对于LSM-tree来说就只有一个append-only操作，然后在后台做`compaction`。
 把随机读写变成顺序读写。
 
-> 观众的小问题1： TiKV在存储上对坏盘是如何处理的？
+> 观众的小问题9： TiKV在存储上对坏盘是如何处理的？
 
 ![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20210731143643.png)   
 google的设计是叠罗汉。  

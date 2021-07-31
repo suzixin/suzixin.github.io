@@ -2,7 +2,7 @@
 title:  PostgreSQL 数据库内核分析-c6
 layout: post
 categories: PostgreSQL
-tags: PostgreSQL 执行 书籍
+tags: PostgreSQL 数据库执行 书籍
 excerpt: PostgreSQL 数据库内核分析-c6
 ---
 # 6. 第6章 查询执行

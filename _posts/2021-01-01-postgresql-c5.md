@@ -2,7 +2,7 @@
 title:  PostgreSQL 数据库内核分析-c5
 layout: post
 categories: PostgreSQL
-tags: PostgreSQL 编译 规划 书籍
+tags: PostgreSQL 数据库编译 书籍
 excerpt: PostgreSQL 数据库内核分析-c5
 ---
 # 第5章 查询编译

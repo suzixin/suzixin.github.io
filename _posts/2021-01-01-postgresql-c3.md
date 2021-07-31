@@ -2,7 +2,7 @@
 title:  PostgreSQL 数据库内核分析-c3
 layout: post
 categories: PostgreSQL
-tags: PostgreSQL 存储 书籍
+tags: PostgreSQL 数据库存储 书籍
 excerpt: PostgreSQL 数据库内核分析-c3
 ---
 # 3. 第3章 存储管理

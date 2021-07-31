@@ -2,7 +2,7 @@
 title:  PostgreSQL 数据库内核分析-c7
 layout: post
 categories: PostgreSQL
-tags: PostgreSQL 事务 书籍
+tags: PostgreSQL 数据库事务 书籍
 excerpt: PostgreSQL 数据库内核分析-c7
 ---
 # 第7章 事务处理与并发控制

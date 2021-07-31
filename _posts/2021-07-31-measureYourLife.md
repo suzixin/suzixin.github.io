@@ -3,7 +3,7 @@ title:  你要如何衡量你的人生?
 layout: post
 categories: 哲学
 tags: 哲学 人生决策 书籍
-excerpt: 你要如何衡量你的人生?
+# excerpt: 你要如何衡量你的人生?
 
 ---
 # 序章　能飞是因为有羽毛吗

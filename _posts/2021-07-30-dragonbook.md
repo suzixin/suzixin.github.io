@@ -5,7 +5,7 @@ categories: 编译器
 tags: 编译器 书籍
 excerpt: dragonbook-c1
 ---
- # 书本资源
+# 书本资源
 - 对应大学课程：[编译原理哈工大课程](https://www.icourse163.org/course/HIT-1002123007)
 - [电子书](https://github.com/iBreaker/book.git)
 - [源码](https://suif.stanford.edu/dragonbook/dragon-front-source.tar)

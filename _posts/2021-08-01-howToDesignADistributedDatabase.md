@@ -3,7 +3,7 @@ title:  从0到1，如何设计一个分布式数据库
 layout: post
 categories: 数据库内核
 tags: 数据库内核 youtube
-excerpt: PingCap创始人samplNewSQL大神黄东旭的分享
+excerpt: PingCap创始人NewSQL大神黄东旭的分享
 ---
 
 # 1. 为什么我们需要一个新的分布式数据库

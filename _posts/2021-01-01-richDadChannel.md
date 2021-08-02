@@ -2,7 +2,7 @@
 title:  罗伯特·清崎的youtube视频
 layout: post
 categories: 商业
-tags: 商业 人生选择 youtube
+tags: 商业 人生决策 youtube
 excerpt: 罗伯特·清崎的youtube视频
 ---
 # [The biggest mistake young people make](https://www.youtube.com/watch?v=s7nO19BKNDA&t=455s)

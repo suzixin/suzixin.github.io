@@ -2,11 +2,11 @@
 title:  PostgreSQL 数据库内核分析-c2
 layout: post
 categories: PostgreSQL
-tags: PostgreSQL 体系结构
+tags: PostgreSQL 架构
 excerpt: PostgreSQL 数据库内核分析-c2
 ---
 # 2. 第2章 PostgreSQL的体系结构
-图2-1 PostgreSQL的体系结构
+图2-1 PostgreSQL的构
 ![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/2021-01-04_111936.jpg)
 
 - 连接管理系统： 接收外部操作对系统的请求，对操作请求进行预处理和分发，起系统逻辑控制作用

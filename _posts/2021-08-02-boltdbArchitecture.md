@@ -3,7 +3,7 @@ title:  boltdb源码分析-架构
 layout: post
 categories: 数据库内核
 tags: 数据库内核 boltdb 架构
-excerpt: 
+excerpt: 摘抄自PingCap员工的[博客](https://github.com/qw4990/blog/tree/master/database/boltDB)
 ---
 
 # 1. BoltDB模型
@@ -24,31 +24,31 @@ disk: [P1|P2|P3|P4|...|Pn]
 
 这些页, 可分为三种类型:
 
-1. META\_PAGE: 存储元信息;
-2. FREELIST\_PAGE: 标记某个页是否处于free状态, 用来管理所有的DATA\_PAGE;
-3. DATA\_PAGE: 存储实际的数据;
+1. META_PAGE: 存储元信息;
+2. FREELIST_PAGE: 标记某个页是否处于free状态, 用来管理所有的DATA_PAGE;
+3. DATA_PAGE: 存储实际的数据;
 
 下面稍微详细点的介绍这几种页;
 
-### 1.1.2. **META\_PAGE**
+### 1.1.2. **META_PAGE**
 
-P1和P2都是META\_PAGE, 且相互独立;
+P1和P2都是META_PAGE, 且相互独立;
 
-设置两个META\_PAGE的原因是用于备份, 后面会说;
+设置两个META_PAGE的原因是用于备份, 后面会说;
 
-下面介绍MEGA\_PAGE中一些关键字段, 并可以从中看出BoltDB的一些机制;
+下面介绍MEGA_PAGE中一些关键字段, 并可以从中看出BoltDB的一些机制;
 
-1. root\_pgid: BoltDB利用分页, 在磁盘维护一个B+树, 该字段表示B+树根节点所在的页号;
-2. freelist\_pgid: FREELIST\_PAGE所在的页号;
+1. root_pgid: BoltDB利用分页, 在磁盘维护一个B+树, 该字段表示B+树根节点所在的页号;
+2. freelist_pgid: FREELIST_PAGE所在的页号;
 3. checksum: 校验码;
 
-### 1.1.3. **FREELIST\_PAGE**
+### 1.1.3. **FREELIST_PAGE**
 
 就是一个数组, 记录所有了free page的页号;
 
-FREELIST\_PAGE用来持久化这个数据;
+FREELIST_PAGE用来持久化这个数据;
 
-### 1.1.4. **DATA\_PAGE**
+### 1.1.4. **DATA_PAGE**
 
 持久化B+树的节点, 用来维护索引和数据;
 
@@ -60,7 +60,7 @@ FREELIST\_PAGE用来持久化这个数据;
 disk: [MP1|MP2|DP1|DP2|...|DPi-1|FP|DPi|DPi+1|...]
 ```
 
-任何页都有可能作为FREELIST PAGE使用, 在META PAGE中的freelist\_pgid记录了它当前的位置;
+任何页都有可能作为FREELIST PAGE使用, 在META PAGE中的freelist_pgid记录了它当前的位置;
 
 ### 1.1.6. 分页的读入和缓存
 
@@ -94,7 +94,7 @@ BoltDB将B+树每个节点, 都持久化到一段连续的页中;
 branch node: [(key1,child_pgid1)|(key2,child_pgid2)|(key3,child_pgid3)...]
 ```
 
-根据B+树算法, 上述pair对根据key有序, child\_pgid指向其对应的子节点所在的页号;
+根据B+树算法, 上述pair对根据key有序, child_pgid指向其对应的子节点所在的页号;
 
 对于叶子节点, 其格式大概如下:
 
@@ -104,9 +104,7 @@ leaf node: [(key1, val1)|(key2, val2)|(key3, val3)...]
 
 同理, 直接存储数据内容.
 
--
-
-根节点的root\_pgid存储在META\_PAGE中;
+根节点的root_pgid存储在META_PAGE中;
 
 这样, 根据索引读入特定的页, 并解析成B+树节点, 能够很方便的对B+树进行遍历.
 
@@ -128,7 +126,7 @@ BoltDB使用了CopyOnWrite的方法, 对需要修改节点单保存一份;
 
 ### 1.3.1. 初始状态
 
-下图中, META\_PAGE中分别有字段指向B+树的root节点和freelist page;
+下图中, META_PAGE中分别有字段指向B+树的root节点和freelist page;
 
 蓝色代表数据干净, 还未被修改;
 
@@ -202,7 +200,7 @@ BoltDB的整个持久化是从下向上的;
 
 ![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/bolt10.png)
 
-### 1.3.9. 更新META\_PAGE
+### 1.3.9. 更新META_PAGE
 
 由于根节点和freelist的页号发生了改变, META PAGE也会被改变, 改变先缓存在内存中;
 
@@ -240,13 +238,13 @@ BoltDB的整个持久化是从下向上的;
 
 接下来分析对事务的容错性;
 
-1. 在1-8失败: 所有修改都在内存中, 对数据库文件毫无影响;
-2. 在9-10失败: META\_PAGE还没有持久化, 重启后, 之前的dirty page不会对数据库目前的状态产生影响;
-3. 在11失败: 使用META\_PAGE中的checksum进行校验, 如果失败, 则数据库不可用\(具体见下文Backup\);
+1. 在1-9失败: 所有修改都在内存中, 对数据库文件毫无影响;
+2. 在11-12失败: META_PAGE还没有持久化, 重启后, 之前的dirty page不会对数据库目前的状态产生影响;
+3. 在12失败: 使用META_PAGE中的checksum进行校验, 如果失败, 则数据库不可用\(具体见下文Backup\);
 
 ### 1.4.3. Backup
 
-Page1, Page2都被作为META\_PAGE, 其原因是可用于人工backup;
+Page1, Page2都被作为META_PAGE, 其原因是可用于人工backup;
 
 当数据库启动时, 如果meta1校验失败, 则会使用meta2;
 
@@ -258,20 +256,18 @@ BoltDB提供了一个Backup的接口, 使用这个接口后, 会将整个数据�
 
 并且在新文件中, 把meta1的内容写到meta2中;
 
-.
-
 个人觉得这个措施并没有任何作用, 而且可能会造成数据库错误;
 
-1. 比如backup后meta2的freelist\_pgid为12;
-2. 当一段时间过后, Page12内的内容可能已经被改变, 但是这段时间内, 只有meta1被改变, meta2完全不知此事;
-3. 如果此时meta1被写坏, 使用meta2内的内容, 则出现了错误;
+1. 比如backup后`meta2`的`freelist_pgid`为12;
+2. 当一段时间过后, `Page12`内的内容可能已经被改变, 但是这段时间内, 只有`meta1`被改变, `meta2`完全不知此事;
+3. 如果此时`meta1`被写坏, 使用`meta2`内的内容, 则出现了错误;
 
 ### 1.4.4. 一个改进点
 
 在每次持久化Meta1之前, 先把Meta1的老数据写到Meta2的位置;
 
 这样, 如果当写Meta2失败时, 则Meta1还是老版本, 可直接继续使用;
-
+I 
 如果写Meta2成功后写Meta1失败, 则fallback到Meta2, 也就是事务提交之前Meta1.
 
 # 2. BoltDB实现

@@ -423,7 +423,46 @@ db.View(func(tx *bolt.Tx) error {
 This object is simply for traversing the B+tree of on-disk pages or in-memory nodes. It can seek to a specific key, move to the first or last value, or it can move forward or backward. The cursor handles the movement up and down the B+tree transparently to the end user.
 
 接口如下所示：  
+```go
+// Seek moves the cursor to a given key and returns it.
+// If the key does not exist then the next key is used. If no keys
+// follow, a nil key is returned.
+// The returned key and value are only valid for the life of the transaction.
+func (c *Cursor) Seek(seek []byte) (key []byte, value []byte)
 
+// seek moves the cursor to a given key and returns it.
+// If the key does not exist then the next key is used.
+func (c *Cursor) seek(seek []byte) (key []byte, value []byte, flags uint32)
+
+// search recursively performs a binary search against a given page/node until it finds a given key.
+func (c *Cursor) search(key []byte, pgid pgid)
+
+// keyValue returns the key and value of the current leaf element.
+func (c *Cursor) keyValue() ([]byte, []byte, uint32)
+
+// node returns the node that the cursor is currently positioned on.
+func (c *Cursor) node() *node
+
+// nsearch searches the leaf node on the top of the stack for a key.
+// 通过go底层库sort.Search方法执行二分查找
+func (c *Cursor) nsearch(key []byte)
+
+/* 
+ * 常见的iterate方法 
+ */
+// First moves the cursor to the first item in the bucket and returns its key and value.
+// If the bucket is empty then a nil key and value are returned.
+// The returned key and value are only valid for the life of the transaction.
+func (c *Cursor) First() (key []byte, value []byte)
+
+// Last moves the cursor to the last item in the bucket and returns its key and value.
+// If the bucket is empty then a nil key and value are returned.
+// The returned key and value are only valid for the life of the transaction.
+func (c *Cursor) Last() (key []byte, value []byte)
+
+
+
+```
 
 相关数据结构：
 ```go

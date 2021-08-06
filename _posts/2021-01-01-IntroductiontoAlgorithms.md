@@ -114,7 +114,7 @@ merge-sort(A, p, r) {
 算法本身的递归式 -> 最坏运行时间`T(n)`的递归式 -> 数学分析得到`T(n)=O(nlgn)`
 
 不同的排序方式之间的时间复杂度分析：
-![](https://images2018.cnblogs.com/blog/849589/201804/849589-20180402133438219-1946132192.png)	
+![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20210806151151.png)  
 
 # 3. 函数
 为了更好的计算算法的运行时间，介绍一些记号和数学符号。

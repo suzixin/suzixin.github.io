@@ -416,9 +416,14 @@ db.View(func(tx *bolt.Tx) error {
 })
 ```
 
-# `Cursor`
+# 5. `Cursor`
+
+`Bucket`和`K-V`对的管理实际上都是通过`Cursor`来获取对应对象的， `Bucket`从`meta`中的获取也是通过`K-V`的方式。
 
 This object is simply for traversing the B+tree of on-disk pages or in-memory nodes. It can seek to a specific key, move to the first or last value, or it can move forward or backward. The cursor handles the movement up and down the B+tree transparently to the end user.
+
+接口如下所示：  
+
 
 相关数据结构：
 ```go
@@ -443,8 +448,16 @@ type node struct {
 	children   nodes
 	inodes     inodes
 }
+
+
 ```
 
-# `Tx.Commit()`
-Converts the in-memory dirty nodes and the list of free pages into pages to be written to disk. Writing to disk then occurs in two phases. First, the dirty pages are written to disk and an `fsync()` occurs. Second, a new meta page with an incremented transaction ID is written and another `fsync()` occurs. This two phase write ensures that partially written data pages are ignored in the event of a crash since the meta page pointing to them is never written. Partially written meta pages are invalidated because they are written with a checksum.
+# 6. `Tx.Commit()`
+Converts the in-memory dirty nodes and the list of free pages into pages to be written to disk. Writing to disk then occurs in two phases. 
+
+First, the dirty pages are written to disk and an `fsync()` occurs. 
+
+Second, a new meta page with an incremented transaction ID is written and another `fsync()` occurs. 
+
+This two phase write ensures that partially written data pages are ignored in the event of a crash since the meta page pointing to them is never written. Partially written meta pages are invalidated because they are written with a checksum.
 

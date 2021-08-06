@@ -155,7 +155,7 @@ https://paradigm.press/2020/03/07/build-your-successful-brand-with-these-3-steps
 
 Creating a brand 是建立自己的business，进入b现象的一个重要的步骤
 
-[![NTNtwn.png](https://s1.ax1x.com/2020/07/01/NTNtwn.png)](https://imgchr.com/i/NTNtwn)
+[![NTNtwn.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/NTNtwn.png)](https://imgchr.com/i/NTNtwn)
 
 `B-I`三角形，到达财富象限的`B`和`I`所需要的知识。
 

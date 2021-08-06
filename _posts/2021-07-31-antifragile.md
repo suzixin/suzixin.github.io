@@ -56,8 +56,8 @@ excerpt: 反脆弱
 
 > 可选择性在数学角度上如何描述?
 
-![U9CYwt.png](https://s1.ax1x.com/2020/07/05/U9CYwt.png)
-![U9CBlQ.png](https://s1.ax1x.com/2020/07/05/U9CBlQ.png)
+![U9CYwt.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/U9CYwt.png)
+![U9CBlQ.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/U9CBlQ.png)
 
 这是一种与期权类似的试错机制（快速失败模型），又名凸性自由探索。在这一机制下，错误的成本低，最大损失是已知的，而潜在回报则是巨大的（无限）。正面“黑天鹅”的一个重要特征：收益是无限的（这与彩票不同），或者更确切地说，其界限是未知的，但错误所带来的损失则是有限和已知的
 
@@ -139,12 +139,12 @@ excerpt: 反脆弱
 
 # 7. 凸性效应
 **凸性 vs 凹性**
-![YikYTJ.png](https://s1.ax1x.com/2020/05/05/YikYTJ.png)
+![YikYTJ.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/YikYTJ.png)
 假设你从“你在这里”这一点开始，在第一种情况下，当变量x增加，即在横轴上向右移动，获得的收益（纵轴）将比变量x向左移动，即减少相同幅度时所遭受的损失更大。该图说明了正面不对称性（左图）会带来凸性效应（曲线向内），而负面不对称性（右图）会带来凹性效应（曲线向外）。
 > 凸性：凸向原点的曲线
 
 **黑天鹅事件 vs 正黑天鹅事件**
-![Yik5X8.png](https://s1.ax1x.com/2020/05/05/Yik5X8.png)
+![Yik5X8.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/Yik5X8.png)
 负凸性(凹性) vs 正凸性
 负凸性(也就是凹性)在黑天鹅事件中遭受毁灭性打击，凸性在正黑天鹅事件中获益。
 
@@ -154,7 +154,7 @@ excerpt: 反脆弱
 
 
 例子：**行车时间的凹性效应**
-![U93A6s.png](https://s1.ax1x.com/2020/07/05/U93A6s.png)
+![U93A6s.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/U93A6s.png)
 
 例子：**房利美的风险报告**
 典型的凹性效应:某个经济变量的上升将导致巨大的损失，而其下降（朝相反的方向运动）则带来少量的利润。该变量如果进一步上升将导致更大的额外损失，如果进一步下降带来的利润也将更小。
@@ -170,7 +170,7 @@ excerpt: 反脆弱
 
 -----
 
-![U9Giss.png](https://s1.ax1x.com/2020/07/05/U9Giss.png)
+![U9Giss.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/U9Giss.png)
 现在，让我们看看规模带来的脆弱性。如图18–8所示，损失是销量的函数。低价抛售价值700亿美元的股票导致了60亿美元的损失。但如果抛售量是该规模的1/10，即70亿美元，那么该银行不会有任何损失，因为市场将吸收这一数量的股票，不会引起恐慌，甚至都没有人会注意到这一抛售动作。因此，这一情况告诉我们，如果我们没有建立起这么大规模的银行，也没有雇用了像流氓交易员科维尔那样的员工，而是建立了10个小规模的银行，每家银行都雇用了一个“小科维尔”，并各自随机地进行一些流氓交易，那么这10家银行的总损失会微乎其微。
 
 > **小而美公司可以对抗规模效应，减少损失。所以可以多建立几个小的公司，而不是一上来想着建立一个大的商业帝国。**
@@ -248,13 +248,13 @@ excerpt: 反脆弱
 - 原始人的进食有很大的随机性： 在一天之内3次摄入蛋白质，每次剂量相当于平时的一日剂量，接下来两天则不摄取任何蛋白质，这种进食方法在生物上的效用绝不等价于每日“稳定”摄取适量的蛋白质，如果我们的代谢反应是非线性的话。事实上，这样做应该有一定的好处——至少我们的生理构造是适应这种方式的。
 
 # 13. 伦理与基本不对称性
-[![U1f6Gq.png](https://s1.ax1x.com/2020/07/12/U1f6Gq.png)](https://imgchr.com/i/U1f6Gq)
+[![U1f6Gq.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/U1f6Gq.png)](https://imgchr.com/i/U1f6Gq)
 
 无论是在“资本主义”体制，还是你希望的任何经济体制下，你所需要做的就是将三元结构中最左栏的人数保持在最低水平。没有人意识到苏联体制的中心问题是，它把每个负责经济生活的人都置于极其脆弱的左栏。
 
 
 大数据的虚假性：
-![U17YTO.png](https://s1.ax1x.com/2020/07/12/U17YTO.png)
+![U17YTO.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/U17YTO.png)
 大数据的悲剧。变量越多，“老练”的研究员手中的显著相关性越多。虚假相关性的增长比信息增长得更快，数据因而呈现出非线性（凸性）。
 
 > 塔勒布的小问题：现代化的最严重问题在于，脆弱性和反脆弱性从一方向另一方的恶意转移，也就是说，只有一方受益，而另一方却（不知不觉地）受害。
@@ -537,7 +537,7 @@ excerpt: 反脆弱
 
 > 第5章露天市场与办公楼> 位置1644
 
-![UpX90S.png](https://s1.ax1x.com/2020/07/05/UpX90S.png)
+![UpX90S.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/UpX90S.png)
 
 平均斯坦中包含很多变化，但没有一个是极端变化；极端斯坦中的变化不多，但是一旦发生都是极端变化。
 

@@ -638,30 +638,30 @@ excerpt: 穷爸爸富爸爸
 
 # 12. 图表
 ## 12.1. 建立自己的事业
-[![tRCyoF.md.png](https://s1.ax1x.com/2020/06/07/tRCyoF.md.png)](https://imgchr.com/i/tRCyoF)
+[![tRCyoF.md.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/tRCyoF.md.png)](https://imgchr.com/i/tRCyoF)
 
 ## 12.2. 为什么富人越来越富 1296
 
-[![t2xb7Q.png](https://s1.ax1x.com/2020/06/07/t2xb7Q.png)](https://imgchr.com/i/t2xb7Q)
+[![t2xb7Q.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/t2xb7Q.png)](https://imgchr.com/i/t2xb7Q)
 
 ## 12.3. 为什么中产阶级陷入了财务危机？ 
-![t2xzcV.png](https://s1.ax1x.com/2020/06/07/t2xzcV.png)
+![t2xzcV.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/t2xzcV.png)
 
 ## 12.4. 背着房贷的中产阶级为谁而工作？
 
 在上一章的结尾，我们用图表说明了大多数人工作其实是为其他人，而非他们自己。首先他们要为公司的老板工作，其次是通过纳税为政府工作，最后是为向他们提供住房按揭贷款的银行工作。
 
-![tRSVaQ.png](https://s1.ax1x.com/2020/06/07/tRSVaQ.png)
+![tRSVaQ.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/tRSVaQ.png)
 
 ## 12.5. 税收的历史和公司的力量
-[![tRiYgs.md.png](https://s1.ax1x.com/2020/06/07/tRiYgs.md.png)](https://imgchr.com/i/tRiYgs)
+[![tRiYgs.md.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/tRiYgs.md.png)](https://imgchr.com/i/tRiYgs)
 
 公司的一个重大作用在于减少税收
-[![tRkwhF.md.png](https://s1.ax1x.com/2020/06/07/tRkwhF.md.png)](https://imgchr.com/i/tRkwhF)
+[![tRkwhF.md.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/tRkwhF.md.png)](https://imgchr.com/i/tRkwhF)
 
 ## 12.6. 开始行动
-[![tW084P.md.png](https://s1.ax1x.com/2020/06/08/tW084P.md.png)](https://imgchr.com/i/tW084P)
-[![tW0tgS.md.png](https://s1.ax1x.com/2020/06/08/tW0tgS.md.png)](https://imgchr.com/i/tW0tgS)
+[![tW084P.md.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/tW084P.md.png)](https://imgchr.com/i/tW084P)
+[![tW0tgS.md.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/tW0tgS.md.png)](https://imgchr.com/i/tW0tgS)
 
 # 13. 引用书籍
 - 开公司致富

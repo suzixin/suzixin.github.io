@@ -489,9 +489,9 @@ excerpt: 赋能
 
 在2003年，我们也认识到一个现实：技术的进步已经走在了我们管理模式的前头，后者拖了前者的后腿。我们所使用的还原论式的管理模式在泰勒时代十分见效，但如今我们面对的世界，正处于一个新技术潮流喷涌的时代，因特网、手机以及社交媒体的普及使得这个世界的互相关联性大大增强，由此连接成的一张张网络的力量在于其自发的、非线性的行为，而不在于其节点的多寡。这种技术产生了一些错综复杂的问题——这些问题所构成的挑战，还原论分析法根本对其无法奏效，这一点沃伦·韦弗在70年前就已经发现了。
 # 图片
-![UREhtI.png](https://s1.ax1x.com/2020/07/19/UREhtI.png)
+![UREhtI.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/UREhtI.png)
 
-![UREbng.png](https://s1.ax1x.com/2020/07/19/UREbng.png)
+![UREbng.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/UREbng.png)
 
 哈立德·米德哈尔
 

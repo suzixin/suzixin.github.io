@@ -30,7 +30,7 @@ excerpt: 单元测试的艺术
 # 第 2 章　第一个单元测试
 ## 2.1　单元测试框架
 ## 2.1.1　单元测试框架提供什么
-![JCmpnI.png](https://s1.ax1x.com/2020/04/15/JCmpnI.png)
+![JCmpnI.png](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/mdPic/JCmpnI.png)
 ![](http://www.ituring.com.cn/figures/2020/ArtUnitTesting/02-001.png)
 
 # 第 3 章　使用存根破除依赖

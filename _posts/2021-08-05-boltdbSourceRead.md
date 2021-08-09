@@ -12,8 +12,8 @@ transactional key/value database so it can be a good starting point for people
 interested in how databases work.
 
 The best places to start are the main entry points into Bolt:
-
-# 2. `Open()`-初始化数据库
+# 2. 重要接口
+## 2.1. `Open()`-初始化数据库
 Initializes the reference to the database. It's responsible for creating the database if it doesn't exist, obtaining an exclusive lock on the file, reading the meta pages, & memory-mapping the file.
 
 流程如下：
@@ -132,7 +132,7 @@ type freelist struct {
 }
 ```
 
-# 3. `DB.Begin()`
+## 2.2. `DB.Begin()`
 Starts a read-only or read-write transaction depending on the value of the `writable` argument. This requires briefly obtaining the "meta" lock to keep track of open transactions. Only one read-write transaction can exist at a time so the "rwlock" is acquired during the life of a read-write transaction.
 
 ```go
@@ -230,7 +230,7 @@ type Tx struct {
 
 在这里没有会话的概念， 只有`transaction`。有`rwtx`和`txs`来记录当前db写、读的transaction。
 
-# 4. Bucket
+## 2.3. Bucket
 `Bucket`的数据结构如下：
 ```go
 // Bucket represents a collection of key/value pairs inside the database.
@@ -255,7 +255,7 @@ type bucket struct {
 }
 ```
 
-## 4.1. CreateBucket
+### 2.3.1. CreateBucket
 ```go
 tx.CreateBucket([]byte("MyBucket"))
     return tx.root.CreateBucket(name) {
@@ -378,7 +378,7 @@ n.inodes /* c.node().put(key, key, value, 0, bucketLeafFlag) */
     k, _, flags := c.seek(key)
 ```
 
-## 4.2. `Bucket.Put()` 
+### 2.3.2. `Bucket.Put()` 
 Writes a key/value pair into a bucket. After validating the arguments, a cursor is used to traverse the B+tree to the page and position where they key & value will be written. Once the position is found, the bucket materializes the underlying page and the page's parent pages into memory as "nodes". These nodes are where mutations occur during read-write transactions. These changes get flushed to disk during commit.
 
 ```go
@@ -396,7 +396,7 @@ func (b *Bucket) Put(key []byte, value []byte) error {
 
 ```
 
-## 4.3. `Bucket.Get()`
+### 2.3.3. `Bucket.Get()`
 Retrieves a key/value pair from a bucket. This uses a cursor to move to the page & position of a key/value pair. During a read-only transaction, the key and value data is returned as a direct reference to the underlying mmap file so there's no allocation overhead. For read-write transactions, this data may reference the mmap file or one of the in-memory node values.
 ```go
 db.View(func(tx *bolt.Tx) error {
@@ -416,7 +416,7 @@ db.View(func(tx *bolt.Tx) error {
 })
 ```
 
-# 5. `Cursor`
+## 2.4. `Cursor`
 
 `Bucket`和`K-V`对的管理实际上都是通过`Cursor`来获取对应对象的， `Bucket`从`meta`中的获取也是通过`K-V`的方式。
 
@@ -460,12 +460,33 @@ func (c *Cursor) First() (key []byte, value []byte)
 // The returned key and value are only valid for the life of the transaction.
 func (c *Cursor) Last() (key []byte, value []byte)
 
+// Next moves the cursor to the next item in the bucket and returns its key and value.
+// If the cursor is at the end of the bucket then a nil key and value are returned.
+// The returned key and value are only valid for the life of the transaction.
+func (c *Cursor) Next() (key []byte, value []byte)
 
-
+// Prev moves the cursor to the previous item in the bucket and returns its key and value.
+// If the cursor is at the beginning of the bucket then a nil key and value are returned.
+// The returned key and value are only valid for the life of the transaction.
+func (c *Cursor) Prev() (key []byte, value []byte)
 ```
 
 相关数据结构：
 ```go
+// Cursor represents an iterator that can traverse over all key/value pairs in a bucket in sorted order.
+// Cursors see nested buckets with value == nil.
+// Cursors can be obtained from a transaction and are valid as long as the transaction is open.
+//
+// Keys and values returned from the cursor are only valid for the life of the transaction.
+//
+// Changing data while traversing with a cursor may cause it to be invalidated
+// and return unexpected keys and/or values. You must reposition your cursor
+// after mutating data.
+type Cursor struct {
+	bucket *Bucket
+	stack  []elemRef
+}
+
 // page
 type page struct {
 	id       pgid
@@ -491,7 +512,7 @@ type node struct {
 
 ```
 
-# 6. `Tx.Commit()`
+## 2.5. `Tx.Commit()`
 Converts the in-memory dirty nodes and the list of free pages into pages to be written to disk. Writing to disk then occurs in two phases. 
 
 First, the dirty pages are written to disk and an `fsync()` occurs. 
@@ -500,3 +521,11 @@ Second, a new meta page with an incremented transaction ID is written and anothe
 
 This two phase write ensures that partially written data pages are ignored in the event of a crash since the meta page pointing to them is never written. Partially written meta pages are invalidated because they are written with a checksum.
 
+# 架构
+存储架构图
+
+- database
+    - Bucket
+        - key-value pairs
+- memory
+- disk

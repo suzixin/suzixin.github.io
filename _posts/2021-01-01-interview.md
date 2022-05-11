@@ -1,3 +1,12 @@
+
+---
+title:  interview note
+layout: post
+categories: 职场
+tags: 职场
+excerpt: sample
+---
+
 # 1. introduction  
 面试官你好， 我在18年毕业于华南理工大学电子科学专业。  
 毕业后第一份工作是在华为， 在华为从事过数据库、加速库、基于LLVM的x86汇编转换工具的开发。  

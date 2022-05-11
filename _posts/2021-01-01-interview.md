@@ -1,10 +1,9 @@
-
 ---
 title:  interview note
 layout: post
-categories: 职场
-tags: 职场
-excerpt: sample
+categories: 程序员
+tags: 程序员 职场
+excerpt: 
 ---
 
 # 1. introduction  

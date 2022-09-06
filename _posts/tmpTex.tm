@@ -43,6 +43,18 @@
   <math|\<lambda\>>(<math|<big|sum><rsub|i=1><rsup|n>><math|w<rsub|i>><math|<wide|r<rsub|i>|\<bar\>>>
   - <math|<wide|r<text|>|\<bar\>>>)-<math|\<mu\>>(<math|<big|sum><rsub|i=1><rsup|n>><math|w<rsub|i>>
   -1<em|<strong|<verbatim|<samp|<verbatim|<strong|<em|>>>>>>>)
+
+  \;
+
+  \;
+
+  \;
+
+  \;
+
+  \;
+
+  \;
 </body>
 
 <\initial>

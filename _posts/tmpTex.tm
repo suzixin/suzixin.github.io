@@ -55,6 +55,27 @@
   \;
 
   \;
+
+  \;
+
+  \;
+
+  \;
+
+  \;
+
+  \<#8D44\>\<#4EA7\>\<#7EC4\>\<#5408\>\<#5747\>\<#8861\>\<#72B6\>\<#6001\>\<#4E0B\>\<#FF1A\>
+
+  <math|<big|sum><rsup|N><rsub|i=1>w<rsub|i>=0>
+
+  <math|<big|sum><rsup|N><rsub|i=1>b<rsub|i,k>w<rsub|i>=0>
+  (k\<#4E2A\>\<#5F0F\>\<#5B50\>)
+
+  <math|<big|sum><rsup|N><rsub|i=1>w<rsub|i>E<around*|(|r<rsub|i>|)>=0>
+
+  \<#6EE1\>\<#8DB3\>\<#4E0A\>\<#8FF0\>\<#5F0F\>\<#5B50\>\<#7684\>\<#6761\>\<#4EF6\>\<#4E0B\>
+
+  \;
 </body>
 
 <\initial>

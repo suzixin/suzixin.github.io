@@ -73,9 +73,9 @@
 
   <math|<big|sum><rsup|N><rsub|i=1>w<rsub|i>E<around*|(|r<rsub|i>|)>=0>
 
-  \<#6EE1\>\<#8DB3\>\<#4E0A\>\<#8FF0\>\<#5F0F\>\<#5B50\>\<#7684\>\<#6761\>\<#4EF6\>\<#4E0B\>
+  \<#6EE1\>\<#8DB3\>\<#4E0A\>\<#8FF0\>\<#5F0F\>\<#5B50\>\<#7684\>\<#6761\>\<#4EF6\>\<#4E0B\>\<#FF0C\>\<#63A8\>\<#5BFC\>\<#51FA\>
 
-  \;
+  <math|E<around*|(|r<rsub|i>|)>=\<#3BB\><rsub|0>+\<#3BB\><rsub|1>b<rsub|i,1>+\<#3BB\><rsub|2>b<rsub|i,2>+\<cdots\>+\<#3BB\><rsub|k>b<rsub|i,k>>
 </body>
 
 <\initial>

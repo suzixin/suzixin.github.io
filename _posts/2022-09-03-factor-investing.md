@@ -291,18 +291,29 @@ $α_i$代表了资产i的定价误差。如果能够在统计上证明所有$α_
 ### 2.2.1　时间序列回归
 这种方法在回归时使用因子收益率作为自变量（independent variable）或解释变量（explanatory variable），以资产的超额收益率作为因变量（dependent variable）或被解释变量（explained variable）。
 
-对每个资产i=1,2,···,N，使用简单最小二乘（Ordinary Least Squares，OLS）对模型（2.13）进行参数估计，得到资产超额回报的均值（2.14），时间序列回归中的截距$\overline{α_i}$正是资产i的定价误差的估计，其中$\overlineλ$的说明如(2.15)所示。
+对每个资产i=1,2,···,N，使用简单最小二乘（Ordinary Least Squares，OLS）对模型（2.13）进行参数估计，得到资产超额回报的均值（2.14），时间序列回归中的截距$\hat{α_i}$正是资产i的定价误差的估计，其中$\hatλ$的说明如(2.15)所示。
 
 ![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20220911200535.png)
 ![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20220911200548.png)
 ![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20220911200558.png)
 
-以单因子这种最简单的情况来画图，图2.4中所有黑色的实心圆点代表着资产，空心的点代表着因子投资组合。时间序列回归得到的多因子模型$E[R_i^e] = β_iλ$就是经过原点和空心点的那条直线。所有资产到这条直线的距离就是资产的$\overline{α_i}$。
+以单因子这种最简单的情况来画图，图2.4中所有黑色的实心圆点代表着资产，空心的点代表着因子投资组合。时间序列回归得到的多因子模型$E[R_i^e] = β_iλ$就是经过原点和空心点的那条直线。所有资产到这条直线的距离就是资产的$\hat{α_i}$。
 
 ![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20220911200616.png)
 
 下一步是计算各种参数的标准误，可以使用经典的`GRS`方法。若（2.13）中的$ε_{it}$满足IID正态分布，则可以通过GRS方法构建F统计量来检验$α_i$联合是否在统计上为零，否则可以通过广义矩估计等更高级的方法；对于因子预期收益率，可使用t检验来分析。
 
 ### 2.2.2　截面回归
-时间序列回归对诸如GDP、CPI以及利率这样的宏观经济因子无能为力。这时可以选择截面回归（cross-sectional regression）来检验多因子模型，它能够方便地处理因子收益率时序未知的情况。截面回归检验的最终目的自然还是考察和$E[R_i^e]$和βi在截面上的关系
+时间序列回归对诸如GDP、CPI以及利率这样的宏观经济因子无能为力。这时可以选择截面回归（cross-sectional regression）来检验多因子模型，它能够方便地处理因子收益率时序未知的情况。截面回归检验的最终目的自然还是考察和$E[R_i^e]$和βi在截面上的关系。
 
+其步骤为：
+
+- （1）截面回归不要求因子的收益率时间序列已知，因此应用更加广泛。截面回归的第一步是通过时间序列回归得到每个资产i在因子上的暴露$\hatβ_i$(2.17)；第二步才是进行截面回归。因此这种方法又被称作两步回归估计（two-pass regression   estimate）。
+- （2）在得到后，使用资产的时序平均收益率进行截面OLS或GLS回归，估计出因子的期望收益率$\hatλ$和资产的定价误差$\hatα$。
+- （3）由于$\hatβ_i$是估计值，因此在计算$\hatλ$和$\hatα$的标准误时可以进行Shanken修正。有了估计值和标准误，构建相应的`χ2-统计量`和`t-统计量`来进行检验。
+
+![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20220912074727.png)
+![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20220912074735.png)
+![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20220912074743.png)
+![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20220912074806.png)
+![](https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20220912074757.png)

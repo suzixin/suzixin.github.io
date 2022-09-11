@@ -76,6 +76,25 @@
   \<#6EE1\>\<#8DB3\>\<#4E0A\>\<#8FF0\>\<#5F0F\>\<#5B50\>\<#7684\>\<#6761\>\<#4EF6\>\<#4E0B\>\<#FF0C\>\<#63A8\>\<#5BFC\>\<#51FA\>
 
   <math|E<around*|(|r<rsub|i>|)>=\<#3BB\><rsub|0>+\<#3BB\><rsub|1>b<rsub|i,1>+\<#3BB\><rsub|2>b<rsub|i,2>+\<cdots\>+\<#3BB\><rsub|k>b<rsub|i,k>>
+
+  \<#6392\>\<#5E8F\>\<#6CD5\>\<#68C0\>\<#9A8C\>\<#FF1A\>
+
+  \;
+
+  <math|<wide|\<#3BB\><text|>|\<bar\>>=<frac|1|T><big|sum><rsub|t=1><rsup|T>\<#3BB\><rsub|t>>
+  (2.1)
+
+  <math|s.e.<around*|(|<wide|\<#3BB\><text|>|\<bar\>>|)>=<frac|std<around*|(|\<#3BB\><rsub|t>|)>|<sqrt|T>>>
+  (2.2)
+
+  <math|t-\<#503C\>=<frac|<wide|\<#3BB\><text|>|\<bar\>>|s.e.<around*|(|<wide|\<#3BB\><text|>|\<bar\>>|)>>
+  >(2.3)
+
+  <math|\<#3C1\><rsub|s>=<frac|cov<around*|(|X<rsub|r>,X<rsub|g>|)>|\<#3C3\><rsub|X<rsub|r>>\<#3C3\><rsub|X<rsub|g>>>>(2.4)
+
+  \;
+
+  \;
 </body>
 
 <\initial>

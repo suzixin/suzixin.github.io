@@ -77,9 +77,9 @@
 
   <math|E<around*|(|r<rsub|i>|)>=\<#3BB\><rsub|0>+\<#3BB\><rsub|1>b<rsub|i,1>+\<#3BB\><rsub|2>b<rsub|i,2>+\<cdots\>+\<#3BB\><rsub|k>b<rsub|i,k>>
 
-  \<#6392\>\<#5E8F\>\<#6CD5\>\<#68C0\>\<#9A8C\>\<#FF1A\>
-
   \;
+
+  \<#6392\>\<#5E8F\>\<#6CD5\>\<#68C0\>\<#9A8C\>\<#FF1A\>
 
   <math|<wide|\<#3BB\><text|>|\<bar\>>=<frac|1|T><big|sum><rsub|t=1><rsup|T>\<#3BB\><rsub|t>>
   (2.1)

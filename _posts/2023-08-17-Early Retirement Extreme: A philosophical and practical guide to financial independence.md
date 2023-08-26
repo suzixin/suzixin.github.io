@@ -1,9 +1,9 @@
 ---
-title: Early Retirement Extreme: A philosophical and practical guide to financial independence
+title: Early Retirement Extreme
 layout: post
 categories: 金融
 tags: 金融 投资 早期退休 独立性 理财 策略
-excerpt: 《Early Retirement Extreme: A philosophical and practical guide to financial independence》为读者提供了早期退休和财务独立的哲学和实践指南。这本书强调了简单生活、节省和投资的重要性，帮助读者制定实现长期财务自由的策略。
+excerpt: 《Early Retirement Extreme -- A philosophical and practical guide to financial independence》为读者提供了早期退休和财务独立的哲学和实践指南。这本书强调了简单生活、节省和投资的重要性，帮助读者制定实现长期财务自由的策略。
 ---
 
 # 1. A different frame of mind

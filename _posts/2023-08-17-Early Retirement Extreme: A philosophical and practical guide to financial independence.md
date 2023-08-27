@@ -1260,13 +1260,13 @@ $$
 (2) 第二年年底的可用金额为：
 $$\begin{aligned}
 P_2&= (P_1 - p)(1+i) \\ &= (P_0(1+i) - p(1+i))(1+i) - p(1+i) \\ &= P_0(1+i)^2 - p(1+i)^2 - p(1+i)\
-end{aligned}
+\end{aligned}
 $$
 
 (3) 第 $ N $ 年年底的可用金额为：
 $$\begin{aligned}
 P_N&= P_0(1+i)^N - \left[p(1+i)^N + p(1+i)^{N-1} + \ldots + p(1+i)^2 + p(1+i)\right]\
-end{aligned}
+\end{aligned}
 $$
 
 (4) 定义 $ S $ 为：
@@ -1403,7 +1403,7 @@ $$
 
 $$\begin{aligned}
 M&= \frac{\ln\left(1 + i \left( \frac{P_0}{p} \right) \frac{1-r}{r}\right)}{\ln(1+i)}\
-end{aligned}
+\end{aligned}
 $$
 
 这就是 $ M $ 的解。

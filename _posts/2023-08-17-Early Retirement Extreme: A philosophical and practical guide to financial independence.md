@@ -1366,7 +1366,7 @@ $$\frac{P_0}{p} = \frac{r}{1-r} \frac{(1+i)^M - 1}{i}$$
 
 画出对应的曲线图：
 
-<div style="display: flex; justify-content: center;">
+<div style="display: flex; justify-content: center; width: 100%;">
     <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826172925.png" alt="Image 1" width="45%; flex-shrink: 0;">
     <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826173016.png" alt="Image 2" width="45%; flex-shrink: 0;">
 </div>
@@ -1413,7 +1413,7 @@ $$
 
 假设你工作80岁，活到100年，`N` 是靠你的钱生活的年数，`M` 是花在积累上的年数。我们现在可以画出在给定的回报率`i`下，工作时间 `M` 作为储蓄率 `r` 的函数，找出需要多少年的工作积累，以满足工作生活80年的目标。
 
-<div style="display: flex; justify-content: center;">
+<div style="display: flex; justify-content: center; width: 100%;">
     <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826172925.png" alt="Image 1" width="30%; flex-shrink: 0;">
     <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826173016.png" alt="Image 2" width="30%; flex-shrink: 0;">
     <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826183843.jpg" alt="Image 3" width="30%; flex-shrink: 0;">

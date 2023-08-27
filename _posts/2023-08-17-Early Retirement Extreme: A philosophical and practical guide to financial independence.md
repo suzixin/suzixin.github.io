@@ -1264,10 +1264,13 @@ P_2&= (P_1 - p)(1+i) \\ &= (P_0(1+i) - p(1+i))(1+i) - p(1+i) \\ &= P_0(1+i)^2 - 
 $$
 
 (3) 第 $ N $ 年年底的可用金额为：
-$$\begin{aligned}
-P_N&= P_0(1+i)^N - \left[p(1+i)^N + p(1+i)^{N-1} + \ldots + p(1+i)^2 + p(1+i)\right]\
+$$
+\begin{aligned}
+P_N &= P_0(1+i)^N \\
+&\quad - \left[p(1+i)^N + p(1+i)^{N-1} + \ldots + p(1+i)^2 + p(1+i)\right]
 \end{aligned}
 $$
+
 
 (4) 定义 $ S $ 为：
 $$

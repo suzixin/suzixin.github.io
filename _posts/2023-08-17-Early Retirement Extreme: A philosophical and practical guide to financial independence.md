@@ -1252,6 +1252,11 @@ The higher the ratio of savings rate to needs, the safer one is from emergencies
 假设一个基金的初始大小为 \( P_0 \)，每年的第一天，金额 \( p \) 被取出，而剩下的钱以一个利率 \( i \) 投资一年。
 
 (1) 一年后的金额为：
+<!-- MathJax Start -->
+\[
+P_1 = (P_0 - p)(1+i) = P_0(1+i) - p(1+i)
+\]
+<!-- MathJax End -->
 \[
 P_1 = (P_0 - p)(1+i) = P_0(1+i) - p(1+i)
 \]

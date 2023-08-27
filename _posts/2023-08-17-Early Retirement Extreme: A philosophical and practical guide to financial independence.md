@@ -58,7 +58,7 @@ The world that we live in is the aggregate sum of the individual behavior of all
 Barrier是必须付出的代价，跨过这种阻碍的意愿取决于对当前形势的不满(Dissatisfaction)、对未来形势的愿景(Vision)以及从当前形势向未来形势转变的实际可行性(Practicality)。这种改变的意愿可以用下面金字塔的体积来表示。
 
 <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230817203435.png" width="500">
-
+<img src="($url)" width="500">
 
 > 页码 71
 

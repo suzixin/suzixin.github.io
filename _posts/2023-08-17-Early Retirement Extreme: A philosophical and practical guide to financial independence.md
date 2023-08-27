@@ -1313,12 +1313,12 @@ N
 ```
 考虑$ P_0 $ =20年期基金，每年以4% (i = 0.04)的利率支付 p = 1，它持续 N =37.39
 
-将N的公式绘制曲线图， 横轴是P_0， 纵轴是N, 不同投资利率的情况下的曲线图。
+将N的公式绘制曲线图， 横轴是$P_0$， 纵轴是N, 不同投资利率的情况下的曲线图。
 
 <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826173016.png" width="500">
 
 
-为了使N趋近于∞，使得上面公式中的分母为0，也就是1 - \frac{P_0 i}{p(1+i)} = 0，我们得到：
+为了使N趋近于∞，使得上面公式中的分母为0，也就是$1 - \frac{P_0 i}{p(1+i)} = 0$，我们得到：
 $$
 P_0 = \frac{p(1+i)}{i}
 $$
@@ -1367,8 +1367,8 @@ $$\frac{P_0}{p} = \frac{r}{1-r} \frac{(1+i)^M - 1}{i}$$
 画出对应的曲线图：
 
 <div style="display: flex; justify-content: center;">
-    <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826172925.png" alt="Image 1" width="45%">
-    <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826173016.png" alt="Image 2" width="45%">
+    <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826172925.png" alt="Image 1" width="45%; flex-shrink: 0;">
+    <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826173016.png" alt="Image 2" width="45%; flex-shrink: 0;">
 </div>
 
 
@@ -1414,9 +1414,9 @@ $$
 假设你工作80岁，活到100年，`N` 是靠你的钱生活的年数，`M` 是花在积累上的年数。我们现在可以画出在给定的回报率`i`下，工作时间 `M` 作为储蓄率 `r` 的函数，找出需要多少年的工作积累，以满足工作生活80年的目标。
 
 <div style="display: flex; justify-content: center;">
-    <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826172925.png" alt="Image 1" width="30%">
-    <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826173016.png" alt="Image 2" width="30%">
-    <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826183843.jpg" alt="Image 3" width="30%">
+    <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826172925.png" alt="Image 1" width="30%; flex-shrink: 0;">
+    <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826173016.png" alt="Image 2" width="30%; flex-shrink: 0;">
+    <img src="https://suzixinblog.oss-cn-shenzhen.aliyuncs.com/20230826183843.jpg" alt="Image 3" width="30%; flex-shrink: 0;">
 </div>
 
 

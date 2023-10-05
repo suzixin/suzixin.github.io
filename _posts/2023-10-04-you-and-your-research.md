@@ -1,3 +1,10 @@
+---
+title:  you and your research
+layout: post
+categories: 人生决策
+tags: 成长 人生决策 演讲
+excerpt: 这是 Richard Hamming 的一场著名演讲。Richard Hamming 是一位著名的美国数学家和计算机科学家，他在信息论和编码理论上有着杰出的贡献，其中最为人知的是“汉明距离”和“汉明窗”。这场演讲是在1986年于贝尔实验室举行的，主要是面向新的研究人员，分享关于如何在科研领域取得真正的伟大成就的建议和见解。
+---
 # Luck
 
 I claim that luck will not cover everything. And I will cite Pasteur who said, “Luck favors the prepared mind.”And I think that says it the way I believe it. There is indeed an element of luck, and no, there isn’t. The prepared mind sooner or later finds something important and does it. 

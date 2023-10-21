@@ -1,4 +1,5 @@
-# 计算最快多久可以把商业贷款还完
+# 三年后开始提前还贷， 计算最快多久可以把商业贷款还完
+# 一年后开始提前还贷， 计算最快多久可以把商业贷款还完
 
 # Given data
 init_mortgate_monthly = 17735
@@ -86,22 +87,28 @@ mortgate_monthly = init_mortgate_monthly
 # Now, we simulate the early repayment to calculate how long it will take to repay the commercial loan
 
 monthly_principals_commercial = equal_interest_monthly_principal(loan_commercial, annual_rate_commercial / 12, 30 * 12)
-remaining_principal_commercial_after_3_years = loan_commercial - sum(monthly_principals_commercial[:36])
-remaining_interest_commercial_after_3_years = sum(equal_interest_monthly_interest(loan_commercial, annual_rate_commercial / 12, 30 * 12)[36:])
+remaining_principal_commercial_after_1_years = loan_commercial - sum(monthly_principals_commercial[:12])
+remaining_interest_commercial_after_1_years = sum(equal_interest_monthly_interest(loan_commercial, annual_rate_commercial / 12, 30 * 12)[12:])
 
 # status #
 # TODO： 前三年内，需要考虑提前还款的手续费 = 还款金额 x 当前贷款利率 ÷ 12 x 3
 # 这里暂时考虑三年之后再开始提前还款
-months_to_repay = 3 * 12
-remaining_principal = remaining_principal_commercial_after_3_years
-remaining_interest = remaining_interest_commercial_after_3_years
+months_to_repay = 12
+remaining_principal = remaining_principal_commercial_after_1_years
+remaining_interest = remaining_interest_commercial_after_1_years
 
 while remaining_principal > 0:
     annual_savings = annual_income - annual_expenses_excluding_mortgage - mortgate_monthly * 12
     print('第' ,int(months_to_repay/12+1), '年初')
     print('储蓄率' ,annual_savings/annual_income)
-    pay_early_loan = annual_savings * 3 if months_to_repay == 36 else annual_savings
-    print('提前还款额', pay_early_loan)
+    if months_to_repay < 36:
+        # 前三年内提前还贷需要扣违约金 还款金额 x 当前贷款利率÷12x3
+        pay_early_loan = annual_savings / (1+annual_rate_commercial * 3 / 12) * 1
+        
+        print('提前还款额', pay_early_loan, ' 违约金', annual_savings - pay_early_loan)
+    else:
+        pay_early_loan = annual_savings
+        print('提前还款额', pay_early_loan)
     if pay_early_loan < remaining_principal:
         new_total_monthly_payment, saved_interest = early_repayment_total_updated_v4(
             loan_public, annual_rate_public, loan_commercial, annual_rate_commercial, 

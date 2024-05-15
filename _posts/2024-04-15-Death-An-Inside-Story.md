@@ -1,6 +1,11 @@
-> Death; An Inside Story
-
 ---
+title: Death An inside story
+layout: post
+categories: 萨古鲁
+tags: 灵性 死亡 觉醒 轮回
+excerpt: In "Death," Sadhguru delves into profound questions about the nature of existence and the transition from life to death. He offers insights into understanding death as part of the continuum of existence, dispelling fear and embracing it with love. Through spiritual knowledge and experience, he guides readers towards liberation from the cycle of rebirth, unveiling the deeper truths that dissolve mourning, pain, and fear, allowing one to simply be, free from drama.
+---
+
 # CHAPTER 1 What is death
 
 ## Mortal Nature

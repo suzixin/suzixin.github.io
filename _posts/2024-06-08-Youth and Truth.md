@@ -1,13 +1,9 @@
 ---
-title: Youth and Truth —— Unplug with Sadhguru
+title: Youth and Truth:Unplug with Sadhguru
 layout: post
 categories: 萨古鲁
 tags: 个人成长  萨古鲁 身心健康
 excerpt: 《Youth and Truth: Unplug with Sadhguru》是萨古鲁的一部重要著作，记录了五场充满活力的青年与真相活动。在这些对话中，萨古鲁面对来自大学生的古怪、个人、深刻且大胆的问题，涵盖了从浪漫与性、孤独与嫉妒、育儿与教育、职业与商业、政治与灵性、人工智能、种族主义、毒品、食物、瑜伽科学到神性创造等广泛主题。这本书展现了萨古鲁与青年之间的无缝互动，既有幽默与欢乐的时刻，也有令人哑口无言、顿悟与视角转变的瞬间，充满了青春的活力与能量。
----
-
-# Youth and Truth
-
 ---
 
 ## Foreword

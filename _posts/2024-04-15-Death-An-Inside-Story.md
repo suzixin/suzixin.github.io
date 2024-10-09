@@ -935,8 +935,7 @@ Now, in terms of dissolving that being, what we do is just break the karma. How 
 现在，就溶解那个存在而言，我们所做的只是打破业力。怎样才能打破别人的因果报应呢？业力储存在你的心灵、肉体、感觉和能量的层面上。一旦有人摆脱了肉体，感觉就不存在了。思想是存在的，但是它已经失去了它的逻辑本质。因此，从根本上说，对于一个脱离实体的存在来说，业力在能量体中。在古代，妓女们常戴精致的珠宝。就这样，他们和来找他们的人玩了一个精心设计的游戏。他们全身都会被珠宝覆盖。那个男人会满怀渴望地来找这个女人，但他却无法把这些珠宝摘下来。要花好几个小时才能把它弄下来。不管他用什么方法，都不会成功。但是女人会知道诀窍的。只有一个别针，当她取笑他足够多的时候，她就会拉下那个别针，所有的珠宝都会掉下来。
 
 Both the mental and energy bodies are like this. All your karma is held by certain pins. These pins are in certain points of your body. In a way, we can say they are chakras. Not necessarily only the seven chakras; there are other points too. So all we do is pull those plugs and the karmic body just collapses.
-
-精神和能量的身体都是这样的。你所有的业力都被某些别针控制着。这些针在你身体的某些部位。在某种程度上，我们可以说它们是脉轮。不一定只有七个脉轮，还有其他点。所以我们要做的就是拔掉那些插头，因果体就会崩溃
+。不一定只有七个脉轮，还有其他点。所以我们要做的就是拔掉那些插头，因果体就会崩溃
 
 > 页码 799
 

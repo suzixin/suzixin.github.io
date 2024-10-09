@@ -413,9 +413,9 @@ Sadhguru: So, exploitation is a silly, unintelligent way of doing things in the 
 
 萨古鲁：所以，剥削是一种愚蠢的、没有智慧的处世之道。包容才是世界上最好的工作方式。你知道，我们是一个志愿者组织，有 4600 多名全职志愿者和 900 多万名兼职志愿者。每天都有人跑来对我说："萨古鲁，我不能和这个人一起工作，她太糟糕了，他是这样的，他是那样的"。
 
+我说："瞧，在这个世界上只有这类人。，你就必须与这类人合作。但如果你认为你想和理想的人一起工作，你就必须去天堂--而且是今天。"[笑声]
 I say, “See, in this world there are only these kinds of people. If you think what you are doing is very significant, you have to work with these kinds of people. But if you think you want to work with ideal people, you must go to heaven – and today.” [Laughter]
 
-我说："瞧，在这个世界上只有这类人。如果你认为你正在做的事情非常重要，你就必须与这类人合作。但如果你认为你想和理想的人一起工作，你就必须去天堂--而且是今天。"[笑声]
 
 If you think what you are doing is very significant, you will work with whatever you have. If you have donkeys, you will work with them, yes? But you have not realized the significance of what you are doing, and now you are busy complaining about everything. This doesn’t mean everything around me is perfect, but everybody is doing their best, that’s all. [Applause]
 

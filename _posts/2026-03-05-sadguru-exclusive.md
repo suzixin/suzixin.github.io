@@ -1,6 +1,6 @@
-# THE BIRTH OF A GODDESS NEPAL
+# 1. THE BIRTH OF A GODDESS NEPAL
 
-## SERIES 1
+## 1.1. SERIES 1
 
 放眼整个世界，几乎没有例外，每一种文化都曾经存在对“神圣女性”的崇拜，每一种文化都有。
 
@@ -72,7 +72,7 @@
 
 好好休息，明天再来。等我们进行开光仪式的时候，可不要睡着了。
 
-## SERIES 2
+## 1.2. SERIES 2
 
 向萨拉斯瓦蒂致敬，她手持三叉戟与法轮。
 向萨拉斯瓦蒂致敬。
@@ -182,7 +182,7 @@ Kalkayam Ram Vam Lam
 Aayim Lam Vam Ram Yam
 Kalkayam Ram Vam Lam
 
-## SERIES 3
+## 1.3. SERIES 3
 
 当然，有些男人会想：我之前做的那些练习到底有没有效果？还是说那只是热身，还有更多事情要做？其实现在很多女性也接受了同样的教育，她们也会不由自主地这样想：“最好检查一下，她到底有没有在运作。”
 
@@ -311,7 +311,7 @@ Kalkayam Ram Vam Lam
 
 对，就是这样。
 
-## SERIES 4
+## 1.4. SERIES 4
 
 正如我所说的，已经做了一些准备工作。也许有一天，当你能够连续几周和我坐在一起时，我会向你解释究竟发生了什么，好吗？现在，我们必须继续做接下来需要做的事情。
 
@@ -395,7 +395,7 @@ Kalkayam Ram Vam Lam
 
 他们只需要有纪律，并且真诚，这一点是每个人都可以做到的。
 
-## SERIES 5
+## 1.5. SERIES 5
 
 拜拉维女神在这里以这种方式显现，其意义在于：
 如果你寻求生命的狂喜，她就是绝对的狂喜；
@@ -754,7 +754,7 @@ Sadhguru回答：
 
 向你们所有人致意。
 
-# Tied to a Tree
+# 2. Tied to a Tree
 
 有人问：萨古鲁，在印度，有些人会把女儿嫁给树，也有人会崇拜某些树，与它们建立很深的关系。这只是迷信吗？
 
@@ -832,8 +832,8 @@ Sadhguru回答：
 
 所以现在他只能坐在后院，因为他不敢回家。
 
-# Elemental Influences
-## Fires of life
+# 3. Elemental Influences
+## 3.1. Fires of life
 时间以及时间对人体系统的影响非常非常重要。
 
 现在我们正处在一个上升的时间阶段，更重要的是，我们正处在一个“交替时刻”，也就是所谓的 **Sandhya（交界时刻）**。
@@ -1034,7 +1034,7 @@ Sadhguru回答：
 
 我们试试看，好吗？
 
-## Breath like the sun
+## 3.2. Breath like the sun
 
 
 生命在这个星球上的本质，深深地烙印着太阳以及整个太阳系的特质。每一颗行星都会产生影响，这一点无法否认，但其中最明显、最强烈的，是地球、太阳和月亮的影响。
@@ -1069,7 +1069,7 @@ Sadhguru回答：
 
 如果希望一个人变得更加富有节律感，我们则会培养“月亮呼吸”（Chandra Shwasana）。
 
-## Washing off the Karma
+## 3.3. Washing off the Karma
 
 有人问：我的气场会受到我的想法和情绪影响吗？我该怎样让自己的气场保持清澈和充满活力？
 
@@ -1113,7 +1113,7 @@ Sadhguru回答：
 
 仅仅通过空气的流动，你就能让自己的气场得到清理和净化。
 
-## Riding the Solar Flares
+## 3.4. Riding the Solar Flares
 
 太阳上的太阳耀斑活动已经显著增强，而且还在继续上升。大约在十七、十八个月前，这种变化就开始出现了。
 
@@ -1195,9 +1195,9 @@ Sadhguru回答：
 
 我希望每个人都能提升。只要我们能做些什么来让人类提升，就应该去做。因为现在有一种能量正在影响整个地球，而这种能量是人类自己很难创造出来的。
 
-# Fast-forward Your Growth
+# 4. Fast-forward Your Growth
 
-## Seeing You Through
+## 4.1. Seeing You Through
 
 一旦灵性的队伍已经到来，需要的只是让一切变得绝对强烈，这样转变才会发生。
 
@@ -1369,7 +1369,7 @@ Sadhguru回答：
 
 我一定会带你走过去的。
 
-## Guru As a Possibility
+## 4.2. Guru As a Possibility
 
 三年前，我们从未想过会有今天，但许多人的爱与意愿让我们走到了这里。不知为何，这份意愿、这份愿望似乎消失了，不过我从未那样看待人生。
 
@@ -1435,7 +1435,7 @@ Sadhguru回答：
 
 如果你只是把我当作娱乐，你将会后悔。如果你把我当作一种可能性，那你就是有福的。
 
-## Goal of Zen
+## 4.3. Goal of Zen
 
 有一个非常美的故事。
 
@@ -1564,8 +1564,8 @@ Sadhguru回答：
 终极的归宿，就是融入虚无。
 
 
-## Nanin And The Butcher
+## 4.4. Nanin And The Butcher
 
-## Distractions & Desire
+## 4.5. Distractions & Desire
 
-## A Solid Foundation
+## 4.6. A Solid Foundation

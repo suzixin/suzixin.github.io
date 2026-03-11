@@ -2101,7 +2101,7 @@ Sadhguru回答：
 
 # 5. The Path of the Yogi
  
-## Agastya's Gift
+## 5.1. Agastya's Gift
 
 合十礼，萨古鲁。您曾提到在禅灵伽（Dhyanalinga）周围标出“索玛线”（Soma Rekha）。能否谈谈它的意义，以及我们应该怎样去体验它？
 
@@ -2131,7 +2131,7 @@ Sadhguru回答：
 
 在这个世界的这片土地上，一直都是这样，因为这并不是人为规定的，而是存在本身的节律。在这些日子里，会发生某些事情，我们只是想利用这种自然的机会。
 
-## The Sorcerer-Sage
+## 5.2. The Sorcerer-Sage
 
 莲花生大师——人们这样称呼他——来自印度北部平原，是一位成就卓著的瑜伽士、密宗修行者，同时也被认为属于金刚乘佛教的修行道路。
 
@@ -2225,7 +2225,7 @@ Sadhguru回答：
 
 于是，人们说这些山变成了红色。
 
-## Ramakrishna
+## 5.3. Ramakrishna
 
 你们都听说过罗摩克里希那·帕拉玛罕萨。罗摩克里希那成为了卡莉女神的虔诚信徒。
 
@@ -2333,12 +2333,12 @@ Sadhguru回答：
 
 一切都会被照顾好。
 
-## J Krishnamurti
+## 5.4. J Krishnamurti
 
-## Shvetaketu
+## 5.5. Shvetaketu
 
-# Untruth to Truth
-## The True Devotee(11:05)
+# 6. Untruth to Truth
+## 6.1. The True Devotee(11:05)
 
 你知道，从高丽昆德（Gauri Kund）往上走的路两边，总有人坐在那里做生意。他们就坐在那儿，靠朝圣者做生意，可是一辈子都不会真正往上走一步。这就是他们的命运。
 
@@ -2456,7 +2456,7 @@ Sadhguru回答：
 
 如果事情出了问题，我不会指责别人，我会说：这是我的责任，我会尽一切努力去把它解决。
 
-## Accelerating Your Growth(19:52)
+## 6.2. Accelerating Your Growth(19:52)
 
 你们很多人来到瑜伽，是出于各种各样的原因。
 
@@ -2622,7 +2622,7 @@ Gorakhnath 说，因为他不是一个特别善于表达的人，所以他没有
 
 线香当然也有香气，也不错。
 
-## What Meditation Means(20:13)
+## 6.3. What Meditation Means(20:13)
 
 冥想是一件很严肃的事情。
 
@@ -3151,7 +3151,7 @@ Gorakhnath 说，因为他不是一个特别善于表达的人，所以他没有
 都会成为最后一个察觉到自己微笑的人。
 
 
-## How A Seeker Should be(11:34)
+## 6.4. How A Seeker Should be(11:34)
 
 有一个古老的禅宗故事。
 
@@ -3313,7 +3313,7 @@ Gorakhnath 说，因为他不是一个特别善于表达的人，所以他没有
 
 保持一颗慈悲的心。
 
-## Dealing with Uncertainty(20:25)
+## 6.5. Dealing with Uncertainty(20:25)
 
 当我们试图突破自己所在的边界，进入其他层面的体验与存在时，很多事情会混杂在一起。
 如果一个人没有在自己内在发展出必要的辨别力和平衡来处理这种混杂，就会产生大量的困惑。
@@ -3556,7 +3556,7 @@ Gorakhnath 说，因为他不是一个特别善于表达的人，所以他没有
 
 那这就是生命中最好的事情。
 
-## Do Spiritual Seekers Suffer?
+## 6.6. Do Spiritual Seekers Suffer?
 
 合十问候，萨古鲁。
 
